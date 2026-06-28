@@ -84,10 +84,11 @@ export function Header({ onQuoteClick, onNavigate, currentPath }: HeaderProps) {
                 onClick={(e) => handleLinkClick(e, "#home")}
                 className="flex items-center gap-3 group"
               >
-                <div className="w-10 h-10 border border-[#C28D35] flex items-center justify-center relative bg-[#050505] transition-colors duration-300 group-hover:bg-[#111111] p-1 overflow-hidden">
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#C28D35] z-10"></div>
-                  <img src="/images/logo.png" alt="Cotton Dome Logo" className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" />
-                </div>
+                <img 
+                  src="/images/logo.png" 
+                  alt="Cotton Dome Logo" 
+                  className="w-10 h-10 object-contain transition-transform duration-500 group-hover:scale-105" 
+                />
                 <div className="flex flex-col">
                   <span className="text-white font-bold tracking-widest text-lg leading-none uppercase">
                     COTTON DOME

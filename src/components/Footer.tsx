@@ -55,9 +55,11 @@ export function Footer({ onNavigate }: FooterProps) {
               onClick={(e) => handleLinkClick(e, "#home")}
               className="flex items-center gap-2 mb-6 group"
             >
-              <div className="w-8 h-8 rounded bg-gradient-to-br from-[#111] to-[#1A1A1A] border border-[#C28D35]/30 flex items-center justify-center p-0.5 overflow-hidden">
-                <img src="/images/logo.png" alt="Cotton Dome Logo" className="w-full h-full object-contain" />
-              </div>
+              <img 
+                src="/images/logo.png" 
+                alt="Cotton Dome Logo" 
+                className="w-8 h-8 object-contain" 
+              />
               <div className="flex flex-col">
                 <span className="font-display text-sm tracking-widest text-white font-bold leading-none">
                   COTTON DOME
