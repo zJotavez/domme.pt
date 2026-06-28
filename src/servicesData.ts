@@ -47,9 +47,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "CCTV e Videovigilância | Cotton Dome LDA",
     seoDescription: "Soluções profissionais de CCTV e videovigilância para residências, empresas e condomínios. Instalação, gravação, monitorização e acesso remoto.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80"
+      "/images/cctv-1.png",
+      "/images/cctv-2.png",
+      "/images/cctv-3.png"
     ]
   },
   {
@@ -83,9 +83,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Sistemas de Alarme e Intrusão | Cotton Dome LDA",
     seoDescription: "Alarmes e deteção contra intrusão para habitações e espaços comerciais. Sensores, centrais e sirenes de alta qualidade.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80"
+      "/images/alarme-intrusao-1.png",
+      "/images/alarme-intrusao-2.png",
+      "/images/alarme-intrusao-3.png"
     ]
   },
   {
@@ -120,9 +120,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Controlo de Acessos | Cotton Dome LDA",
     seoDescription: "Sistemas de controlo de acessos por cartões, tags, biometria ou reconhecimento facial em escritórios, armazéns e condomínios.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80"
+      "/images/controlo-acessos-1.png",
+      "/images/controlo-acessos-2.png",
+      "/images/controlo-acessos-3.png"
     ]
   },
   {
@@ -227,9 +227,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Portas de Segurança e Portões Seccionados | Cotton Dome LDA",
     seoDescription: "Instalação de portas blindadas de alta segurança e portões seccionados térmicos para garagens e instalações industriais.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1509741102003-ca64bfe5f069?auto=format&fit=crop&w=600&q=80"
+      "/images/portas-portoes-1.png",
+      "/images/portas-portoes-2.png",
+      "/images/portas-portoes-3.png"
     ]
   },
   {
@@ -262,9 +262,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "UPS e Sistemas de Energia de Backup | Cotton Dome LDA",
     seoDescription: "Sistemas de alimentação ininterrupta UPS profissionais para racks de redes, CCTV e servidores corporativos.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1601524909162-be87252be298?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+      "/images/ups-1.png",
+      "/images/ups-2.png",
+      "/images/ups-3.png"
     ]
   },
   {

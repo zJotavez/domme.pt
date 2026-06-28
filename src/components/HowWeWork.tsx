@@ -13,7 +13,7 @@ export function HowWeWork() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/Crie_um_vídeo_hero_cinematográ.mp4" type="video/mp4" />
+        <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
       {/* Tech Grid Overlay on top of video */}

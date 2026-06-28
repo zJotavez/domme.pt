@@ -180,7 +180,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none filter brightness-75 contrast-125"
-          src="/videos/Crie_um_vídeo_hero_cinematográ.mp4"
+          src="/videos/hero-video.mp4"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-black/65 to-[#050505] pointer-events-none"></div>
@@ -289,7 +289,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none filter brightness-75 contrast-125"
-          src="/videos/Crie_um_vídeo_hero_cinematográ.mp4"
+          src="/videos/hero-video.mp4"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-black/65 to-[#050505] pointer-events-none"></div>
