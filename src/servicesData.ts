@@ -227,9 +227,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Portas de Segurança e Portões Seccionados | Cotton Dome LDA",
     seoDescription: "Instalação de portas blindadas de alta segurança e portões seccionados térmicos para garagens e instalações industriais.",
     galleryImages: [
-      "/images/portas-portoes-1.png",
-      "/images/portas-portoes-2.png",
-      "/images/portas-portoes-3.png"
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
     ]
   },
   {
@@ -263,7 +263,7 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoDescription: "Sistemas de alimentação ininterrupta UPS profissionais para racks de redes, CCTV e servidores corporativos.",
     galleryImages: [
       "/images/ups-1.png",
-      "/images/ups-2.png",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
       "/images/ups-3.png"
     ]
   },
@@ -333,7 +333,7 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoDescription: "Instalação de intercomunicadores, videoporteiros IP e infraestrutura para comunicação corporativa e residencial.",
     galleryImages: [
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1601524909162-be87252be298?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=600&q=80",
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
     ]
   },
