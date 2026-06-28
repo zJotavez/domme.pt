@@ -156,9 +156,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Sistemas de Deteção de Incêndio | Cotton Dome LDA",
     seoDescription: "Instalação e manutenção de centrais de deteção de incêndio, detetores de fumo e sistemas de alarme contra fogo.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1599740831146-5ab695202f74?auto=format&fit=crop&w=600&q=80"
+      "/images/deteccao-incendio-1.png",
+      "/images/deteccao-incendio-2.png",
+      "/images/deteccao-incendio-3.png"
     ]
   },
   {
@@ -192,9 +192,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Automatismos para Portões e Acessos | Cotton Dome LDA",
     seoDescription: "Automatize os seus portões de correr ou bater e barreiras de parque. Motores de alto rendimento com comandos seguros.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80"
+      "/images/automatismos-1.png",
+      "/images/automatismos-2.png",
+      "/images/automatismos-3.png"
     ]
   },
   {
