@@ -31,8 +31,8 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
 
   if (!service) {
     return (
-      <main className="min-h-screen bg-[#050505] text-[#CFCFCF] flex flex-col justify-center items-center p-6 text-center">
-        <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37] flex items-center justify-center text-[#D4AF37] mb-6">
+      <main className="min-h-screen bg-[#050505] text-[#D9D9D9] flex flex-col justify-center items-center p-6 text-center">
+        <div className="w-16 h-16 rounded-full bg-[#FFD700]/10 border border-[#FFD700] flex items-center justify-center text-[#FFD700] mb-6">
           <HelpCircle className="w-8 h-8" />
         </div>
         <h1 className="font-display font-bold text-2xl text-white mb-4">Serviço não encontrado</h1>
@@ -41,7 +41,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
         </p>
         <button
           onClick={() => onNavigate("/")}
-          className="inline-flex items-center gap-2 px-6 py-3 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black font-display font-bold uppercase tracking-wider text-xs rounded transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 btn-gold-outline text-xs rounded transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Voltar para a Home</span>
@@ -90,7 +90,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-12 h-12 rounded-lg bg-[#111111]/90 border border-[#D4AF37]/45 flex items-center justify-center text-[#D4AF37] mx-auto mb-6 shadow-lg shadow-[#D4AF37]/10"
+            className="w-12 h-12 rounded-lg bg-[#111111]/90 border border-[#FFD700]/45 flex items-center justify-center text-[#FFD700] mx-auto mb-6 shadow-lg shadow-[#FFD700]/10"
           >
             <LucideIcon name={service.iconName} className="w-6 h-6" />
           </motion.div>
@@ -108,7 +108,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-mono text-xs sm:text-sm text-[#D4AF37] uppercase tracking-widest max-w-3xl mx-auto mb-8 font-semibold"
+            className="font-mono text-xs sm:text-sm text-[#FFD700] uppercase tracking-widest max-w-3xl mx-auto mb-8 font-semibold"
           >
             {service.slogan}
           </motion.p>
@@ -124,7 +124,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
                 const element = document.getElementById("contacto-direto");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F5C542] text-black font-bold uppercase tracking-widest text-xs rounded hover:opacity-90 hover:scale-[1.02] transition-all shadow-[0_4px_15px_rgba(212,175,55,0.25)] cursor-pointer"
+              className="px-8 py-4 btn-gold-premium text-black font-bold uppercase tracking-widest text-xs rounded cursor-pointer"
             >
               Solicitar Orçamento
             </button>
@@ -134,7 +134,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
 
       {/* 2. DESCRIÇÃO COMPLETA & BENEFÍCIOS */}
       <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
-        <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-[#D4AF37]/2 blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-[#FFD700]/6 blur-[120px] gold-ambient-light pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -143,7 +143,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
               <h2 className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide uppercase border-b border-[#222] pb-4 mb-6">
                 Sobre o Serviço
               </h2>
-              <p className="text-sm sm:text-base text-[#CFCFCF] font-sans leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-[#D9D9D9] font-sans leading-relaxed mb-6">
                 {service.description}
               </p>
               <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed">
@@ -152,15 +152,15 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             </div>
 
             {/* Right side: Benefits list */}
-            <div className="lg:col-span-5 bg-[#111111] border border-[#222] p-8 rounded-xl relative group hover:border-[#D4AF37]/20 transition-all duration-300">
-              <h2 className="text-base sm:text-lg font-display font-bold text-[#D4AF37] tracking-wider uppercase mb-6">
+            <div className="lg:col-span-5 card-luxury p-8 rounded-xl relative group">
+              <h2 className="text-base sm:text-lg font-display font-bold text-[#FFD700] tracking-wider uppercase mb-6">
                 Principais Benefícios
               </h2>
               <ul className="space-y-4">
                 {service.benefits.map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm text-[#CFCFCF] font-sans capitalize leading-tight">
+                    <CheckCircle2 className="w-5 h-5 text-[#FFD700] mt-0.5 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-[#D9D9D9] font-sans capitalize leading-tight">
                       {benefit}
                     </span>
                   </li>
@@ -200,17 +200,17 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             {appLocations.map((loc, idx) => (
               <div
                 key={idx}
-                className="bg-[#111111]/85 backdrop-blur-sm border border-[#222] p-6 rounded-xl hover:border-[#D4AF37]/50 transition-all duration-300 group"
+                className="card-luxury p-6 rounded-xl group"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-colors">
+                  <div className="w-8 h-8 rounded bg-[#1A1A1A] border border-[#FFD700]/20 flex items-center justify-center text-[#FFD700] group-hover:border-[#FFD700]/50 transition-colors">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
-                  <h3 className="font-display font-bold text-sm uppercase text-white tracking-wide group-hover:text-[#D4AF37] transition-colors">
+                  <h3 className="font-display font-bold text-sm uppercase text-white tracking-wide group-hover:text-[#FFD700] transition-colors">
                     {loc.name}
                   </h3>
                 </div>
-                <p className="text-xs text-gray-400 font-sans leading-relaxed">
+                <p className="text-xs text-[#D9D9D9] font-sans leading-relaxed">
                   {loc.desc}
                 </p>
               </div>
@@ -235,9 +235,9 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             {service.products.map((prod, idx) => (
               <div
                 key={idx}
-                className="bg-[#111] border border-[#222] p-4 rounded text-center hover:border-[#D4AF37]/20 transition-all group flex flex-col items-center justify-center min-h-[90px]"
+                className="card-luxury p-4 rounded text-center group flex flex-col items-center justify-center min-h-[90px]"
               >
-                <span className="text-xs text-[#CFCFCF] font-sans font-medium capitalize group-hover:text-white transition-colors">
+                <span className="text-xs text-[#D9D9D9] font-sans font-medium capitalize group-hover:text-white transition-colors">
                   {prod}
                 </span>
               </div>
@@ -263,9 +263,9 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
               {service.galleryImages.map((imgUrl, idx) => (
                 <div 
                   key={idx} 
-                  className="relative h-[260px] rounded-xl overflow-hidden border border-[#222] bg-[#111] group hover:border-[#D4AF37]/50 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-[0_4px_25px_rgba(212,175,55,0.05)]"
+                  className="relative h-[260px] rounded-xl overflow-hidden card-luxury group cursor-pointer"
                 >
-                  <div className="absolute inset-2 border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/35 rounded-lg z-20 pointer-events-none transition-all duration-500"></div>
+                  <div className="absolute inset-2 border border-[#FFD700]/10 group-hover:border-[#FFD700]/35 rounded-lg z-20 pointer-events-none transition-all duration-500"></div>
                   <img
                     src={imgUrl}
                     alt={`Equipamento ou Instalação ${idx + 1} de ${service.title}`}
@@ -309,19 +309,19 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
             {workSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-[#111111]/85 backdrop-blur-sm border border-[#222] p-5 rounded-xl flex flex-col justify-between hover:border-[#D4AF37]/50 transition-all duration-300 relative group"
+                className="card-luxury p-5 rounded-xl flex flex-col justify-between relative group"
               >
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-display text-2xl font-extrabold text-[#D4AF37]/20 group-hover:text-[#D4AF37]/45 transition-colors">
+                  <span className="font-display text-2xl font-extrabold text-[#FFD700]/20 group-hover:text-[#FFD700]/45 transition-colors">
                     {step.num}
                   </span>
-                  <div className="w-2 h-2 rounded-full bg-[#D4AF37]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#FFD700]"></div>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-xs uppercase text-white tracking-wider mb-2 group-hover:text-[#D4AF37] transition-colors">
+                  <h3 className="font-display font-bold text-xs uppercase text-white tracking-wider mb-2 group-hover:text-[#FFD700] transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-[11px] text-gray-400 font-sans leading-relaxed">
+                  <p className="text-[11px] text-[#D9D9D9] font-sans leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -364,7 +364,7 @@ export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
                   if (element) element.scrollIntoView({ behavior: "smooth" });
                 }, 100);
               }}
-              className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F5C542] text-black font-bold uppercase tracking-widest text-xs rounded hover:opacity-90 transition-all shadow-[0_4px_15px_rgba(212,175,55,0.25)] cursor-pointer"
+              className="px-8 py-4 btn-gold-premium text-black font-bold uppercase tracking-widest text-xs rounded cursor-pointer"
             >
               Solicitar Orçamento
             </button>

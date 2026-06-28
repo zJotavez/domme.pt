@@ -116,12 +116,12 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-stretch">
           
           {/* Left Block: Corporate Contacts info (Second on Mobile, First on Desktop) */}
-          <div className="order-2 lg:order-1 lg:col-span-5 bg-[#111111] border border-[#222222] rounded-xl p-8 flex flex-col justify-between">
+          <div className="order-2 lg:order-1 lg:col-span-5 card-luxury p-8 flex flex-col justify-between">
             <div>
               <h3 className="font-display font-bold text-xl text-white mb-6">
                 Informações de Contacto
               </h3>
-              <p className="text-xs sm:text-sm text-[#CFCFCF] font-sans leading-relaxed mb-8">
+              <p className="text-xs sm:text-sm text-[#D9D9D9] font-sans leading-relaxed mb-8">
                 Tem dúvidas ou deseja agendar uma visita de análise técnica para a sua residência ou empresa? Utilize os nossos canais oficiais de atendimento rápido.
               </p>
 
@@ -129,12 +129,12 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
               <div className="space-y-6 mb-8">
                 {/* Phone */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#222] flex items-center justify-center text-[#D4AF37] flex-shrink-0">
+                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#FFD700]/25 flex items-center justify-center text-[#FFD700] flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="block font-display text-[10px] uppercase tracking-wider text-gray-500 font-bold">Telefone</span>
-                    <a href={phoneHref} className="block text-sm text-white hover:text-[#D4AF37] font-mono transition-colors mt-0.5">
+                    <a href={phoneHref} className="block text-sm text-white hover:text-[#FFD700] font-mono transition-colors mt-0.5">
                       {CONTACT_INFO.phone}
                     </a>
                     <span className="text-[10px] text-gray-500 block mt-0.5">Chamada para a rede móvel nacional</span>
@@ -143,12 +143,12 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
 
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#222] flex items-center justify-center text-[#D4AF37] flex-shrink-0">
+                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#FFD700]/25 flex items-center justify-center text-[#FFD700] flex-shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="block font-display text-[10px] uppercase tracking-wider text-gray-500 font-bold">E-mail</span>
-                    <a href={emailHref} className="block text-sm text-white hover:text-[#D4AF37] font-sans transition-colors mt-0.5">
+                    <a href={emailHref} className="block text-sm text-white hover:text-[#FFD700] font-sans transition-colors mt-0.5">
                       {CONTACT_INFO.email}
                     </a>
                   </div>
@@ -156,7 +156,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
 
                 {/* Map location */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#222] flex items-center justify-center text-[#D4AF37] flex-shrink-0">
+                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#FFD700]/25 flex items-center justify-center text-[#FFD700] flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -172,10 +172,10 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
 
             {/* Corporate Hours disclaimer */}
             <div className="border-t border-[#222222] pt-6">
-              <span className="block font-mono text-[9px] text-[#D4AF37] uppercase tracking-widest mb-1">
+              <span className="block font-mono text-[9px] text-[#FFD700] uppercase tracking-widest mb-1">
                 DISPONIBILIDADE
               </span>
-              <span className="block text-xs text-gray-400 font-sans leading-relaxed">
+              <span className="block text-xs text-[#D9D9D9] font-sans leading-relaxed">
                 {CONTACT_INFO.workingHoursWeek}<br />
                 {CONTACT_INFO.workingHoursSat}
               </span>
@@ -183,7 +183,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
           </div>
 
           {/* Right Block: Elegant Form wrapper (First on Mobile, Second on Desktop) */}
-          <div className="order-1 lg:order-2 lg:col-span-7 bg-[#111111] border border-[#222222] hover:border-[#D4AF37]/20 transition-all duration-500 rounded-xl p-8 relative">
+          <div className="order-1 lg:order-2 lg:col-span-7 card-luxury p-8 relative">
             <h3 className="font-display font-bold text-xl text-white mb-6">
               Formulário de Orçamento
             </h3>
@@ -217,7 +217,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-black border border-[#222222] focus:border-[#D4AF37] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-colors"
+                        className="w-full bg-[#161616] border border-[#222222] focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.15)] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-all"
                         placeholder="Ex: João Silva"
                       />
                     </div>
@@ -233,7 +233,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-black border border-[#222222] focus:border-[#D4AF37] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-colors"
+                        className="w-full bg-[#161616] border border-[#222222] focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.15)] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-all"
                         placeholder="Ex: +351 912 345 678"
                       />
                     </div>
@@ -251,7 +251,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-black border border-[#222222] focus:border-[#D4AF37] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-colors"
+                        className="w-full bg-[#161616] border border-[#222222] focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.15)] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-all"
                         placeholder="Ex: joao.silva@empresa.com"
                       />
                     </div>
@@ -265,7 +265,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full bg-black border border-[#222222] focus:border-[#D4AF37] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-colors appearance-none"
+                        className="w-full bg-[#161616] border border-[#222222] focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.15)] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-all appearance-none"
                       >
                         <option value="">-- Selecione uma solução --</option>
                         {SOLUTIONS.map((sol) => (
@@ -287,7 +287,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full bg-black border border-[#222222] focus:border-[#D4AF37] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-colors resize-none"
+                      className="w-full bg-[#161616] border border-[#222222] focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.15)] rounded px-4 py-3 text-xs font-sans text-white focus:outline-none transition-all resize-none"
                       placeholder="Descreva as suas necessidades de segurança, dimensão do espaço ou dúvidas técnicas..."
                     ></textarea>
                   </div>
@@ -297,7 +297,7 @@ export function ContactForm({ selectedService, onClearService }: ContactFormProp
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 gold-metallic-gradient disabled:opacity-50 text-black font-display font-bold uppercase tracking-wider py-4 px-6 rounded text-xs flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_15px_rgba(212,175,55,0.2)] hover:shadow-[0_4px_22px_rgba(212,175,55,0.35)] cursor-pointer"
+                      className="flex-1 btn-gold-premium disabled:opacity-50 font-display font-bold uppercase tracking-wider py-4 px-6 rounded text-xs flex items-center justify-center gap-2 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>

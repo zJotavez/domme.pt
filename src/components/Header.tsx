@@ -119,7 +119,7 @@ export function Header({ onQuoteClick, onNavigate, currentPath }: HeaderProps) {
             <div className="hidden md:flex items-center">
               <button
                 onClick={onQuoteClick}
-                className="px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 text-[11px] font-bold uppercase tracking-widest bg-transparent cursor-pointer"
+                className="px-6 py-2.5 btn-gold-premium rounded text-[11px] font-bold uppercase tracking-widest cursor-pointer"
               >
                 Solicitar Orçamento
               </button>
@@ -170,7 +170,7 @@ export function Header({ onQuoteClick, onNavigate, currentPath }: HeaderProps) {
                   setIsOpen(false);
                   onQuoteClick();
                 }}
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F5C542] hover:opacity-95 text-black font-display font-extrabold uppercase tracking-widest py-3.5 rounded text-xs text-center transition-all shadow-[0_4px_15px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_20px_rgba(212,175,55,0.35)] cursor-pointer"
+                className="w-full btn-gold-premium font-display font-extrabold uppercase tracking-widest py-3.5 rounded text-xs text-center cursor-pointer"
               >
                 Solicitar Orçamento
               </button>

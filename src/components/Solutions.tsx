@@ -55,7 +55,7 @@ export function Solutions({ onNavigate }: SolutionsProps) {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               onClick={() => onNavigate(`/servicos/${sol.slug}`)}
-              className="bg-[#111111] border border-[#222222] rounded-xl p-3 sm:p-6 flex flex-col justify-between h-[165px] sm:h-[210px] group transition-all duration-300 hover:border-[#D4AF37] hover:-translate-y-1.5 hover:shadow-[0_0_20px_rgba(212,175,55,0.12)] cursor-pointer relative overflow-hidden"
+              className="card-luxury rounded-xl p-3 sm:p-6 flex flex-col justify-between h-[165px] sm:h-[210px] group cursor-pointer relative overflow-hidden"
             >
               {/* Card Background Photo */}
               <img
@@ -68,24 +68,24 @@ export function Solutions({ onNavigate }: SolutionsProps) {
               <div className="relative z-10">
                 {/* Header: Icon and Category badge */}
                 <div className="flex justify-between items-start mb-2 sm:mb-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-[#1A1A1A] border border-[#D4AF37]/20 group-hover:border-[#D4AF37] flex items-center justify-center text-[#D4AF37] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded bg-[#1A1A1A] border border-[#FFD700]/25 group-hover:border-[#FFD700] flex items-center justify-center text-[#FFD700] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <LucideIcon name={sol.iconName} className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </div>
 
                 {/* Service Title */}
-                <h3 className="font-display font-bold text-xs sm:text-base text-white tracking-wide mb-1 sm:mb-2 group-hover:text-[#D4AF37] transition-colors leading-tight">
+                <h3 className="font-display font-bold text-xs sm:text-base text-white tracking-wide mb-1 sm:mb-2 group-hover:text-[#FFD700] transition-colors leading-tight">
                   {sol.title.split(" / ")[0]}
                 </h3>
 
                 {/* Short Description */}
-                <p className="text-[10px] sm:text-xs text-gray-400 font-sans leading-tight sm:leading-normal line-clamp-2">
+                <p className="text-[10px] sm:text-xs text-[#D9D9D9] font-sans leading-tight sm:leading-normal line-clamp-2">
                   {sol.shortDescription}
                 </p>
               </div>
 
               {/* Action Button: Saber mais */}
-              <div className="relative z-10 flex items-center gap-1.5 text-[9px] sm:text-[10px] font-display font-bold uppercase tracking-wider text-gray-400 group-hover:text-[#D4AF37] transition-colors mt-2 sm:mt-4">
+              <div className="relative z-10 flex items-center gap-1.5 text-[9px] sm:text-[10px] font-display font-bold uppercase tracking-wider text-[#B8B8B8] group-hover:text-[#FFD700] transition-colors mt-2 sm:mt-4">
                 <span>Saber mais</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>

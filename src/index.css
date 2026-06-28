@@ -6,57 +6,105 @@
   --font-title: "Montserrat", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Custom palette matching 'Dark Luxury Security Tech' */
-  --color-gold-metallic: #D4AF37; /* Metallic Gold */
-  --color-gold-intense: #F5C542;  /* Intense Gold */
+  /* Premium Luxury Security Tech Palette */
   --color-dark-absolute: #050505;
+  --color-dark-bg: #080808;
   --color-dark-card: #111111;
+  --color-dark-subcard: #161616;
   --color-dark-border: #222222;
   --color-dark-tech: #1A1A1A;
+  
+  --color-gold-main: #D4AF37;       /* Dourado ouro principal */
+  --color-gold-bright: #FFD700;     /* Dourado ouro vivo */
+  --color-gold-metallic: #C9A227;   /* Dourado metálico elegante */
+  --color-gold-hover: #F5C542;      /* Dourado suave para hover */
+  
+  --color-text-white: #FFFFFF;
+  --color-text-light: #D9D9D9;      /* Cinza claro para textos */
+  --color-text-secondary: #B8B8B8;  /* Cinza secundário */
 }
 
 @layer utilities {
+  /* Premium Gold Button Gradient */
+  .btn-gold-premium {
+    background: linear-gradient(135deg, #D4AF37, #FFD700, #C9A227);
+    color: #050505;
+    border: 1px solid #FFD700;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  }
+  .btn-gold-premium:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.35);
+    border-color: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Outline Gold Button */
+  .btn-gold-outline {
+    background: transparent;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    transition: all 0.3s ease;
+  }
+  .btn-gold-outline:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #FFD700;
+    color: #FFD700;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  }
+
+  /* Luxury Card Glow Effect */
+  .card-luxury {
+    background-color: #111111;
+    border: 1px solid #222222;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-luxury:hover {
+    border-color: #D4AF37;
+    box-shadow: 
+      0 0 25px rgba(212, 175, 55, 0.08),
+      0 0 50px rgba(255, 215, 0, 0.03);
+    transform: translateY(-2px);
+  }
+
   .gold-glow-hover {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .gold-glow-hover:hover {
-    box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
-    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 25px -5px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
   }
 
+  /* True Gold Text Gradient */
   .gold-text-gradient {
-    background: linear-gradient(135deg, #FFF 30%, #D4AF37 100%);
+    background: linear-gradient(135deg, #FFFFFF 30%, #FFD700 70%, #C9A227 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .gold-metallic-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #F5C542 50%, #D4AF37 100%);
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #C9A227 100%);
   }
 
-  /* Subgrid background style */
+  /* Technology Grid Grid Mask */
   .tech-grid {
-    background-size: 40px 40px;
+    background-size: 50px 50px;
     background-image: 
-      linear-gradient(to right, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
   }
 
-  /* Hexagonal overlay mask helper if needed */
-  .hex-mask {
-    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-  }
-
-  /* 3D Gold Text Extrusion Effect */
+  /* 3D Gold Extrusion text shadow */
   .text-3d-gold {
     text-shadow: 
-      0 1px 0 #B38F2D,
-      0 2px 0 #9E7D24,
-      0 3px 0 #8A6C1C,
-      0 4px 0 #755B14,
-      0 5px 0 #614B0C,
-      0 8px 10px rgba(0, 0, 0, 0.7),
-      0 12px 25px rgba(212, 175, 55, 0.35);
+      0 1px 0 #C9A227,
+      0 2px 0 #A8831E,
+      0 3px 0 #876517,
+      0 4px 0 #664B10,
+      0 10px 20px rgba(0, 0, 0, 0.85),
+      0 15px 35px rgba(255, 215, 0, 0.25);
   }
 }
 
@@ -68,7 +116,7 @@
   background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #1A1A1A;
   border-radius: 4px;
   border: 2px solid #050505;
 }
@@ -81,24 +129,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hexagon background element animation */
-@keyframes hex-glow {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.25; }
+/* Keyframes for Gold Points of Light */
+@keyframes ambient-glow {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.15) translate(4%, 3%);
+    opacity: 0.28;
+  }
 }
 
-.hex-glow-animate {
-  animation: hex-glow 6s ease-in-out infinite;
+.gold-ambient-light {
+  animation: ambient-glow 10s ease-in-out infinite alternate;
 }
 
-/* Pulsing Gold Glow for premium highlights */
+/* Pulsing Gold Glow */
 @keyframes gold-pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-  50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.45); }
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); }
+  50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.45); }
 }
 
 .gold-pulse-glow {
-  animation: gold-pulse 3s infinite ease-in-out;
+  animation: gold-pulse 4s infinite ease-in-out;
 }
 
 /* Infinite Marquee Animations */
@@ -115,13 +169,11 @@ html {
 .animate-marquee-ltr {
   display: flex;
   width: max-content;
-  animation: marquee-ltr 20s linear infinite;
+  animation: marquee-ltr 22s linear infinite;
 }
 
 .animate-marquee-rtl {
   display: flex;
   width: max-content;
-  animation: marquee-rtl 20s linear infinite;
+  animation: marquee-rtl 22s linear infinite;
 }
-
-

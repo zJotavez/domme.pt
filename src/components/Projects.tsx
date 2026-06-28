@@ -85,7 +85,7 @@ export function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className={`group relative rounded-xl overflow-hidden border border-[#222222] bg-[#111111] hover:border-[#D4AF37]/40 transition-all duration-300 ${
+                className={`group relative rounded-xl overflow-hidden card-luxury ${
                   idx % 2 === 0 ? "h-[295px] sm:h-[410px]" : "h-[355px] sm:h-[410px]"
                 }`}
               >
@@ -94,7 +94,7 @@ export function Projects() {
                   idx % 2 === 0 ? "h-[165px] sm:h-[250px]" : "h-[225px] sm:h-[250px]"
                 }`}>
                   {/* Subtle Golden Outline Ring */}
-                  <div className="absolute inset-2 border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/35 rounded-lg z-20 pointer-events-none transition-all duration-500"></div>
+                  <div className="absolute inset-2 border border-[#FFD700]/10 group-hover:border-[#FFD700]/35 rounded-lg z-20 pointer-events-none transition-all duration-500"></div>
 
                   <img
                     src={proj.image}
@@ -106,7 +106,7 @@ export function Projects() {
                   
                   {/* Hover Icon overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 bg-black/40">
-                    <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-black shadow-lg shadow-[#D4AF37]/35">
+                    <div className="w-10 h-10 rounded-full bg-[#FFD700] flex items-center justify-center text-black shadow-lg shadow-[#FFD700]/35">
                       <Eye className="w-5 h-5" />
                     </div>
                   </div>
@@ -115,14 +115,14 @@ export function Projects() {
                 {/* Info block */}
                 <div className="h-[130px] sm:h-[160px] p-3 sm:p-5 flex flex-col justify-start gap-0.5 sm:gap-1">
                   <div>
-                    <span className="font-mono text-[8px] sm:text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-0.5">
+                    <span className="font-mono text-[8px] sm:text-[9px] text-[#FFD700] uppercase tracking-widest block mb-0.5">
                       {proj.categoryLabel}
                     </span>
-                    <h3 className="font-display font-bold text-xs sm:text-base text-white group-hover:text-[#D4AF37] transition-colors duration-300 leading-tight">
+                    <h3 className="font-display font-bold text-xs sm:text-base text-white group-hover:text-[#FFD700] transition-colors duration-300 leading-tight">
                       {proj.title}
                     </h3>
                   </div>
-                  <p className="text-[10px] sm:text-xs text-gray-400 font-sans line-clamp-2 mt-1 leading-normal sm:leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-[#D9D9D9] font-sans line-clamp-2 mt-1 leading-normal sm:leading-relaxed">
                     {proj.description}
                   </p>
                 </div>

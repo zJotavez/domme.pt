@@ -4,10 +4,10 @@ import { ShieldAlert, Cpu, Network, CheckCircle2 } from "lucide-react";
 
 export function About() {
   const bulletPoints = [
-    { text: "Instalações profissionais sob rigorosos critérios de engenharia", icon: <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> },
-    { text: "Equipamentos de alto padrão tecnológico (Motorline e Visiotech)", icon: <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> },
-    { text: "Projetos 100% personalizados, ajustados ao seu espaço real", icon: <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> },
-    { text: "Suporte pós-instalação de alta fiabilidade em território nacional", icon: <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" /> },
+    { text: "Instalações profissionais sob rigorosos critérios de engenharia", icon: <CheckCircle2 className="w-4 h-4 text-[#FFD700]" /> },
+    { text: "Equipamentos de alto padrão tecnológico (Motorline e Visiotech)", icon: <CheckCircle2 className="w-4 h-4 text-[#FFD700]" /> },
+    { text: "Projetos 100% personalizados, ajustados ao seu espaço real", icon: <CheckCircle2 className="w-4 h-4 text-[#FFD700]" /> },
+    { text: "Suporte pós-instalação de alta fiabilidade em território nacional", icon: <CheckCircle2 className="w-4 h-4 text-[#FFD700]" /> },
   ];
 
   return (
@@ -33,7 +33,7 @@ export function About() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/35 to-black/85"></div>
 
       {/* Light glow */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 rounded-full bg-[#D4AF37]/2 blur-[130px] pointer-events-none"></div>
+      <div className="absolute top-1/2 right-10 w-96 h-96 rounded-full bg-[#FFD700]/6 blur-[130px] gold-ambient-light pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -44,7 +44,7 @@ export function About() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-mono text-xs uppercase tracking-widest text-[#D4AF37] mb-3"
+              className="font-mono text-xs uppercase tracking-widest text-[#FFD700] mb-3"
             >
               A Nossa Empresa
             </motion.p>
@@ -55,7 +55,7 @@ export function About() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight mb-6"
             >
-              Sobre a Cotton Dome LDA
+              Sobre a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] filter drop-shadow-[0_2px_10px_rgba(255,215,0,0.15)]">Cotton Dome LDA</span>
             </motion.h2>
 
             <motion.div
@@ -63,7 +63,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="space-y-4 text-sm sm:text-base text-[#CFCFCF] font-sans leading-relaxed mb-8"
+              className="space-y-4 text-sm sm:text-base text-[#D9D9D9] font-sans leading-relaxed mb-8"
             >
               <p>
                 A <strong className="text-white font-semibold">Cotton Dome LDA</strong> atua no desenvolvimento de soluções inteligentes para segurança, automação e infraestrutura técnica. Com foco em qualidade, confiança e profissionalismo, oferecemos serviços em videovigilância, intrusão, controlo de acessos, deteção de incêndio, automatismos, redes, telecomunicações, UPS, serralharia e portões de segurança.
@@ -81,7 +81,7 @@ export function About() {
               {bulletPoints.map((pt, idx) => (
                 <div key={idx} className="flex items-start gap-2.5">
                   <div className="mt-1 flex-shrink-0">{pt.icon}</div>
-                  <span className="text-xs text-[#CFCFCF] font-sans leading-relaxed">{pt.text}</span>
+                  <span className="text-xs text-[#D9D9D9] font-sans leading-relaxed">{pt.text}</span>
                 </div>
               ))}
             </motion.div>
@@ -94,7 +94,7 @@ export function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-full max-w-[480px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#D4AF37]/20 p-1 bg-gradient-to-br from-[#111] to-black shadow-2xl shadow-black"
+              className="relative w-full max-w-[480px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#FFD700]/30 hover:border-[#FFD700]/60 transition-colors duration-500 p-1 bg-gradient-to-br from-[#111] to-black shadow-2xl shadow-black/80"
             >
               {/* Inner Border Layer */}
               <div className="absolute inset-2 border border-[#222] rounded-xl overflow-hidden">
@@ -109,13 +109,13 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/40 to-transparent pointer-events-none"></div>
 
                 {/* Overlapping Tech Badge inside image */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 bg-black/80 backdrop-blur-md rounded-lg border border-[#D4AF37]/30 flex gap-4 items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#111] border border-[#D4AF37] flex items-center justify-center flex-shrink-0 text-[#D4AF37]">
+                <div className="absolute bottom-6 left-6 right-6 p-5 bg-black/85 backdrop-blur-md rounded-lg border border-[#FFD700]/40 flex gap-4 items-center">
+                  <div className="w-10 h-10 rounded-full bg-[#111] border border-[#FFD700] flex items-center justify-center flex-shrink-0 text-[#FFD700]">
                     <Cpu className="w-5 h-5 animate-pulse" />
                   </div>
                   <div>
-                    <span className="block font-display text-[10px] uppercase tracking-wider text-[#D4AF37] font-bold">Rigor de Engenharia</span>
-                    <span className="block text-xs text-gray-400 mt-1 font-sans">Cada projeto passa por um rigoroso planeamento técnico antes de iniciar a instalação.</span>
+                    <span className="block font-display text-[10px] uppercase tracking-wider text-[#FFD700] font-bold">Rigor de Engenharia</span>
+                    <span className="block text-xs text-[#D9D9D9] mt-1 font-sans">Cada projeto passa por um rigoroso planeamento técnico antes de iniciar a instalação.</span>
                   </div>
                 </div>
               </div>

@@ -39,7 +39,7 @@ export function Pilares() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className={`relative p-4 sm:p-8 border border-white/5 bg-[#111111] hover:border-[#D4AF37]/50 transition-all duration-500 cursor-pointer overflow-hidden rounded-xl group ${
+              className={`relative p-4 sm:p-8 card-luxury cursor-pointer overflow-hidden rounded-xl group ${
                 idx === 2 ? "col-span-2 md:col-span-1" : "col-span-1"
               }`}
             >
@@ -52,14 +52,14 @@ export function Pilares() {
 
               {/* Inner content overlay */}
               <div className="relative z-10">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-5 border-l-2 border-t-2 border-[#D4AF37] flex items-center justify-center rounded-none bg-black/40">
-                  {React.cloneElement(pillar.icon, { className: "w-5 h-5 sm:w-6 sm:h-6 text-[#D4AF37]" })}
+                <div className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-5 border-l-2 border-t-2 border-[#FFD700] flex items-center justify-center rounded-none bg-black/40">
+                  {React.cloneElement(pillar.icon, { className: "w-5 h-5 sm:w-6 sm:h-6 text-[#FFD700]" })}
                 </div>
                 <div>
-                  <h3 className="text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider mb-1.5 sm:mb-3 group-hover:text-[#D4AF37] transition-colors leading-tight">
+                  <h3 className="text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider mb-1.5 sm:mb-3 group-hover:text-[#FFD700] transition-colors leading-tight">
                     {pillar.title}
                   </h3>
-                  <p className="text-[10px] sm:text-sm text-[#CFCFCF]/80 leading-normal sm:leading-relaxed font-sans">
+                  <p className="text-[10px] sm:text-sm text-[#D9D9D9]/80 leading-normal sm:leading-relaxed font-sans">
                     {pillar.description}
                   </p>
                 </div>
@@ -70,7 +70,7 @@ export function Pilares() {
       </div>
 
       {/* Infinite Marquee Phrase Row */}
-      <div className="w-full bg-[#111111]/40 border-t border-[#D4AF37]/15 py-4 overflow-hidden relative">
+      <div className="w-full bg-[#111111]/40 border-t border-[#FFD700]/15 py-4 overflow-hidden relative">
         <div className="animate-marquee-ltr flex items-center gap-12 whitespace-nowrap">
           {/* First set of elements */}
           <span className="text-[10px] font-display font-bold uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">

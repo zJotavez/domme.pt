@@ -30,14 +30,13 @@ export function Hero({ onQuoteClick, onExploreClick }: HeroProps) {
       {/* Dark Overlay Gradient to ensure text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/40"></div>
       <div className="absolute inset-0 bg-black/50"></div>
-
       {/* Golden Glowing Ambient Light Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#D4AF37]/5 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[#F5C542]/5 blur-[150px] pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FFD700]/8 blur-[120px] gold-ambient-light pointer-events-none"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[#C9A227]/8 blur-[150px] gold-ambient-light pointer-events-none"></div>
 
       {/* Decorative Diagonal Gold Lines */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent rotate-45 transform origin-top-right pointer-events-none"></div>
-      <div className="absolute bottom-10 left-10 w-[30vw] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent -rotate-12 transform pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[50vw] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent rotate-45 transform origin-top-right pointer-events-none"></div>
+      <div className="absolute bottom-10 left-10 w-[30vw] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent -rotate-12 transform pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -48,7 +47,7 @@ export function Hero({ onQuoteClick, onExploreClick }: HeroProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-3 py-1 border border-[#D4AF37]/30 bg-[#111111] text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase mb-6 w-fit"
+              className="inline-block px-3 py-1 border border-[#FFD700]/40 bg-[#111111]/90 text-[#FFD700] text-[10px] font-bold tracking-[0.2em] uppercase mb-6 w-fit rounded shadow-[0_0_15px_rgba(255,215,0,0.1)]"
             >
               Proteção Inteligente
             </motion.div>
@@ -57,18 +56,18 @@ export function Hero({ onQuoteClick, onExploreClick }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] tracking-tight mb-6 uppercase animate-fade-in"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] tracking-tight mb-6 uppercase"
             >
-              Segurança <span className="text-[#D4AF37]">Inteligente</span> para Residências, Empresas e Condomínios
+              Segurança <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] filter drop-shadow-[0_2px_10px_rgba(255,215,0,0.2)]">Inteligente</span> para Residências, Empresas e Condomínios
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-[#CFCFCF] max-w-xl leading-relaxed mb-8 font-sans"
+              className="text-base sm:text-lg text-[#D9D9D9] max-w-xl leading-relaxed mb-8 font-sans"
             >
-              A <strong className="text-white font-medium">Cotton Dome LDA</strong> desenvolve soluções completas em videovigilância, controlo de acessos, intrusão, automatismos, redes, telecomunicações e sistemas de proteção profissional.
+              A <strong className="text-white font-semibold">Cotton Dome LDA</strong> desenvolve soluções completas em videovigilância, controlo de acessos, intrusão, automatismos, redes, telecomunicações e sistemas de proteção profissional.
             </motion.p>
 
             <motion.div
@@ -79,14 +78,14 @@ export function Hero({ onQuoteClick, onExploreClick }: HeroProps) {
             >
               <button
                 onClick={onQuoteClick}
-                className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F5C542] text-black font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] rounded hover:opacity-90 cursor-pointer"
+                className="px-8 py-4 btn-gold-premium font-bold uppercase tracking-widest text-xs rounded cursor-pointer"
               >
                 Solicitar Orçamento
               </button>
 
               <button
                 onClick={onExploreClick}
-                className="px-8 py-4 border border-[#D4AF37] text-[#D4AF37] font-bold uppercase tracking-widest text-xs hover:bg-[#D4AF37] hover:text-black transition-all duration-300 bg-transparent rounded cursor-pointer"
+                className="px-8 py-4 btn-gold-outline font-bold uppercase tracking-widest text-xs rounded cursor-pointer"
               >
                 Conhecer Soluções
               </button>
