@@ -1,0 +1,352 @@
+import React, { useEffect } from "react";
+import { SERVICES_DATA, ServiceDetails } from "../servicesData";
+import { LucideIcon } from "./LucideIcon";
+import { ArrowLeft, CheckCircle2, ShieldCheck, HelpCircle } from "lucide-react";
+import { motion } from "motion/react";
+
+interface ServiceDetailProps {
+  slug: string;
+  onNavigate: (path: string) => void;
+}
+
+export function ServiceDetail({ slug, onNavigate }: ServiceDetailProps) {
+  const service = SERVICES_DATA.find((s) => s.slug === slug);
+
+  useEffect(() => {
+    if (service) {
+      document.title = `${service.seoTitle}`;
+      
+      // Update SEO Meta Description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.setAttribute('name', 'description');
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.setAttribute('content', service.seoDescription);
+    }
+    // Scroll to top when loading page
+    window.scrollTo(0, 0);
+  }, [service]);
+
+  if (!service) {
+    return (
+      <main className="min-h-screen bg-[#050505] text-[#CFCFCF] flex flex-col justify-center items-center p-6 text-center">
+        <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37] flex items-center justify-center text-[#D4AF37] mb-6">
+          <HelpCircle className="w-8 h-8" />
+        </div>
+        <h1 className="font-display font-bold text-2xl text-white mb-4">Serviço não encontrado</h1>
+        <p className="text-sm text-gray-400 max-w-md mb-8">
+          A página que procura não existe ou foi movida. Por favor, regresse à página inicial.
+        </p>
+        <button
+          onClick={() => onNavigate("/")}
+          className="inline-flex items-center gap-2 px-6 py-3 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black font-display font-bold uppercase tracking-wider text-xs rounded transition-colors cursor-pointer"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Voltar para a Home</span>
+        </button>
+      </main>
+    );
+  }
+
+  const workSteps = [
+    { num: "01", title: "Análise Técnica", desc: "Avaliamos minuciosamente o espaço físico e compreendemos a sua necessidade de segurança." },
+    { num: "02", title: "Escolha da Solução", desc: "Dimensionamos os equipamentos de alta tecnologia mais ajustados à sua reality." },
+    { num: "03", title: "Instalação Profissional", desc: "Executamos a montagem com rigor técnico, organização técnica e respeito estético." },
+    { num: "04", title: "Configuração", desc: "Configuramos todos os sistemas e realizamos testes lógicos completos de funcionamento." },
+    { num: "05", title: "Suporte e Acompanhamento", desc: "Garantimos assistência técnica dedicada pós-venda para manter a proteção activa." }
+  ];
+
+  const appLocations = [
+    { name: "Residências", desc: "Proteção personalizada e automatismos para o conforto do seu lar." },
+    { name: "Condomínios", desc: "Controlo seguro de acessos comuns e vigilância perimetral." },
+    { name: "Empresas", desc: "Gestão inteligente de segurança e redes corporativas robustas." },
+    { name: "Comércio", desc: "Prevenção de perdas e portas automáticas de alto tráfego." },
+    { name: "Indústrias", desc: "Sistemas complexos de deteção e segurança de alta resistência." },
+    { name: "Armazéns", desc: "Racks organizados, UPS de backup e proteção perimetral total." }
+  ];
+
+  return (
+    <main className="bg-[#050505] text-[#CFCFCF] min-h-screen">
+      
+      {/* 1. HERO DO SERVIÇO */}
+      <section className="relative h-[480px] flex items-center justify-center overflow-hidden border-b border-[#1a1a1a]">
+        {/* Background Image */}
+        <img
+          src={service.image}
+          alt={service.title}
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.25] contrast-[1.1] pointer-events-none"
+        />
+
+        {/* Gradient Layer */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/45 to-[#050505]/85 pointer-events-none"></div>
+        <div className="absolute inset-0 tech-grid pointer-events-none opacity-40"></div>
+
+        {/* Back Link floating */}
+        <div className="absolute top-8 left-4 sm:left-8 z-20">
+          <button
+            onClick={() => onNavigate("/")}
+            className="flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-[#D4AF37]/50 bg-black/60 text-xs font-display font-bold uppercase tracking-wider text-[#CFCFCF] hover:text-[#D4AF37] rounded transition-all cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Voltar para a Home</span>
+          </button>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-12 h-12 rounded-lg bg-[#111111]/90 border border-[#D4AF37]/45 flex items-center justify-center text-[#D4AF37] mx-auto mb-6 shadow-lg shadow-[#D4AF37]/10"
+          >
+            <LucideIcon name={service.iconName} className="w-6 h-6" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight uppercase mb-4"
+          >
+            {service.title}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-mono text-xs sm:text-sm text-[#D4AF37] uppercase tracking-widest max-w-3xl mx-auto mb-8 font-semibold"
+          >
+            {service.slogan}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex items-center justify-center"
+          >
+            <button
+              onClick={() => {
+                const element = document.getElementById("contacto-direto");
+                if (element) element.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F5C542] text-black font-bold uppercase tracking-widest text-xs rounded hover:opacity-90 hover:scale-[1.02] transition-all shadow-[0_4px_15px_rgba(212,175,55,0.25)] cursor-pointer"
+            >
+              Solicitar Orçamento
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. DESCRIÇÃO COMPLETA & BENEFÍCIOS */}
+      <section className="py-20 bg-[#0a0a0a] relative overflow-hidden">
+        <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-[#D4AF37]/2 blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Left side: detailed description */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide uppercase border-b border-[#222] pb-4 mb-6">
+                Sobre o Serviço
+              </h2>
+              <p className="text-sm sm:text-base text-[#CFCFCF] font-sans leading-relaxed mb-6">
+                {service.description}
+              </p>
+              <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed">
+                Desenvolvemos projetos robustos e funcionais que atendem rigorosamente aos padrões europeus de segurança técnica. Todos os equipamentos por nós instalados são de marcas consagradas, assegurando maior longevidade operacional, estabilidade lógica e garantias completas de fábrica.
+              </p>
+            </div>
+
+            {/* Right side: Benefits list */}
+            <div className="lg:col-span-5 bg-[#111111] border border-[#222] p-8 rounded-xl relative group hover:border-[#D4AF37]/20 transition-all duration-300">
+              <h2 className="text-base sm:text-lg font-display font-bold text-[#D4AF37] tracking-wider uppercase mb-6">
+                Principais Benefícios
+              </h2>
+              <ul className="space-y-4">
+                {service.benefits.map((benefit, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-[#CFCFCF] font-sans capitalize leading-tight">
+                      {benefit}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. APLICAÇÕES */}
+      <section className="py-20 bg-[#050505] relative overflow-hidden border-t border-[#1a1a1a]">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none filter brightness-75 contrast-125"
+          src="/videos/Crie_um_vídeo_hero_cinematográ.mp4"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-black/65 to-[#050505] pointer-events-none"></div>
+        <div className="absolute inset-0 tech-grid pointer-events-none opacity-30"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide uppercase mb-3">
+              Áreas de Aplicação
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
+              Onde o serviço técnico da Cotton Dome LDA garante o maior grau de eficiência e proteção técnica:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {appLocations.map((loc, idx) => (
+              <div
+                key={idx}
+                className="bg-[#111111]/85 backdrop-blur-sm border border-[#222] p-6 rounded-xl hover:border-[#D4AF37]/50 transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-colors">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-display font-bold text-sm uppercase text-white tracking-wide group-hover:text-[#D4AF37] transition-colors">
+                    {loc.name}
+                  </h3>
+                </div>
+                <p className="text-xs text-gray-400 font-sans leading-relaxed">
+                  {loc.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PRODUTOS RELACIONADOS */}
+      <section className="py-20 bg-[#0a0a0a] relative overflow-hidden border-t border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide uppercase mb-3">
+              Equipamentos & Soluções Relacionadas
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed">
+              Utilizamos apenas componentes originais de marcas certificadas na montagem de cada sistema técnico:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {service.products.map((prod, idx) => (
+              <div
+                key={idx}
+                className="bg-[#111] border border-[#222] p-4 rounded text-center hover:border-[#D4AF37]/20 transition-all group flex flex-col items-center justify-center min-h-[90px]"
+              >
+                <span className="text-xs text-[#CFCFCF] font-sans font-medium capitalize group-hover:text-white transition-colors">
+                  {prod}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROCESSO DE TRABALHO */}
+      <section className="py-20 bg-[#050505] relative overflow-hidden border-t border-[#1a1a1a]">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none filter brightness-75 contrast-125"
+          src="/videos/Crie_um_vídeo_hero_cinematográ.mp4"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-black/65 to-[#050505] pointer-events-none"></div>
+        <div className="absolute inset-0 tech-grid pointer-events-none opacity-30"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide uppercase mb-3">
+              O Nosso Processo de Trabalho
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
+              Como a equipa de engenharia da Cotton Dome LDA atua para garantir a máxima fiabilidade técnica:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {workSteps.map((step, idx) => (
+              <div
+                key={idx}
+                className="bg-[#111111]/85 backdrop-blur-sm border border-[#222] p-5 rounded-xl flex flex-col justify-between hover:border-[#D4AF37]/50 transition-all duration-300 relative group"
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <span className="font-display text-2xl font-extrabold text-[#D4AF37]/20 group-hover:text-[#D4AF37]/45 transition-colors">
+                    {step.num}
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-[#D4AF37]"></div>
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-xs uppercase text-white tracking-wider mb-2 group-hover:text-[#D4AF37] transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-[11px] text-gray-400 font-sans leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CHAMADA FINAL PARA ORÇAMENTO */}
+      <section id="contacto-direto" className="py-28 bg-[#0a0a0a] relative overflow-hidden border-t border-[#1a1a1a]">
+        {/* Background Photo */}
+        <img
+          src="/images/cctv-camera.png"
+          alt="CCTV Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-80 filter brightness-75 contrast-[1.1] pointer-events-none"
+        />
+        
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black pointer-events-none"></div>
+        <div className="absolute inset-0 tech-grid pointer-events-none opacity-20"></div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-white tracking-tight mb-4 uppercase text-3d-gold">
+            Precisa de uma solução profissional para o seu espaço?
+          </h2>
+          
+          <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto mb-10 font-semibold drop-shadow-md">
+            A Cotton Dome LDA analisa a sua necessidade e desenvolve uma solução à medida, com tecnologia, segurança e profissionalismo.
+          </p>
+
+          <div className="flex items-center justify-center">
+            <button
+              onClick={() => {
+                // Navigate to home and then focus the contact form
+                onNavigate("/#contacto");
+                // Wait slightly for route transition then scroll
+                setTimeout(() => {
+                  const element = document.getElementById("contacto");
+                  if (element) element.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+              className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F5C542] text-black font-bold uppercase tracking-widest text-xs rounded hover:opacity-90 transition-all shadow-[0_4px_15px_rgba(212,175,55,0.25)] cursor-pointer"
+            >
+              Solicitar Orçamento
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}

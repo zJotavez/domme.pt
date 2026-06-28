@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from "react";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import { Pilares } from "./components/Pilares";
+import { Solutions } from "./components/Solutions";
+import { Environments } from "./components/Environments";
+import { Partners } from "./components/Partners";
+import { HowWeWork } from "./components/HowWeWork";
+import { Projects } from "./components/Projects";
+import { HeroQuote } from "./components/HeroQuote";
+import { About } from "./components/About";
+import { ContactForm } from "./components/ContactForm";
+import { Footer } from "./components/Footer";
+import { ServiceDetail } from "./components/ServiceDetail";
+import { CONTACT_INFO } from "./data";
+
+export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [selectedService, setSelectedService] = useState("");
+
+  // Listening to popstate events (back/forward browser buttons)
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // Navigation controller
+  const navigate = (path: string) => {
+    // If navigating to home section from another route
+    if (path.startsWith("/#")) {
+      const id = path.split("#")[1];
+      window.history.pushState({}, "", "/");
+      setCurrentPath("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+      return;
+    }
+
+    window.history.pushState({}, "", path);
+    setCurrentPath(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleSelectService = (serviceName: string) => {
+    setSelectedService(serviceName);
+    scrollToSection("contacto");
+  };
+
+  const handleClearService = () => {
+    setSelectedService("");
+  };
+
+  const isServicePage = currentPath.startsWith("/servicos/");
+
+  const isPlaceholder = CONTACT_INFO.whatsapp.includes("[");
+  const cleanNumber = isPlaceholder ? "351912345678" : CONTACT_INFO.whatsapp.replace(/[^\d]/g, "");
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanNumber}&text=${encodeURIComponent("Olá Cotton Dome, gostaria de obter mais informações.")}`;
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-[#CFCFCF] font-sans antialiased selection:bg-[#D4AF37] selection:text-[#050505]">
+      {/* Dynamic Header */}
+      <Header
+        onQuoteClick={() => {
+          if (isServicePage) {
+            navigate("/#contacto");
+          } else {
+            scrollToSection("contacto");
+          }
+        }}
+        onNavigate={navigate}
+        currentPath={currentPath}
+      />
+
+      {isServicePage ? (
+        // Render dynamic service details page
+        <ServiceDetail 
+          slug={currentPath.replace("/servicos/", "")} 
+          onNavigate={navigate} 
+        />
+      ) : (
+        // Render full home page
+        <main>
+          {/* First Fold: Hero */}
+          <Hero
+            onQuoteClick={() => scrollToSection("contacto")}
+            onExploreClick={() => scrollToSection("solucoes")}
+          />
+
+          {/* Value Pillars */}
+          <Pilares />
+
+          {/* Services & Solutions Grid */}
+          <Solutions onNavigate={navigate} />
+
+          {/* Bento Grid: Environments Served */}
+          <Environments />
+
+          {/* Prestigious Partners */}
+          <Partners />
+
+          {/* Chronological Workflow */}
+          <HowWeWork />
+
+          {/* Gallery of Projects */}
+          <Projects />
+
+          {/* Slogan Quote Section */}
+          <HeroQuote onTalkClick={() => scrollToSection("contacto")} />
+
+          {/* Institutional About */}
+          <About />
+
+          {/* Contact Form with auto-filling dropdowns */}
+          <ContactForm
+            selectedService={selectedService}
+            onClearService={handleClearService}
+          />
+        </main>
+      )}
+
+      {/* Dynamic footer info */}
+      <Footer onNavigate={navigate} />
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar pelo WhatsApp"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-[0_4px_18px_rgba(37,211,102,0.45)] hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer group"
+      >
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping group-hover:animate-none"></span>
+        <svg className="w-6 h-6 fill-current relative z-10" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.588 1.45 5.616 1.452 5.563 0 10.09-4.52 10.093-10.078.002-2.693-1.04-5.226-2.93-7.117-1.89-1.89-4.407-2.93-7.102-2.93-5.57 0-10.096 4.519-10.099 10.078-.001 2.05.539 4.05 1.561 5.8l-.96 3.512 3.6-.945zm11.381-4.834c-.312-.156-1.848-.912-2.131-1.015-.282-.104-.489-.156-.691.157-.204.312-.781 1.015-.957 1.218-.175.203-.35.23-.661.073-.312-.156-1.316-.486-2.507-1.55-.926-.826-1.553-1.847-1.734-2.16-.182-.313-.018-.482.138-.636.14-.138.312-.363.469-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.691-1.666-.947-2.28-.248-.599-.501-.518-.69-.527l-.589-.009c-.204 0-.535.077-.816.381-.28.305-1.071 1.047-1.071 2.554 0 1.507 1.096 2.965 1.249 3.172.152.208 2.157 3.295 5.225 4.617.729.314 1.298.502 1.742.643.731.233 1.396.2 1.923.122.587-.088 1.848-.756 2.11-1.448.263-.693.263-1.289.185-1.413-.078-.124-.282-.204-.595-.36z"/>
+        </svg>
+      </a>
+    </div>
+  );
+}
