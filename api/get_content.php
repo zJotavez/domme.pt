@@ -52,6 +52,7 @@ try {
         $page['related_products'] = json_decode($page['related_products'] ?? '[]', true);
         $page['benefits'] = json_decode($page['benefits'] ?? '[]', true);
         $page['work_process'] = json_decode($page['work_process'] ?? '[]', true);
+        $page['gallery_images'] = json_decode($page['gallery_images'] ?? '[]', true);
         $servicePages[] = $page;
     }
 
@@ -74,7 +75,7 @@ try {
             'home' => $home,
             'about' => $about,
             'services' => $services,
-            'servicePages' => $servicePages,
+            'service_pages' => $servicePages,
             'suppliers' => $suppliers,
             'gallery' => $gallery,
             'seo' => $seo

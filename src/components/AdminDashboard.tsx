@@ -90,7 +90,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
         
         // Auto select first service for page detail editor
         if (d.services && d.services.length > 0) {
-          handleSelectService(d.services[0].id, d.servicePages, d.services[0]);
+          handleSelectService(d.services[0].id, d.service_pages, d.services[0]);
         }
       }
 
@@ -176,7 +176,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
   // Handle service selection to populate service page forms
   const handleSelectService = (id: number, allPages?: any[], serviceObj?: any) => {
     setSelectedServiceId(id);
-    const pages = allPages || siteData?.servicePages || [];
+    const pages = allPages || siteData?.service_pages || [];
     const activePage = pages.find((p: any) => p.service_id === id);
     const currentService = serviceObj || servicesList.find((s: any) => s.id === id);
 
@@ -440,7 +440,16 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
       const idx = parseInt(form.split("_")[1]);
       setServicesList(prev => prev.map((s, i) => i === idx ? { ...s, [field]: filePath } : s));
     } else if (form === "service_page") {
-      setServicePageForm((prev: any) => ({ ...prev, [field]: filePath }));
+      if (field.startsWith("gallery_image_")) {
+        const index = parseInt(field.split("_")[2]);
+        setServicePageForm((prev: any) => {
+          const list = [...(prev.gallery_images || ["", "", ""])];
+          list[index] = filePath;
+          return { ...prev, gallery_images: list };
+        });
+      } else {
+        setServicePageForm((prev: any) => ({ ...prev, [field]: filePath }));
+      }
     } else if (form === "supplier") {
       setEditingSupplier((prev: any) => ({ ...prev, [field]: filePath }));
     } else if (form === "gallery") {
@@ -1418,6 +1427,50 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
                         className="w-full bg-black border border-gray-800 focus:border-[#C28D35] focus:outline-none px-4 py-3 rounded text-sm text-white"
                       />
                     </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-2 border-t border-gray-900 pt-5">
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-[#C28D35] mb-4">Galeria de Imagens da Subpágina (3 Imagens)</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[0, 1, 2].map((idx) => {
+                      const imgVal = (servicePageForm.gallery_images && servicePageForm.gallery_images[idx]) || "";
+                      return (
+                        <div key={idx} className="flex flex-col gap-2">
+                          <label className="block text-xs font-mono uppercase tracking-wider text-gray-400">Imagem {idx + 1}</label>
+                          <div className="flex gap-2">
+                            <input
+                              type="text"
+                              value={imgVal}
+                              onChange={(e) => {
+                                const list = [...(servicePageForm.gallery_images || ["", "", ""])];
+                                list[idx] = e.target.value;
+                                setServicePageForm({ ...servicePageForm, gallery_images: list });
+                              }}
+                              className="w-full bg-black border border-gray-800 focus:border-[#C28D35] focus:outline-none px-3 py-2 rounded text-xs text-white"
+                              placeholder={`images/cctv-${idx + 1}.png`}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => openMediaSelector("service_page", `gallery_image_${idx}`)}
+                              className="bg-[#C28D35] hover:bg-[#A37125] text-black px-3 py-2 rounded text-xs font-mono uppercase tracking-wider transition-colors shrink-0"
+                            >
+                              Escolher
+                            </button>
+                          </div>
+                          {imgVal && (
+                            <div className="w-full h-24 rounded border border-gray-900 bg-black/50 overflow-hidden relative flex items-center justify-center">
+                              <img
+                                src={imgVal.startsWith("http") || imgVal.startsWith("/") ? imgVal : `/${imgVal}`}
+                                alt={`Previsualização ${idx + 1}`}
+                                className="w-full h-full object-cover"
+                                onError={(e: any) => { e.target.style.display = 'none'; }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 

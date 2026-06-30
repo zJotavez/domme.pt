@@ -23,6 +23,7 @@ $applications = isset($input['applications']) ? json_encode($input['applications
 $related_products = isset($input['related_products']) ? json_encode($input['related_products'], JSON_UNESCAPED_UNICODE) : '[]';
 $benefits = isset($input['benefits']) ? json_encode($input['benefits'], JSON_UNESCAPED_UNICODE) : '[]';
 $work_process = isset($input['work_process']) ? json_encode($input['work_process'], JSON_UNESCAPED_UNICODE) : '[]';
+$gallery_images = isset($input['gallery_images']) ? json_encode($input['gallery_images'], JSON_UNESCAPED_UNICODE) : '[]';
 
 $final_cta_title = trim($input['final_cta_title'] ?? '');
 $final_cta_text = trim($input['final_cta_text'] ?? '');
@@ -47,8 +48,9 @@ try {
             UPDATE service_pages 
             SET page_title = :page_title, impact_phrase = :impact_phrase, full_description = :full_description, 
                 applications = :applications, related_products = :related_products, benefits = :benefits, 
-                work_process = :work_process, final_cta_title = :final_cta_title, final_cta_text = :final_cta_text, 
-                seo_title = :seo_title, seo_description = :seo_description, seo_keywords = :seo_keywords
+                work_process = :work_process, gallery_images = :gallery_images, final_cta_title = :final_cta_title, 
+                final_cta_text = :final_cta_text, seo_title = :seo_title, seo_description = :seo_description, 
+                seo_keywords = :seo_keywords
             WHERE service_id = :service_id
         ");
         $stmt->execute([
@@ -59,6 +61,7 @@ try {
             'related_products' => $related_products,
             'benefits' => $benefits,
             'work_process' => $work_process,
+            'gallery_images' => $gallery_images,
             'final_cta_title' => $final_cta_title,
             'final_cta_text' => $final_cta_text,
             'seo_title' => $seo_title,
@@ -68,8 +71,8 @@ try {
         ]);
     } else {
         $stmt = $pdo->prepare("
-            INSERT INTO service_pages (service_id, page_title, impact_phrase, full_description, applications, related_products, benefits, work_process, final_cta_title, final_cta_text, seo_title, seo_description, seo_keywords)
-            VALUES (:service_id, :page_title, :impact_phrase, :full_description, :applications, :related_products, :benefits, :work_process, :final_cta_title, :final_cta_text, :seo_title, :seo_description, :seo_keywords)
+            INSERT INTO service_pages (service_id, page_title, impact_phrase, full_description, applications, related_products, benefits, work_process, gallery_images, final_cta_title, final_cta_text, seo_title, seo_description, seo_keywords)
+            VALUES (:service_id, :page_title, :impact_phrase, :full_description, :applications, :related_products, :benefits, :work_process, :gallery_images, :final_cta_title, :final_cta_text, :seo_title, :seo_description, :seo_keywords)
         ");
         $stmt->execute([
             'service_id' => $service_id,
@@ -80,6 +83,7 @@ try {
             'related_products' => $related_products,
             'benefits' => $benefits,
             'work_process' => $work_process,
+            'gallery_images' => $gallery_images,
             'final_cta_title' => $final_cta_title,
             'final_cta_text' => $final_cta_text,
             'seo_title' => $seo_title,

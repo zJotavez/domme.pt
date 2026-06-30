@@ -90,6 +90,7 @@ export interface DbServicePage {
   related_products: string[];
   benefits: string[];
   work_process: string[];
+  gallery_images?: string[];
   final_cta_title: string;
   final_cta_text: string;
   seo_title: string;

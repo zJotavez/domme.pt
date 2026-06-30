@@ -31,7 +31,7 @@ export default function App() {
       })
       .then((res) => {
         if (res.success) {
-          setDbData(res);
+          setDbData(res.data);
         }
       })
       .catch((err) => {
