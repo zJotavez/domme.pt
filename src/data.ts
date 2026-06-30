@@ -3,7 +3,7 @@ import { Solution, Environment, Partner, TimelineStep, ProjectItem } from "./typ
 export const CONTACT_INFO = {
   phone: "+351 918 880 788",
   whatsapp: "+351 918 880 788", // Colocar apenas números (ex: "351912345678") para o WhatsApp link funcionar corretamento quando preenchido
-  email: "[Inserir E-mail]",
+  email: "suporte@domme.pt",
   address: "Portugal",
   slogan: "Soluções inteligentes para a sua segurança",
   workingHoursWeek: "Segunda a Sexta-feira: 09:00h às 18:30h",

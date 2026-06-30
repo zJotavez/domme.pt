@@ -24,7 +24,12 @@ export function About({ content }: AboutProps) {
       return url;
     }
     const cleanUrl = url.replace(/^\//, '');
-    return `${API_BASE}/${cleanUrl}`;
+    if (API_BASE) {
+      return `${API_BASE}/${cleanUrl}`;
+    }
+    const base = import.meta.env.BASE_URL || "/";
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    return `${cleanBase}${cleanUrl}`;
   };
 
   const aboutTitle = content?.title || "Sobre a Cotton Dome LDA";

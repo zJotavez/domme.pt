@@ -1461,7 +1461,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
                           {imgVal && (
                             <div className="w-full h-24 rounded border border-gray-900 bg-black/50 overflow-hidden relative flex items-center justify-center">
                               <img
-                                src={imgVal.startsWith("http") || imgVal.startsWith("/") ? imgVal : `/${imgVal}`}
+                                src={imgVal.startsWith("http") || imgVal.startsWith("data:") ? imgVal : (imgVal.startsWith("/") ? `${API_BASE}${imgVal}` : `${API_BASE}/${imgVal}`)}
                                 alt={`Previsualização ${idx + 1}`}
                                 className="w-full h-full object-cover"
                                 onError={(e: any) => { e.target.style.display = 'none'; }}

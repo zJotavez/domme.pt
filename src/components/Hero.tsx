@@ -12,14 +12,18 @@ interface HeroProps {
 }
 
 export function Hero({ onQuoteClick, onExploreClick, content }: HeroProps) {
-  // Resolve media URLs
   const resolveMediaUrl = (url: string | undefined, defaultUrl: string) => {
     if (!url) return defaultUrl;
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
       return url;
     }
     const cleanUrl = url.replace(/^\//, '');
-    return `${API_BASE}/${cleanUrl}`;
+    if (API_BASE) {
+      return `${API_BASE}/${cleanUrl}`;
+    }
+    const base = import.meta.env.BASE_URL || "/";
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    return `${cleanBase}${cleanUrl}`;
   };
 
   const heroTitle = content?.hero_title || "Segurança Inteligente para Residências, Empresas e Condomínios";
