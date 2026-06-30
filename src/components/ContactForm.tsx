@@ -82,10 +82,10 @@ export function ContactForm({ selectedService, onClearService, settings, service
       });
   };
 
-  // Resolve contact settings
+  // Resolve contact settings — email fixo sempre em suporte@domme.pt
   const phoneVal = settings?.phone || CONTACT_INFO.phone;
   const whatsappVal = settings?.whatsapp || CONTACT_INFO.whatsapp;
-  const emailVal = "suporte@domme.pt";
+  const emailVal = "suporte@domme.pt"; // FIXO: não usar settings.email que pode conter placeholder do banco de dados
   const addressVal = settings?.address || CONTACT_INFO.address;
   const hoursWeekVal = settings?.working_hours_week || CONTACT_INFO.workingHoursWeek;
   const hoursSatVal = settings?.working_hours_sat || CONTACT_INFO.workingHoursSat;
@@ -173,6 +173,20 @@ export function ContactForm({ selectedService, onClearService, settings, service
                       {phoneVal}
                     </a>
                     <span className="text-[10px] text-gray-500 block mt-0.5">Chamada para a rede móvel nacional</span>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded bg-[#1A1A1A] border border-[#E2AF55]/25 flex items-center justify-center text-[#E2AF55] flex-shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="block font-display text-[10px] uppercase tracking-wider text-gray-500 font-bold">E-mail</span>
+                    <a href={emailHref} className="block text-sm text-white hover:text-[#E2AF55] font-mono transition-colors mt-0.5">
+                      {emailVal}
+                    </a>
+                    <span className="text-[10px] text-gray-500 block mt-0.5">Resposta em 24h úteis</span>
                   </div>
                 </div>
 
