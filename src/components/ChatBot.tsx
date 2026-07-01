@@ -175,15 +175,15 @@ const FAQ: Record<"pt" | "en" | "fr", { triggers: string[]; answer: string }[]> 
 };
 
 const GREETINGS: Record<"pt" | "en" | "fr", string> = {
-  pt: "Olá! Tudo bem? 😊 Sou a assistente virtual da **Cotton Dome LDA**.\n\nEstou aqui para responder às suas dúvidas sobre segurança, alarmes, CCTV e automatismos. Como o posso ajudar hoje?",
-  en: "Hello! 😊 I'm the **Cotton Dome LDA** virtual assistant.\n\nI can help you with information about our security systems, alarm setups, and quotes. How can I help you today?",
-  fr: "Bonjour! 😊 Je suis l'assistant virtuel de **Cotton Dome LDA**.\n\nJe suis à votre disposition pour toute information sur nos solutions de sécurité et devis. Comment puis-je vous aider aujourd'hui?"
+  pt: "Olá! Tudo bem? 😊 Sou a assistente virtual da **Cotton Dome LDA**.\n\nEstou aqui para te ajudar com qualquer dúvida sobre os nossos serviços de segurança. Para receberes um orçamento personalizado e suporte imediato, clica no link abaixo para falares connosco diretamente no WhatsApp:\n\n👉 [Falar no WhatsApp](https://wa.me/351918880788)",
+  en: "Hello! 😊 I'm the **Cotton Dome LDA** virtual assistant.\n\nI'm here to help you with any questions about our security systems. To get a personalized quote or immediate support, click the link below to chat with us directly on WhatsApp:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
+  fr: "Bonjour! 😊 Je suis l'assistant virtuel de **Cotton Dome LDA**.\n\nJe suis là pour vous aider avec toutes vos questions sur nos systèmes de sécurité. Pour obtenir un devis personnalisé ou une assistance immédiate, cliquez sur le lien ci-dessous pour discuter directement avec nous sur WhatsApp:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
 };
 
 const DEFAULT_ANSWERS: Record<"pt" | "en" | "fr", string> = {
-  pt: "Peço desculpa, não compreendi totalmente a sua questão. Posso ajudar com informações sobre os nossos serviços (CCTV, Alarmes, Acessos, Incêndio, Automatismos, Redes, UPS) ou se preferir, pode falar diretamente connosco através do [WhatsApp clicando aqui](https://wa.me/351918880788).",
-  en: "Sorry, I didn't quite understand your question. I can help with information about our services (CCTV, Alarms, Access, Fire, Automation, Networks, UPS) or if you prefer, you can talk to us directly on [WhatsApp by clicking here](https://wa.me/351918880788).",
-  fr: "Désolé, je n'ai pas bien compris votre question. Je peux vous aider avec des informations sur nos services (CCTV, Alarmes, Accès, Incendie, Automatismes, Réseaux, UPS) ou vous pouvez nous contacter directement sur [WhatsApp en cliquant ici](https://wa.me/351918880788)."
+  pt: "Olá! Para te ajudar da forma mais rápida com o teu orçamento ou qualquer dúvida sobre segurança, por favor fala diretamente connosco pelo WhatsApp no link abaixo:\n\n👉 [Iniciar Conversa no WhatsApp](https://wa.me/351918880788)",
+  en: "Hello! To help you as quickly as possible with your quote or any security questions, please contact us directly on WhatsApp using the link below:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
+  fr: "Bonjour! Pour vous aider le plus rapidement possible avec votre devis ou toute question de sécurité, veuillez nous contacter directement sur WhatsApp via le lien ci-dessous:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
 };
 
 const PLACEHOLDER: Record<"pt" | "en" | "fr", string> = {
@@ -325,7 +325,7 @@ export function ChatBot({ lang }: ChatBotProps) {
   return (
     <>
       {/* ── Floating Trigger Button ── */}
-      <div className="fixed bottom-[5.5rem] left-6 z-50">
+      <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Abrir chat de suporte / Open support chat"
@@ -363,7 +363,7 @@ export function ChatBot({ lang }: ChatBotProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed bottom-[7.5rem] left-6 z-50 w-[340px] sm:w-[380px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.8)] border border-[#2a2a2a] flex flex-col"
+            className="fixed bottom-24 right-6 z-50 w-[340px] sm:w-[380px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.8)] border border-[#2a2a2a] flex flex-col"
             style={{ maxHeight: "520px" }}
           >
             {/* Header */}
