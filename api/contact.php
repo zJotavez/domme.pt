@@ -1,6 +1,6 @@
 <?php
 /**
- * Cotton Dome LDA - Contact Form Submission API
+ * Cotton Dome LDA - Contact Form Submission API (JSON backend)
  */
 
 header('Access-Control-Allow-Origin: *');
@@ -32,23 +32,25 @@ if (empty($name) || !$email || empty($message)) {
 }
 
 try {
-    // 1. Insert message into database
-    $stmt = $pdo->prepare("
-        INSERT INTO contact_messages (name, phone, email, service, message, status) 
-        VALUES (:name, :phone, :email, :service, :message, 'new')
-    ");
-    $stmt->execute([
+    // 1. Insert message into messages JSON file
+    $messages = readMessages();
+    $newId = count($messages) > 0 ? max(array_map('intval', array_column($messages, 'id'))) + 1 : 1;
+    
+    $messages[] = [
+        'id' => $newId,
         'name' => $name,
         'phone' => $phone,
         'email' => $email,
         'service' => $service,
-        'message' => $message
-    ]);
+        'message' => $message,
+        'status' => 'new',
+        'created_at' => date('Y-m-d H:i:s')
+    ];
+    writeMessages($messages);
 
-    $settingsStmt = $pdo->query("SELECT company_name FROM site_settings LIMIT 1");
-    $settings = $settingsStmt->fetch();
+    $data = readData();
+    $companyName = $data['settings']['company_name'] ?? 'Cotton Dome LDA';
     $toEmail = 'suporte@domme.pt';
-    $companyName = ($settings && !empty($settings['company_name'])) ? $settings['company_name'] : 'Cotton Dome LDA';
 
     // 3. Send Notification Email via PHP mail()
     $subject = "Novo Contacto Recebido - " . $companyName;
@@ -80,7 +82,7 @@ try {
     $headers .= "From: no-reply@domme.pt" . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
 
-    // Attempt to send email (suppress errors if mail isn't configured on local server)
+    // Attempt to send email
     @mail($toEmail, $subject, $body, $headers);
 
     echo json_encode([

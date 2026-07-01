@@ -6,7 +6,6 @@ import {
   ChevronRight, Menu, HelpCircle, Phone, Mail, MapPin, ExternalLink
 } from "lucide-react";
 import { LucideIcon } from "./LucideIcon";
-import { supabase } from "../lib/supabase";
 import {
   getSiteContent,
   getMessages,
@@ -24,6 +23,8 @@ import {
   saveGallery,
   saveSeo,
 } from "../lib/database";
+
+const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 interface AdminDashboardProps {
   onNavigate: (path: string) => void;
@@ -89,15 +90,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
   const fetchAllData = async () => {
     setDataLoading(true);
     try {
-      // 1. Check Supabase Auth session
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        setIsLoggedIn(false);
-        setDataLoading(false);
-        return;
-      }
-
-      // 2. Fetch site content
+      // 1. Fetch site content
       const contentRes = await getSiteContent();
       if (contentRes.success && contentRes.data) {
         const d = contentRes.data;
@@ -115,7 +108,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
         }
       }
 
-      // 3. Fetch messages & media
+      // 2. Fetch messages & media
       const [msgs, media] = await Promise.all([getMessages(), getMediaList()]);
       setMessages(msgs);
       setMediaList(media);
@@ -129,30 +122,25 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     }
   };
 
-  // Check login status on mount (listen to Supabase Auth changes)
+  // Check login status on mount
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        fetchAllData();
-      } else {
-        setIsLoggedIn(false);
-        setIsLoggedIn(prevState => {
-          if (prevState === null) setTimeout(() => setIsLoggedIn(false), 0);
-          return prevState;
-        });
+    const checkAuth = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/auth_check.php`, { credentials: 'include' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            setIsLoggedIn(true);
+            fetchAllData();
+            return;
+          }
+        }
+      } catch (e) {
+        console.error("Auth check failed", e);
       }
-    });
-
-    // Initial check
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        fetchAllData();
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-
-    return () => subscription.unsubscribe();
+      setIsLoggedIn(false);
+    };
+    checkAuth();
   }, []);
 
   // Alert handler
@@ -161,7 +149,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     setTimeout(() => setAlert(null), 5000);
   };
 
-  // Handles Login via Supabase Auth
+  // Handles Login via local PHP API
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput || !passwordInput) {
@@ -172,15 +160,20 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     setAuthError("");
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: usernameInput,
-        password: passwordInput,
+      const res = await fetch(`${API_BASE}/api/login.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: usernameInput, password: passwordInput }),
+        credentials: 'include'
       });
-      if (error) {
-        setAuthError("E-mail ou palavra-passe incorretos.");
-      } else {
+      
+      const data = await res.json();
+      if (data.success) {
         showAlert("success", "Autenticação efetuada com sucesso!");
+        setIsLoggedIn(true);
         fetchAllData();
+      } else {
+        setAuthError(data.error || "Nome de utilizador ou palavra-passe incorreta.");
       }
     } catch (err) {
       setAuthError("Erro de ligação ao servidor. Tente novamente.");
@@ -189,9 +182,11 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     }
   };
 
-  // Handles Logout via Supabase Auth
+  // Handles Logout via local PHP API
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    try {
+      await fetch(`${API_BASE}/api/logout.php`, { credentials: 'include' });
+    } catch (e) {}
     setIsLoggedIn(false);
     onNavigate("/");
   };
@@ -341,10 +336,10 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     }
   };
 
-  // Save administrator password update via Supabase Auth
+  // Save administrator credentials update via local PHP API
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newPassword || !confirmPassword) {
+    if (!currentPassword || !newPassword || !confirmPassword) {
       showAlert("error", "Por favor preencha todos os campos.");
       return;
     }
@@ -355,17 +350,25 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
     
     setActionLoading("password");
     try {
-      const updatePayload: any = { password: newPassword };
-      if (newUsername) updatePayload.email = newUsername;
-      const { error } = await supabase.auth.updateUser(updatePayload);
-      if (error) {
-        showAlert("error", error.message || "Erro ao atualizar credenciais.");
-      } else {
+      const res = await fetch(`${API_BASE}/api/admin/change_password.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          current_password: currentPassword,
+          new_password: newPassword,
+          username: newUsername || null
+        }),
+        credentials: 'include'
+      });
+      const data = await res.json();
+      if (data.success) {
         showAlert("success", "Credenciais de administrador atualizadas com sucesso!");
         setCurrentPassword("");
         setNewPassword("");
         setConfirmPassword("");
         setNewUsername("");
+      } else {
+        showAlert("error", data.error || "Senha atual incorreta.");
       }
     } catch (err: any) {
       showAlert("error", "Erro ao comunicar com o servidor.");

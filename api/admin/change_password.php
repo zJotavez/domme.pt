@@ -1,6 +1,6 @@
 <?php
 /**
- * Cotton Dome LDA - Change Admin Password API
+ * Cotton Dome LDA - Change Admin Password API (JSON credentials storage)
  */
 
 require_once __DIR__ . '/auth_check.php';
@@ -29,51 +29,28 @@ if (strlen($newPassword) < 8) {
     exit;
 }
 
-try {
-    $adminId = $_SESSION['admin_id'];
-    
-    // Fetch current user details
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
-    $stmt->execute(['id' => $adminId]);
-    $user = $stmt->fetch();
+// Verify current password hash
+if (!password_verify($currentPassword, ADMIN_PASSWORD_HASH)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'A palavra-passe atual está incorreta.'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
-    if (!$user || !password_verify($currentPassword, $user['password_hash'])) {
-        http_response_code(400);
-        echo json_encode(['success' => false, 'error' => 'A palavra-passe atual está incorreta.'], JSON_UNESCAPED_UNICODE);
-        exit;
-    }
+// Generate new hash
+$newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+$usernameToSave = !empty($newUsername) ? $newUsername : ADMIN_USERNAME;
 
-    // Update details
-    $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-    
-    if (!empty($newUsername)) {
-        // Check if username is already taken by another user
-        $check = $pdo->prepare("SELECT id FROM users WHERE username = :username AND id != :id");
-        $check->execute(['username' => $newUsername, 'id' => $adminId]);
-        if ($check->fetchColumn()) {
-            http_response_code(400);
-            echo json_encode(['success' => false, 'error' => 'Este nome de utilizador já está em uso.'], JSON_UNESCAPED_UNICODE);
-            exit;
-        }
+// Write to credentials.json
+$credFile = DATA_DIR . 'credentials.json';
+$creds = [
+    'username' => $usernameToSave,
+    'password_hash' => $newHash
+];
 
-        $update = $pdo->prepare("UPDATE users SET username = :username, password_hash = :hash WHERE id = :id");
-        $update->execute([
-            'username' => $newUsername,
-            'hash' => $newHash,
-            'id' => $adminId
-        ]);
-        $_SESSION['admin_username'] = $newUsername;
-    } else {
-        $update = $pdo->prepare("UPDATE users SET password_hash = :hash WHERE id = :id");
-        $update->execute([
-            'hash' => $newHash,
-            'id' => $adminId
-        ]);
-    }
-
+if (file_put_contents($credFile, json_encode($creds, JSON_PRETTY_PRINT))) {
+    $_SESSION['admin_user'] = $usernameToSave;
     echo json_encode(['success' => true, 'message' => 'Credenciais de acesso atualizadas com sucesso.'], JSON_UNESCAPED_UNICODE);
-
-} catch (Exception $e) {
+} else {
     http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Erro ao atualizar palavra-passe: ' . $e->getMessage()]);
+    echo json_encode(['success' => false, 'error' => 'Erro ao salvar credenciais no ficheiro.'], JSON_UNESCAPED_UNICODE);
 }

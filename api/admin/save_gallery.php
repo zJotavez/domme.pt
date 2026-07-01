@@ -1,93 +1,48 @@
 <?php
-/**
- * Cotton Dome LDA - Save/Delete Gallery Items API
- */
+require_once __DIR__ . '/../../config.php';
+header('Content-Type: application/json; charset=utf-8');
+requireAuth();
 
-require_once __DIR__ . '/auth_check.php';
+$body = json_decode(file_get_contents('php://input'), true) ?: [];
+$data = readData();
+$gallery = $data['gallery'] ?? [];
+$action = $body['action'] ?? 'save';
+$id = intval($body['id'] ?? 0);
 
-$input = json_decode(file_get_contents('php://input'), true);
-
-if (!$input) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Dados inválidos.'], JSON_UNESCAPED_UNICODE);
-    exit;
-}
-
-$action = trim($input['action'] ?? 'save');
-$id = isset($input['id']) ? intval($input['id']) : null;
-
-// Delete action
 if ($action === 'delete') {
-    if (!$id) {
-        http_response_code(400);
-        echo json_encode(['success' => false, 'error' => 'ID em falta para eliminação.'], JSON_UNESCAPED_UNICODE);
-        exit;
-    }
-    try {
-        $stmt = $pdo->prepare("DELETE FROM gallery WHERE id = :id");
-        $stmt->execute(['id' => $id]);
-        echo json_encode(['success' => true, 'message' => 'Item de galeria eliminado com sucesso.'], JSON_UNESCAPED_UNICODE);
-        exit;
-    } catch (Exception $e) {
-        http_response_code(500);
-        echo json_encode(['success' => false, 'error' => 'Erro ao eliminar item de galeria: ' . $e->getMessage()]);
-        exit;
-    }
+    $gallery = array_values(array_filter($gallery, fn($g) => intval($g['id']) !== $id));
+    $data['gallery'] = $gallery;
+    writeData($data);
+    jsonResponse(true, null, 'Item de galeria eliminado com sucesso.');
 }
 
-// Save/Upsert action
-$title = trim($input['title'] ?? '');
-$category = trim($input['category'] ?? '');
-$description = trim($input['description'] ?? '');
-$image = trim($input['image'] ?? '');
-$is_active = isset($input['is_active']) ? intval($input['is_active']) : 1;
-$display_order = isset($input['display_order']) ? intval($input['display_order']) : 0;
-
-if (empty($title) || empty($image)) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Título e Imagem são obrigatórios.'], JSON_UNESCAPED_UNICODE);
-    exit;
-}
-
-try {
-    if ($id) {
-        // Update
-        $stmt = $pdo->prepare("
-            UPDATE gallery 
-            SET title = :title, category = :category, description = :description, image = :image, 
-                is_active = :is_active, display_order = :display_order
-            WHERE id = :id
-        ");
-        $stmt->execute([
-            'title' => $title,
-            'category' => $category,
-            'description' => $description,
-            'image' => $image,
-            'is_active' => $is_active,
-            'display_order' => $display_order,
-            'id' => $id
-        ]);
-        $message = 'Item de galeria atualizado com sucesso.';
-    } else {
-        // Insert
-        $stmt = $pdo->prepare("
-            INSERT INTO gallery (title, category, description, image, is_active, display_order)
-            VALUES (:title, :category, :description, :image, :is_active, :display_order)
-        ");
-        $stmt->execute([
-            'title' => $title,
-            'category' => $category,
-            'description' => $description,
-            'image' => $image,
-            'is_active' => $is_active,
-            'display_order' => $display_order
-        ]);
-        $id = $pdo->lastInsertId();
-        $message = 'Item de galeria criado com sucesso.';
+if ($action === 'save') {
+    $found = false;
+    foreach ($gallery as &$item) {
+        if (intval($item['id']) === $id) {
+            foreach (['title', 'image_url', 'category', 'description', 'order_index'] as $k) {
+                if (isset($body[$k])) $item[$k] = $body[$k];
+            }
+            $found = true;
+            break;
+        }
     }
-
-    echo json_encode(['success' => true, 'message' => $message, 'id' => $id], JSON_UNESCAPED_UNICODE);
-} catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Erro ao guardar item de galeria: ' . $e->getMessage()]);
+    
+    if (!$found) {
+        $newId = count($gallery) > 0 ? max(array_map('intval', array_column($gallery, 'id'))) + 1 : 1;
+        $gallery[] = [
+            'id' => $newId,
+            'title' => $body['title'] ?? '',
+            'image_url' => $body['image_url'] ?? '',
+            'category' => $body['category'] ?? '',
+            'description' => $body['description'] ?? '',
+            'order_index' => intval($body['order_index'] ?? 0)
+        ];
+    }
+    
+    $data['gallery'] = array_values($gallery);
+    writeData($data);
+    jsonResponse(true, null, 'Item de galeria gravado com sucesso.');
 }
+
+jsonResponse(false, null, 'Ação inválida.');
