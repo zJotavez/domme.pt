@@ -1,109 +1,172 @@
 import React from "react";
 import { motion } from "motion/react";
-import { PARTNERS } from "../data";
-import { ExternalLink, Check } from "lucide-react";
-import { DbSupplier } from "../types";
-import { TRANSLATIONS } from "../translations";
+import { ShieldCheck, Award, HeartHandshake, Check } from "lucide-react";
 
 interface PartnersProps {
-  suppliers?: DbSupplier[];
+  suppliers?: any[];
   lang?: "pt" | "en" | "fr";
 }
 
-export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
-  const t = TRANSLATIONS[lang];
-
-  // Use DB suppliers if provided, else fall back to static data
-  const activeSuppliers = suppliers && suppliers.length > 0 ? suppliers : PARTNERS;
-
-  // Generic focus points for dynamically added brands
-  const getSupplierFocus = (sup: any) => {
-    if (sup.focus && Array.isArray(sup.focus)) {
-      return sup.focus;
-    }
-    const nameLower = sup.name.toLowerCase();
-    if (nameLower.includes("motorline")) {
-      return lang === "pt" ? [
-        "Motores de alto rendimento para portões",
-        "Barreiras automáticas e pilares retráteis",
-        "Sistemas integrados de controlo de acessos"
-      ] : lang === "en" ? [
-        "High-performance gate motors",
-        "Automatic barriers and retractable bollards",
-        "Integrated access control systems"
-      ] : [
-        "Moteurs de portail haute performance",
-        "Barrières automatiques et bornes escamotables",
-        "Systèmes de contrôle d'accès intégrés"
-      ];
-    }
-    if (nameLower.includes("visiotech")) {
-      return lang === "pt" ? [
-        "Equipamentos de CCTV e inteligência analítica",
-        "Sistemas avançados de deteção de intrusão",
-        "Centrais e sensores certificados de incêndio"
-      ] : lang === "en" ? [
-        "CCTV equipment and analytical intelligence",
-        "Advanced intrusion detection systems",
-        "Certified fire panels and sensors"
-      ] : [
-        "Équipement de CCTV et intelligence analytique",
-        "Systèmes avancés de détection d'intrusion",
-        "Centrales et capteurs d'incendie certifiés"
-      ];
-    }
-    return lang === "pt" ? [
-      "Integração de equipamentos certificados",
-      "Soluções de alta fiabilidade operacional",
-      "Garantia de conformidade técnica e durabilidade"
-    ] : lang === "en" ? [
-      "Integration of certified equipment",
-      "High operational reliability solutions",
-      "Technical compliance and durability warranty"
-    ] : [
-      "Intégration d'équipements certifiés",
-      "Solutions de haute fiabilité opérationnelle",
-      "Garantia de conformidade técnica e durabilidade"
-    ];
+export function Partners({ lang = "pt" }: PartnersProps) {
+  const cardsData = {
+    pt: [
+      {
+        id: "qualidade",
+        title: "Qualidade Máxima Garantida",
+        description: "Trabalhamos exclusivamente com equipamentos de alto desempenho e fiabilidade comprovada. Cada componente é selecionado seguindo os mais rigorosos testes de qualidade.",
+        icon: Award,
+        focusPoints: [
+          "Componentes eletrónicos topo de gama",
+          "Dispositivos testados sob condições extremas",
+          "Resistência superior a vandalismo e desgaste",
+        ],
+        footerText: "Equipamentos 100% originais e certificados"
+      },
+      {
+        id: "garantia",
+        title: "Garantia Integral & Suporte",
+        description: "Garantimos a total conformidade das nossas instalações. Oferecemos assistência técnica pós-venda rápida e eficiente, assegurando que o seu sistema permanece operacional.",
+        icon: ShieldCheck,
+        focusPoints: [
+          "Acompanhamento técnico pós-instalação",
+          "Prazos de garantia e cobertura integral",
+          "Equipa dedicada para resolução de avarias",
+        ],
+        footerText: "Tranquilidade e proteção contínua"
+      },
+      {
+        id: "rigor",
+        title: "Compromisso e Rigor Técnico",
+        description: "Todos os nossos projetos e instalações cumprem com as mais exigentes normas europeias de segurança. Garantimos uma integração perfeita de sistemas complexos.",
+        icon: HeartHandshake,
+        focusPoints: [
+          "Instalação por técnicos credenciados",
+          "Integração perfeita entre múltiplos sistemas",
+          "Respeito integral pelas normas de segurança",
+        ],
+        footerText: "Conformidade e precisão de engenharia"
+      }
+    ],
+    en: [
+      {
+        id: "qualidade",
+        title: "Maximum Quality Guaranteed",
+        description: "We work exclusively with high-performance equipment and proven reliability. Each component is selected following the most rigorous quality tests.",
+        icon: Award,
+        focusPoints: [
+          "Top-of-the-line electronic components",
+          "Devices tested under extreme conditions",
+          "Superior resistance to vandalism and wear",
+        ],
+        footerText: "100% original and certified equipment"
+      },
+      {
+        id: "garantia",
+        title: "Full Warranty & Support",
+        description: "We guarantee the complete compliance of our installations. We offer fast and efficient after-sales technical assistance, ensuring your system remains operational.",
+        icon: ShieldCheck,
+        focusPoints: [
+          "Post-installation technical follow-up",
+          "Warranty periods and full coverage",
+          "Dedicated team for troubleshooting",
+        ],
+        footerText: "Peace of mind and continuous protection"
+      },
+      {
+        id: "rigor",
+        title: "Commitment & Technical Rigor",
+        description: "All our projects and installations comply with the most demanding European security standards. We guarantee seamless integration of complex systems.",
+        icon: HeartHandshake,
+        focusPoints: [
+          "Installation by certified technicians",
+          "Seamless integration between multiple systems",
+          "Full respect for security standards",
+        ],
+        footerText: "Compliance and engineering precision"
+      }
+    ],
+    fr: [
+      {
+        id: "qualidade",
+        title: "Qualité Maximale Garantie",
+        description: "Nous travaillons exclusivement avec des équipements de haute performance et d'une fiabilité prouvée. Chaque composant est sélectionné selon les tests de qualité les plus rigoureux.",
+        icon: Award,
+        focusPoints: [
+          "Composants électroniques haut de gamme",
+          "Appareils testés dans des conditions extrêmes",
+          "Résistance supérieure au vandalisme et à l'usure",
+        ],
+        footerText: "Équipements 100% originaux et certifiés"
+      },
+      {
+        id: "garantia",
+        title: "Garantie Intégrale & Support",
+        description: "Nous garantissons la conformité totale de nos installations. Nous offrons une assistance technique après-vente rapide et efficace, garantissant que votre système reste opérationnel.",
+        icon: ShieldCheck,
+        focusPoints: [
+          "Suivi technique post-installation",
+          "Périodes de garantie et couverture complète",
+          "Équipe dédiée au dépannage",
+        ],
+        footerText: "Tranquillité d'esprit et protection continue"
+      },
+      {
+        id: "rigor",
+        title: "Engagement & Rigueur Technique",
+        description: "Tous nos projets et installations sont conformes aux normes de sécurité européennes les plus exigeantes. Nous garantissons une intégration parfaite des systèmes complexes.",
+        icon: HeartHandshake,
+        focusPoints: [
+          "Installation par des techniciens certifiés",
+          "Intégration transparente entre plusieurs systèmes",
+          "Respect intégral des normes de sécurité",
+        ],
+        footerText: "Conformité et précision technique"
+      }
+    ]
   };
 
-  const getSupplierDescription = (sup: any) => {
-    const nameLower = sup.name.toLowerCase();
-    if (nameLower.includes("motorline")) {
-      return lang === "pt" 
-        ? "A Motorline Professional desenvolve e produz sistemas de automatismos para portões, barreiras automáticas e soluções de controlo de acessos inovadoras."
-        : lang === "en"
-        ? "Motorline Professional develops and produces automation systems for gates, automatic barriers and innovative access control solutions."
-        : "Motorline Professional développe et produit des systèmes d'automatisation pour portails, barrières automatiques et solutions innovantes de contrôle d'accès.";
+  const headerTexts = {
+    pt: {
+      tag: "Qualidade & Confiança",
+      title: "Compromisso com a Qualidade Máxima",
+      subtitle: "Garantimos a máxima durabilidade, segurança e excelência em cada sistema instalado pela Cotton Dome LDA.",
+      disclaimer: "* A Cotton Dome LDA implementa exclusivamente sistemas em conformidade com as diretivas e padrões de qualidade europeus.",
+      focusTag: "Pontos de Excelência:"
+    },
+    en: {
+      tag: "Quality & Trust",
+      title: "Commitment to Maximum Quality",
+      subtitle: "We guarantee maximum durability, security, and excellence in every system installed by Cotton Dome LDA.",
+      disclaimer: "* Cotton Dome LDA exclusively implements systems in compliance with European quality directives and standards.",
+      focusTag: "Points of Excellence:"
+    },
+    fr: {
+      tag: "Qualité & Confiance",
+      title: "Engagement pour une Qualité Maximale",
+      subtitle: "Nous garantissons une durabilité, une sécurité et une excellence maximales dans chaque système installé par Cotton Dome LDA.",
+      disclaimer: "* Cotton Dome LDA implémente exclusivement des systèmes conformes aux directives et normes de qualité européennes.",
+      focusTag: "Points d'Excellence :"
     }
-    if (nameLower.includes("visiotech")) {
-      return lang === "pt"
-        ? "A Visiotech é uma distribuidora líder em soluções de videovigilância, intrusão, controlo de acessos e sistemas de segurança eletrónica de alta tecnologia."
-        : lang === "en"
-        ? "Visiotech is a leading distributor of high-technology video surveillance, intrusion, access control and electronic security systems."
-        : "Visiotech est un distributeur de premier plan dans le domaine de la vidéosurveillance, de l'intrusion, du contrôle d'accès et des systèmes de sécurité.";
-    }
-    return sup.description;
   };
 
   const marquee1Texts = {
     pt: [
       "✦ GARANTIA DE QUALIDADE MÁXIMA",
-      "✦ FORNECEDORES DE REFERÊNCIA GLOBAL",
       "✦ EQUIPAMENTOS 100% HOMOLOGADOS",
-      "✦ RIGOR TÉCNICO E DE ENGENHARIA"
+      "✦ RIGOR TÉCNICO E DE ENGENHARIA",
+      "✦ SATISFAÇÃO E SEGURANÇA TOTAL"
     ],
     en: [
       "✦ MAXIMUM QUALITY GUARANTEE",
-      "✦ GLOBAL REFERENCE SUPPLIERS",
       "✦ 100% HOMOLOGATED EQUIPMENT",
-      "✦ TECHNICAL AND ENGINEERING RIGOR"
+      "✦ TECHNICAL AND ENGINEERING RIGOR",
+      "✦ TOTAL SATISFACTION AND SECURITY"
     ],
     fr: [
       "✦ GARANTIE DE QUALITÉ MAXIMALE",
-      "✦ FOURNISSEURS DE RÉFÉRENCE GLOBALE",
       "✦ ÉQUIPEMENTS 100% HOMOLOGUÉS",
-      "✦ RIGUEUR TECHNIQUE ET D'INGÉNIERIE"
+      "✦ RIGUEUR TECHNIQUE ET D'INGÉNIERIE",
+      "✦ SATISFACTION ET SÉCURITÉ TOTALE"
     ]
   };
 
@@ -130,6 +193,8 @@ export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
 
   const m1 = marquee1Texts[lang] || marquee1Texts.pt;
   const m2 = marquee2Texts[lang] || marquee2Texts.pt;
+  const content = headerTexts[lang] || headerTexts.pt;
+  const activeCards = cardsData[lang] || cardsData.pt;
 
   return (
     <section id="fornecedores" className="py-16 bg-[#0a0a0a] relative overflow-hidden border-t border-[#1a1a1a]">
@@ -162,7 +227,7 @@ export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
             viewport={{ once: true }}
             className="font-mono text-xs uppercase tracking-widest text-[#C28D35] mb-3"
           >
-            {t.partners.tag}
+            {content.tag}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -170,7 +235,7 @@ export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight mb-4"
           >
-            {t.partners.title}
+            {content.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -178,70 +243,47 @@ export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
             viewport={{ once: true }}
             className="text-sm sm:text-base text-[#CFCFCF] font-sans leading-relaxed"
           >
-            {t.partners.subtitle}
+            {content.subtitle}
           </motion.p>
         </div>
 
-        {/* Partners Cards (Desktop Grid) */}
-        <div className="hidden md:grid grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {activeSuppliers.map((partner: any, idx) => {
-            const linkUrl = partner.link || partner.website || "#";
-            const logoUrl = partner.logo;
-            const focusPoints = getSupplierFocus(partner);
-            const description = getSupplierDescription(partner);
+        {/* Quality Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {activeCards.map((card, idx) => {
+            const Icon = card.icon;
 
             return (
               <motion.div
-                key={partner.id}
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={card.id}
+                initial={{ opacity: 0, scale: 0.98, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 className="card-luxury rounded-xl p-8 flex flex-col justify-between group relative"
               >
                 <div>
-                  {/* Partner Header */}
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex flex-col">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-gray-500 mb-1">
-                        {t.partners.badge}
-                      </span>
-                      <h3 className="font-display font-bold text-xl text-white group-hover:text-[#E2AF55] transition-colors duration-300">
-                        {partner.name}
-                      </h3>
+                  {/* Card Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 rounded bg-[#1A1A1A] text-[#C28D35] border border-white/5 group-hover:border-[#E2AF55]/30 group-hover:text-[#E2AF55] transition-all duration-300">
+                      <Icon className="w-6 h-6" />
                     </div>
-                    {linkUrl && linkUrl !== "#" && (
-                      <a
-                        href={linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded bg-[#1A1A1A] hover:bg-[#E2AF55] hover:text-black text-gray-400 border border-white/5 transition-colors duration-300 flex items-center justify-center"
-                        aria-label={`Visitar o site da ${partner.name}`}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
+                    <h3 className="font-display font-bold text-lg text-white group-hover:text-[#E2AF55] transition-colors duration-300">
+                      {card.title}
+                    </h3>
                   </div>
 
-                  {/* Logo visualization */}
-                  {logoUrl && (
-                    <div className="w-full h-14 bg-black/45 border border-white/5 rounded-lg flex items-center justify-center p-3 mb-6">
-                      <img src={logoUrl} alt={partner.name} className="max-h-full max-w-full object-contain filter brightness-95 group-hover:brightness-100 transition" />
-                    </div>
-                  )}
-
-                  {/* Partner Description */}
+                  {/* Card Description */}
                   <p className="text-xs sm:text-sm text-[#D9D9D9] font-sans leading-relaxed mb-6">
-                    {description}
+                    {card.description}
                   </p>
 
                   {/* Focus List */}
-                  <div className="border-t border-[#222222] pt-4 mb-6">
+                  <div className="border-t border-[#222222] pt-5 mb-6">
                     <span className="block font-display text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-3">
-                      {lang === "pt" ? "Soluções de Confiança Integradas:" : lang === "en" ? "Integrated Trust Solutions:" : "Solutions de Confiance Intégrées :"}
+                      {content.focusTag}
                     </span>
-                    <div className="space-y-2">
-                      {focusPoints.map((item: string, itemIdx: number) => (
+                    <div className="space-y-2.5">
+                      {card.focusPoints.map((item, itemIdx) => (
                         <div key={itemIdx} className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#E2AF55]"></div>
                           <span className="text-xs text-[#D9D9D9] font-sans">{item}</span>
@@ -252,85 +294,18 @@ export function Partners({ suppliers, lang = "pt" }: PartnersProps) {
                 </div>
 
                 {/* Status footer inside card */}
-                <div className="flex items-center gap-2 text-xs text-gray-500 bg-black/45 px-3 py-2 rounded border border-white/5 font-mono">
+                <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-400 bg-black/45 px-3 py-2 rounded border border-white/5 font-mono mt-auto">
                   <Check className="w-3.5 h-3.5 text-[#E2AF55]" />
-                  <span>{t.partners.certified}</span>
+                  <span>{card.footerText}</span>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Mobile Partners Carousel (Marquee, hidden on Desktop) */}
-        <div className="md:hidden overflow-hidden relative py-4 w-full select-none">
-          <div className="animate-marquee-ltr flex gap-4 whitespace-nowrap min-w-full">
-            {[...activeSuppliers, ...activeSuppliers].map((partner: any, idx) => {
-              const linkUrl = partner.link || partner.website || "#";
-              const focusPoints = getSupplierFocus(partner);
-              const description = getSupplierDescription(partner);
-
-              return (
-                <div
-                  key={`${partner.id}-mobile-${idx}`}
-                  className="inline-block card-luxury rounded-xl p-5 w-[270px] shrink-0 whitespace-normal relative group"
-                >
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="flex flex-col">
-                      <span className="font-mono text-[8px] uppercase tracking-wider text-gray-500 mb-0.5">
-                        {t.partners.badge}
-                      </span>
-                      <h3 className="font-display font-bold text-sm text-white group-hover:text-[#E2AF55] transition-colors leading-tight">
-                        {partner.name}
-                      </h3>
-                    </div>
-                    {linkUrl && linkUrl !== "#" && (
-                      <a
-                        href={linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded bg-[#1A1A1A] text-gray-400 border border-white/5 flex items-center justify-center"
-                        aria-label={`Visitar o site da ${partner.name}`}
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-
-                  <p className="text-[10px] text-[#D9D9D9] font-sans leading-relaxed mb-4 h-[60px] line-clamp-3">
-                    {description}
-                  </p>
-
-                  <div className="border-t border-[#222222] pt-3 mb-4">
-                    <span className="block font-display text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">
-                      {lang === "pt" ? "Soluções Integradas:" : lang === "en" ? "Integrated Solutions:" : "Solutions Intégrées :"}
-                    </span>
-                    <div className="space-y-1.5">
-                      {focusPoints.map((item: string, itemIdx: number) => (
-                        <div key={itemIdx} className="flex items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full bg-[#E2AF55] flex-shrink-0"></div>
-                          <span className="text-[10px] text-[#D9D9D9] font-sans truncate">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-[9px] text-gray-500 bg-black/45 px-2 py-1.5 rounded border border-white/5 font-mono">
-                    <Check className="w-3 h-3 text-[#E2AF55] flex-shrink-0" />
-                    <span className="truncate">{t.partners.certified}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Trust disclaimer as requested */}
+        {/* Trust disclaimer */}
         <p className="text-center text-[10px] sm:text-xs text-gray-500 mt-12 font-sans max-w-xl mx-auto italic">
-          {lang === "pt" 
-            ? "* A Cotton Dome LDA trabalha com produtos e soluções de fornecedores reconhecidos."
-            : lang === "en"
-            ? "* Cotton Dome LDA works with products and solutions from recognized suppliers."
-            : "* Cotton Dome LDA travaille avec des produits et des solutions de fournisseurs reconnus."}
+          {content.disclaimer}
         </p>
 
       </div>

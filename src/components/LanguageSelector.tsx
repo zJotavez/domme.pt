@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 // Inline Flag SVGs to render correctly on all OS (including Windows)
 const FlagPT = () => (
@@ -61,7 +61,7 @@ export function LanguageSelector({ currentLang, onLangChange }: LanguageSelector
   const activeLang = languages.find((lang) => lang.code === currentLang) || languages[0];
 
   return (
-    <div ref={containerRef} className="fixed bottom-6 left-6 z-50">
+    <div ref={containerRef} className="fixed top-[22px] right-[76px] md:top-6 md:right-6 z-50">
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -69,17 +69,17 @@ export function LanguageSelector({ currentLang, onLangChange }: LanguageSelector
           className="flex items-center gap-2 px-3 py-2.5 rounded-full bg-[#111111]/90 border border-white/10 hover:border-[#E2AF55] text-white hover:text-[#E2AF55] shadow-lg shadow-black/60 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
         >
           {activeLang.flag}
-          <ChevronUp className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
         </button>
 
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-14 left-0 w-44 rounded-xl bg-[#111111] border border-white/10 shadow-2xl p-1.5 flex flex-col gap-1 z-50 backdrop-blur-md"
+              className="absolute top-12 right-0 w-44 rounded-xl bg-[#111111] border border-white/10 shadow-2xl p-1.5 flex flex-col gap-1 z-50 backdrop-blur-md"
             >
               {languages.map((lang) => (
                 <button
