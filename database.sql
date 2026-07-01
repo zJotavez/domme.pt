@@ -247,7 +247,7 @@ INSERT INTO `service_pages` (`service_id`, `page_title`, `impact_phrase`, `full_
 '["Ferragens de alta qualidade em ferro","Estruturas em aço inoxidável escovado/polido","Soldaduras estruturais certificadas","Tratamentos anticorrosivos por galvanização"]',
 '["Elevada resistência mecânica e durabilidade","Design personalizado e adaptado às medidas","Proteção física de janelas e montras comerciais","Acabamentos nobres em aço inox"]',
 '["Desenho de pormenor e medições em obra","Corte, quinagem e soldadura em oficina","Tratamento de superfície contra oxidação","Montagem e fixação com ancoragem química"]',
-'["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80","https://images.unsplash.com/photo-1534067783941-51c9c23eccfd?auto=format&fit=crop&w=600&q=80","https://images.unsplash.com/photo-1590486803833-ffc6de08d6f9?auto=format&fit=crop&w=600&q=80"]',
+'["images/portas-portoes-1.png","images/portas-portoes-2.png","images/portas-portoes-3.png"]',
 'Estruturas Metálicas Sob Medida', 'Desenvolvemos soluções de serralharia robustas e estéticas para a sua proteção.', 'Serralharia em Ferro e Inox | Cotton Dome LDA', 'Fabricação e montagem de portões metálicos, grades de proteção e serralharia por medida em ferro e aço inoxidável.', 'serralharia, ferro, aço inox, portões de ferro, grades de segurança, estruturas metálicas'),
 
 (9, 'Telecomunicações e Intercomunicação', 'Infraestrutura técnica para comunicação, conectividade e integração de sistemas.', 'A Cotton Dome LDA oferece soluções em telecomunicações para apoiar sistemas de segurança, redes, comunicação e infraestrutura técnica. O serviço permite criar ambientes mais conectados, organizados e preparados para operações modernas.',

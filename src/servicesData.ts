@@ -297,9 +297,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Serralharia em Ferro e Inox | Cotton Dome LDA",
     seoDescription: "Fabricação e montagem de portões metálicos, grades de proteção e serralharia por medida em ferro e aço inoxidável.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1534067783941-51c9c23eccfd?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1590486803833-ffc6de08d6f9?auto=format&fit=crop&w=600&q=80"
+      "/images/portas-portoes-1.png",
+      "/images/portas-portoes-2.png",
+      "/images/portas-portoes-3.png"
     ]
   },
   {

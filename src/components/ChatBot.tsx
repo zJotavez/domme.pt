@@ -21,43 +21,43 @@ const FAQ: Record<"pt" | "en" | "fr", { triggers: string[]; answer: string }[]> 
     },
     {
       triggers: ["cctv", "camera", "câmera", "câmara", "videovigilância", "vigilancia", "vigilância"],
-      answer: "📷 Os nossos sistemas de **CCTV e Videovigilância** incluem câmaras IP e analógicas de alta definição com IA integrada para deteção inteligente de pessoas e veículos. Pode monitorizar tudo em tempo real diretamente no seu telemóvel via app!\n\nQuer receber um estudo gratuito para o seu espaço? Fale diretamente connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788) ou pergunte-me mais detalhes!"
+      answer: "📷 Os nossos sistemas de **CCTV e Videovigilância** incluem câmaras IP e analógicas de alta definição com IA integrada para deteção inteligente de pessoas e veículos. Pode monitorizar tudo em tempo real diretamente no seu telemóvel via app!\n\nQuer receber um estudo gratuito para o seu espaço? Fale diretamente conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788) ou pergunte-me mais detalhes!"
     },
     {
       triggers: ["alarme", "intrusao", "intrusão", "sensor", "sirene", "intruso"],
-      answer: "🚨 Os nossos **Sistemas de Alarme e Intrusão** protegem o seu espaço com sensores de movimento avançados, sensores magnéticos, sirenes de alto impacto e centrais conectadas por GSM/Wi-Fi. Receba alertas imediatos no seu telemóvel sempre que algo acontecer!\n\nQuer proteger a sua casa ou empresa? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🚨 Os nossos **Sistemas de Alarme e Intrusão** protegem o seu espaço com sensores de movimento avançados, sensores magnéticos, sirenes de alto impacto e centrais conectadas por GSM/Wi-Fi. Receba alertas imediatos no seu telemóvel sempre que algo acontecer!\n\nQuer proteger a sua casa ou empresa? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["acesso", "acessos", "biometria", "facial", "rfid", "cartao", "cartão", "torniquete", "catraca", "fechadura"],
-      answer: "🔐 O nosso serviço de **Controlo de Acessos** cobre desde fechaduras eletrónicas inteligentes até reconhecimento facial, biometria, cartões RFID e torniquetes. Ideal para empresas, condomínios e moradias que procuram segurança máxima.\n\nQuer saber qual a melhor opção para si? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🔐 O nosso serviço de **Controlo de Acessos** cobre desde fechaduras eletrónicas inteligentes até reconhecimento facial, biometria, cartões RFID e torniquetes. Ideal para empresas, condomínios e moradias que procuram segurança máxima.\n\nQuer saber qual a melhor opção para si? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["incendio", "incêndio", "fogo", "fumo", "detetor", "detector"],
-      answer: "🔥 Os nossos **Sistemas de Deteção de Incêndio** incluem detetores óticos de fumo e calor, centrais de incêndio inteligentes e sistemas de evacuação rápida, em total conformidade com as normas europeias.\n\nQuer fazer um projeto de segurança contra incêndios? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🔥 Os nossos **Sistemas de Deteção de Incêndio** incluem detetores óticos de fumo e calor, centrais de incêndio inteligentes e sistemas de evacuação rápida, em total conformidade com as normas europeias.\n\nQuer fazer um projeto de segurança contra incêndios? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["portao", "portão", "automatismo", "automacao", "automação", "motor", "barreira"],
-      answer: "🚗 Instalamos **Automatismos para Portões** de correr e batente, barreiras automáticas e sistemas de abertura remota por telemóvel. Ideal para o seu conforto e segurança ao chegar a casa!\n\nQuer automatizar o seu portão? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🚗 Instalamos **Automatismos para Portões** de correr e batente, barreiras automáticas e sistemas de abertura remota por telemóvel. Ideal para o seu conforto e segurança ao chegar a casa!\n\nQuer automatizar o seu portão? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["rede", "redes", "wifi", "wi-fi", "cabo", "cabeamento", "switch", "router"],
-      answer: "🌐 As nossas **Soluções de Redes** incluem cablagem estruturada profissional, racks, switches PoE, routers e Wi-Fi de alta performance para garantir que os seus sistemas de segurança e comunicação nunca falhem.\n\nPrecisa de melhorar a conectividade da sua empresa? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🌐 As nossas **Soluções de Redes** incluem cablagem estruturada profissional, racks, switches PoE, routers e Wi-Fi de alta performance para garantir que os seus sistemas de segurança e comunicação nunca falhem.\n\nPrecisa de melhorar a conectividade da sua empresa? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["ups", "energia", "bateria", "backup", "eletricidade", "corrente"],
-      answer: "⚡ Os nossos **Sistemas UPS e Energia de Backup** garantem que câmaras, alarmes e internet continuem a funcionar mesmo durante cortes de energia. Proteção contínua 24/7!\n\nQuer garantir que a sua segurança nunca se desliga? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "⚡ Os nossos **Sistemas UPS e Energia de Backup** garantem que câmaras, alarmes e internet continuem a funcionar mesmo durante cortes de energia. Proteção contínua 24/7!\n\nQuer garantir que a sua segurança nunca se desliga? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["telecomunicacao", "telecomunicação", "telecomunicacoes", "comunicacao", "comunicação", "intercom"],
-      answer: "📡 As nossas **Soluções de Telecomunicações** e vídeo porteiros garantem uma comunicação clara e segura entre os acessos e o interior do seu edifício ou empresa.\n\nQuer modernizar a sua intercomunicação? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "📡 As nossas **Soluções de Telecomunicações** e vídeo porteiros garantem uma comunicação clara e segura entre os acessos e o interior do seu edifício ou empresa.\n\nQuer modernizar a sua intercomunicação? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["preco", "preço", "custo", "valor", "orcamento", "orçamento", "quanto custa"],
-      answer: "💰 Fazemos **orçamentos 100% gratuitos e personalizados** para cada cliente, já que cada projeto de segurança é único!\n\nPara receber um orçamento rápido e sem compromisso, fale connosco agora pelo [WhatsApp clicando aqui](https://wa.me/351918880788) ou preencha o formulário de contacto no final da nossa página."
+      answer: "💰 Fazemos **orçamentos 100% gratuitos e personalizados** para cada cliente, já que cada projeto de segurança é único!\n\nPara receber um orçamento rápido e sem compromisso, fale conosco agora pelo [WhatsApp clicando aqui](https://wa.me/351918880788) ou preencha o formulário de contacto no final da nossa página."
     },
     {
       triggers: ["contacto", "contato", "falar", "ligar", "telefone", "whatsapp", "email"],
-      answer: "📞 Pode contactar a Cotton Dome LDA de forma muito fácil:\n\n💬 **WhatsApp:** [Iniciar conversa no WhatsApp](https://wa.me/351918880788)\n📱 **Telefone:** +351 918 880 788\n📧 **Email:** suporte@domme.pt\n\n⏰ Segunda a Sexta: 09h–18h30 | Sábado (Urgências): 09h–13h\n\nComo prefere falar connosco?"
+      answer: "📞 Pode contactar a Cotton Dome LDA de forma muito fácil:\n\n💬 **WhatsApp:** [Iniciar conversa no WhatsApp](https://wa.me/351918880788)\n📱 **Telefone:** +351 918 880 788\n📧 **Email:** suporte@domme.pt\n\n⏰ Segunda a Sexta: 09h–18h30 | Sábado (Urgências): 09h–13h\n\nComo prefere falar conosco?"
     },
     {
       triggers: ["horario", "horário", "funcionamento", "aberto", "trabalho"],
@@ -65,15 +65,15 @@ const FAQ: Record<"pt" | "en" | "fr", { triggers: string[]; answer: string }[]> 
     },
     {
       triggers: ["onde", "localizacao", "localização", "portugal", "sede", "morada", "endereco", "endereço"],
-      answer: "📍 A Cotton Dome LDA está sediada em **Portugal**, e prestamos serviços em todo o território nacional.\n\nQuer agendar uma visita técnica gratuita ao seu espaço? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)!"
+      answer: "📍 A Cotton Dome LDA está sediada em **Portugal**, e prestamos serviços em todo o território nacional.\n\nQuer agendar uma visita técnica gratuita ao seu espaço? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)!"
     },
     {
       triggers: ["garantia", "manutencao", "manutenção", "suporte", "assistencia", "assistência"],
-      answer: "🛡️ Todos os nossos projetos incluem **garantia de instalação** e suporte pós-venda dedicado. Se precisar de assistência técnica ou manutenção preventiva, a forma mais rápida é falar connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)!"
+      answer: "🛡️ Todos os nossos projetos incluem **garantia de instalação** e suporte pós-venda dedicado. Se precisar de assistência técnica ou manutenção preventiva, a forma mais rápida é falar conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)!"
     },
     {
       triggers: ["servico", "serviço", "servicos", "serviços", "solucao", "solução", "o que fazem", "o que fazeis"],
-      answer: "🏢 Oferecemos soluções completas em:\n\n📷 CCTV e Videovigilância\n🚨 Sistemas de Alarme\n🔐 Controlo de Acessos\n🔥 Deteção de Incêndio\n🚗 Automatismos para Portões\n🌐 Redes de Comunicação\n⚡ UPS e Energia de Backup\n📡 Telecomunicações\n\nQual destas áreas gostaria de proteger hoje? Fale connosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
+      answer: "🏢 Oferecemos soluções completas em:\n\n📷 CCTV e Videovigilância\n🚨 Sistemas de Alarme\n🔐 Controlo de Acessos\n🔥 Deteção de Incêndio\n🚗 Automatismos para Portões\n🌐 Redes de Comunicação\n⚡ UPS e Energia de Backup\n📡 Telecomunicações\n\nQual destas áreas gostaria de proteger hoje? Fale conosco pelo [WhatsApp clicando aqui](https://wa.me/351918880788)."
     },
     {
       triggers: ["obrigado", "obrigada", "ok", "perfeito", "ótimo", "otimo", "fixe", "muito bem"],
@@ -175,15 +175,15 @@ const FAQ: Record<"pt" | "en" | "fr", { triggers: string[]; answer: string }[]> 
 };
 
 const GREETINGS: Record<"pt" | "en" | "fr", string> = {
-  pt: "Olá! Tudo bem? 😊 Sou a assistente virtual da **Cotton Dome LDA**.\n\nEstou aqui para te ajudar com qualquer dúvida sobre os nossos serviços de segurança. Para receberes um orçamento personalizado e suporte imediato, clica no link abaixo para falares connosco diretamente no WhatsApp:\n\n👉 [Falar no WhatsApp](https://wa.me/351918880788)",
-  en: "Hello! 😊 I'm the **Cotton Dome LDA** virtual assistant.\n\nI'm here to help you with any questions about our security systems. To get a personalized quote or immediate support, click the link below to chat with us directly on WhatsApp:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
-  fr: "Bonjour! 😊 Je suis l'assistant virtuel de **Cotton Dome LDA**.\n\nJe suis là pour vous aider avec toutes vos questions sur nos systèmes de sécurité. Pour obtenir un devis personnalisé ou une assistance immédiate, cliquez sur le lien ci-dessous pour discuter directement avec nous sur WhatsApp:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
+  pt: "Olá! Sou a assistente virtual da **Cotton Dome LDA**.\n\nComo posso ajudar? Se preferir falar no WhatsApp para orçamentos ou suporte:\n\n👉 [Falar no WhatsApp](https://wa.me/351918880788)",
+  en: "Hello! I'm the **Cotton Dome LDA** assistant.\n\nHow can I help you? Or talk to us directly on WhatsApp:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
+  fr: "Bonjour! Je suis l'assistant virtuel de **Cotton Dome LDA**.\n\nComment puis-je vous aider? Ou contactez-nous sur WhatsApp:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
 };
 
 const DEFAULT_ANSWERS: Record<"pt" | "en" | "fr", string> = {
-  pt: "Olá! Para te ajudar da forma mais rápida com o teu orçamento ou qualquer dúvida sobre segurança, por favor fala diretamente connosco pelo WhatsApp no link abaixo:\n\n👉 [Iniciar Conversa no WhatsApp](https://wa.me/351918880788)",
-  en: "Hello! To help you as quickly as possible with your quote or any security questions, please contact us directly on WhatsApp using the link below:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
-  fr: "Bonjour! Pour vous aider le plus rapidement possible avec votre devis ou toute question de sécurité, veuillez nous contacter directement sur WhatsApp via le lien ci-dessous:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
+  pt: "Para orçamentos ou dúvidas, fale conosco pelo WhatsApp:\n\n👉 [Iniciar conversa no WhatsApp](https://wa.me/351918880788)",
+  en: "For quotes or questions, contact us on WhatsApp:\n\n👉 [Chat on WhatsApp](https://wa.me/351918880788)",
+  fr: "Pour des devis ou des questions, contactez-nous sur WhatsApp:\n\n👉 [Discuter sur WhatsApp](https://wa.me/351918880788)"
 };
 
 const PLACEHOLDER: Record<"pt" | "en" | "fr", string> = {
@@ -273,18 +273,17 @@ export function ChatBot({ lang }: ChatBotProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const messageIdRef = useRef(1);
 
-  // Greeting message on first open
+  // Reset/update greeting message when language changes
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      setMessages([
-        {
-          id: messageIdRef.current++,
-          from: "bot",
-          text: GREETINGS[lang]
-        }
-      ]);
-    }
-  }, [isOpen]);
+    setMessages([
+      {
+        id: 1,
+        from: "bot",
+        text: GREETINGS[lang]
+      }
+    ]);
+    messageIdRef.current = 2;
+  }, [lang]);
 
   // Scroll to bottom on new message
   useEffect(() => {

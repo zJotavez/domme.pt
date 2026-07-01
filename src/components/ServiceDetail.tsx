@@ -430,7 +430,7 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt" }
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 lg:gap-6">
             {products.map((prod: any, idx: number) => {
               const cleanProdKey = prod.toLowerCase().trim();
               const productTrans = t.productsDict[cleanProdKey];
@@ -440,26 +440,26 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt" }
                 return (
                   <div
                     key={idx}
-                    className="card-luxury p-6 rounded-xl group relative overflow-hidden flex flex-col justify-between border border-[#222] hover:border-[#E2AF55]/40 transition-all duration-300 min-h-[220px]"
+                    className="card-luxury p-3 sm:p-5 rounded-xl group relative overflow-hidden flex flex-col justify-between border border-[#222] hover:border-[#E2AF55]/40 transition-all duration-300 min-h-[160px] sm:min-h-[185px]"
                   >
                     {/* Background image related to the product */}
                     <div 
-                      className="absolute inset-0 bg-cover bg-center opacity-[0.06] group-hover:opacity-[0.18] transition-opacity duration-500 pointer-events-none filter brightness-75 contrast-125"
+                      className="absolute inset-0 bg-cover bg-center opacity-[0.04] group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none filter brightness-75 contrast-125"
                       style={{ backgroundImage: `url(${bgImg})` }}
                     />
                     {/* Subtle bottom gradient to ensure text readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent pointer-events-none" />
 
                     <div className="relative z-10">
-                      <h3 className="font-display font-bold text-sm text-white tracking-wide mb-2 group-hover:text-[#E2AF55] transition-colors leading-tight">
+                      <h3 className="font-display font-bold text-xs sm:text-sm text-white tracking-wide mb-1 sm:mb-2 group-hover:text-[#E2AF55] transition-colors leading-tight">
                         {productTrans.title}
                       </h3>
-                      <p className="text-[11px] text-[#CFCFCF] font-sans leading-relaxed mb-4">
+                      <p className="text-[10px] sm:text-xs text-[#CFCFCF] font-sans leading-normal sm:leading-relaxed mb-3 line-clamp-3">
                         {productTrans.description}
                       </p>
                     </div>
-                    <div className="mt-auto border-t border-[#222] pt-3 text-[10px] text-gray-500 group-hover:text-gray-400 transition-colors font-mono relative z-10">
-                      <strong className="text-[#E2AF55] font-semibold uppercase text-[9px] block mb-1">
+                    <div className="mt-auto border-t border-[#222] pt-2 text-[9px] sm:text-[10px] text-gray-500 group-hover:text-gray-400 transition-colors font-mono relative z-10">
+                      <strong className="text-[#E2AF55] font-semibold uppercase text-[8px] sm:text-[9px] block mb-0.5">
                         {lang === "pt" ? "Benefício" : lang === "en" ? "Benefit" : "Avantage"}:
                       </strong>
                       {productTrans.benefit}
@@ -472,13 +472,13 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt" }
               return (
                 <div
                   key={idx}
-                  className="card-luxury p-5 rounded-xl group flex flex-col items-center justify-center text-center min-h-[90px] border border-[#222] relative overflow-hidden"
+                  className="card-luxury p-3 sm:p-5 rounded-xl group flex flex-col items-center justify-center text-center min-h-[60px] sm:min-h-[80px] border border-[#222] relative overflow-hidden"
                 >
                   <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-[0.04] pointer-events-none"
+                    className="absolute inset-0 bg-cover bg-center opacity-[0.03] pointer-events-none"
                     style={{ backgroundImage: `url(${bgImg})` }}
                   />
-                  <span className="text-xs text-[#D9D9D9] font-sans font-medium capitalize group-hover:text-white transition-colors relative z-10">
+                  <span className="text-[10px] sm:text-xs text-[#D9D9D9] font-sans font-medium capitalize group-hover:text-white transition-colors relative z-10">
                     {prod}
                   </span>
                 </div>

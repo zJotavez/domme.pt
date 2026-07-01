@@ -319,7 +319,7 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
     },
     contact: {
       tag: "Contacto",
-      title: "Fale Connosco",
+      title: "Fale Conosco",
       subtitle: "Obtenha uma análise técnica detalhada do seu espaço. A nossa equipa de engenharia de segurança está pronta para desenhar a sua solução.",
       form: {
         name: "Seu Nome Completo",
