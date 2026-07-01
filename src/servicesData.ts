@@ -85,7 +85,8 @@ export const SERVICES_DATA: ServiceDetails[] = [
     galleryImages: [
       "/images/alarme-intrusao-1.png",
       "/images/alarme-intrusao-2.png",
-      "/images/alarme-intrusao-3.png"
+      "/images/alarme-intrusao-3.png",
+      "/images/alarme-intrusao-4.png"
     ]
   },
   {
@@ -297,9 +298,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Serralharia em Ferro e Inox | Cotton Dome LDA",
     seoDescription: "Fabricação e montagem de portões metálicos, grades de proteção e serralharia por medida em ferro e aço inoxidável.",
     galleryImages: [
-      "/images/portas-portoes-1.png",
-      "/images/portas-portoes-2.png",
-      "/images/portas-portoes-3.png"
+      "/images/serralharia-1.png",
+      "/images/serralharia-2.png",
+      "/images/serralharia-3.png"
     ]
   },
   {
@@ -332,9 +333,9 @@ export const SERVICES_DATA: ServiceDetails[] = [
     seoTitle: "Telecomunicações e Intercomunicação | Cotton Dome LDA",
     seoDescription: "Instalação de intercomunicadores, videoporteiros IP e infraestrutura para comunicação corporativa e residencial.",
     galleryImages: [
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=600&q=80"
+      "/images/telecomunicacoes-1.png",
+      "/images/telecomunicacoes-2.png",
+      "/images/telecomunicacoes-3.png"
     ]
   },
   {
