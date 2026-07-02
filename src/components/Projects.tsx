@@ -63,7 +63,12 @@ export function Projects({ gallery, lang = "pt" }: ProjectsProps) {
     if (img.startsWith("http://") || img.startsWith("https://") || img.startsWith("data:")) {
       return img;
     }
-    return `${API_BASE}/${img}`;
+    const buster = "v=4";
+    let imgWithBuster = img;
+    if (!img.includes('v=')) {
+      imgWithBuster = img.includes('?') ? `${img}&${buster}` : `${img}?${buster}`;
+    }
+    return `${API_BASE}/${imgWithBuster}`;
   };
 
   return (

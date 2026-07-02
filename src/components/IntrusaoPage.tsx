@@ -672,11 +672,11 @@ export function IntrusaoPage({ onNavigate, lang = "pt", dbPageDetails, dbSetting
                   className="card-luxury rounded-xl border border-[#222] hover:border-[#E2AF55]/40 hover:shadow-lg hover:shadow-[#E2AF55]/5 transition-all duration-300 flex flex-col justify-between overflow-hidden group min-h-[500px]"
                 >
                   {/* Image Wrap */}
-                  <div className="h-[180px] bg-black/40 flex items-center justify-center p-6 relative overflow-hidden border-b border-[#1a1a1a]">
+                  <div className="h-[220px] bg-[#0c0c0c] relative overflow-hidden border-b border-[#1a1a1a]">
                     <img
                       src={prod.image}
                       alt={prod.model}
-                      className="max-h-full max-w-full object-contain filter brightness-[0.95] group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover filter brightness-[0.95] group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />

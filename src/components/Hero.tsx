@@ -22,12 +22,18 @@ export function Hero({ onQuoteClick, onExploreClick, content, lang = "pt" }: Her
       return url;
     }
     const cleanUrl = url.replace(/^\//, '');
+    const buster = "v=4";
+    let urlWithBuster = cleanUrl;
+    if (!cleanUrl.includes('v=')) {
+      urlWithBuster = cleanUrl.includes('?') ? `${cleanUrl}&${buster}` : `${cleanUrl}?${buster}`;
+    }
+
     if (API_BASE) {
-      return `${API_BASE}/${cleanUrl}`;
+      return `${API_BASE}/${urlWithBuster}`;
     }
     const base = import.meta.env.BASE_URL || "/";
     const cleanBase = base.endsWith('/') ? base : `${base}/`;
-    return `${cleanBase}${cleanUrl}`;
+    return `${cleanBase}${urlWithBuster}`;
   };
 
   // If language is not PT, we bypass the DB-loaded title and subtitle since the DB contains Portuguese text.
