@@ -373,7 +373,13 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         title: "Sistemas de Alarme e Intrusão",
         slogan: "Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.",
         shortDesc: "Centrais de alarme conectadas, sensores PIR avançados, sirenes de alto impacto e proteção perimetral 24/7.",
-        desc: "Os nossos sistemas de alarme e intrusão criam uma barreira de segurança ativa em torno do seu espaço. Detetores PIR imunes a animais de estimação, sensores magnéticos, barreiras perimetrais e centrais GSM/Wi-Fi garantem alerta imediato no seu telemóvel — com opção de ligação a central de monitorização profissional."
+        desc: "Os nossos sistemas de alarme e intrusão criam uma barreira de segurança activa em torno do seu espaço. Detetores PIR imunes a animais de estimação, sensores magnéticos, barreiras perimetrais e centrais GSM/Wi-Fi garantem alerta imediato no seu telemóvel — com opção de ligação a central de monitorização profissional."
+      },
+      "intrusao-nova": {
+        title: "Intrusões / Sistemas de Alarme",
+        slogan: "Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.",
+        shortDesc: "Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.",
+        desc: "A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional."
       },
       "acessos": {
         title: "Controlo de Acessos",
@@ -1052,6 +1058,12 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         shortDesc: "Perimeter and internal protection with advanced motion sensors, high-power sirens and connected control panels.",
         desc: "Our intrusion systems offer an active and intelligent security barrier. With advanced wired or wireless alarm control panels, motion detectors immune to pets, magnetic sensors and outdoor perimeter protection, we guarantee early detection of break-ins with direct notification in the mobile application or link to alarm receiving centers."
       },
+      "intrusao-nova": {
+        title: "Intrusions / Alarm Systems",
+        slogan: "Smart protection against unauthorized access, intrusion attempts, and risk situations.",
+        shortDesc: "Professional anti-intrusion systems, with wireless panels, photodetectors, and advanced perimeter protection.",
+        desc: "Cotton Dome LDA develops complete intrusion and alarm solutions for homes, residential areas, companies, commercial spaces, and industrial environments, using modern equipment, wireless technology, and professional detection systems."
+      },
       "acessos": {
         title: "Access Control",
         slogan: "Smart management of people flow and permissions with facial recognition, biometrics and RFID tags.",
@@ -1728,6 +1740,12 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         slogan: "Systèmes intelligents de détection d'intrusion avec réponse rapide et alertes immédiates sur votre téléphone portable.",
         shortDesc: "Protection périmétrique et interne avec capteurs de mouvement avancés, sirènes haute puissance et centrales connectées.",
         desc: "Nos systèmes d'intrusion offrent une barrière de sécurité active et intelligente. Avec des centrales d'alarme filaires ou sans fil avancées, des détecteurs de mouvement immunisés contre les animaux domestiques, des capteurs magnétiques et une protection périmétrique extérieure, nous garantissons une détection précoce des effractions avec notification directe dans l'application mobile ou liaison vers les centres de réception d'alarmes."
+      },
+      "intrusao-nova": {
+        title: "Intrusions / Systèmes d'Alarme",
+        slogan: "Protection intelligente contre les accès non autorisés, les tentatives d'intrusion et les situations de risque.",
+        shortDesc: "Systèmes professionnels contre l'intrusion, avec centrales sans fil, photodétecteurs et protection périmétrique avancée.",
+        desc: "Cotton Dome LDA développe des solutions complètes d'intrusion et d'alarme pour les résidences, les copropriétés, les entreprises, les espaces commerciaux et les environnements industriels, en utilisant des équipements modernes, la technologie sans fil et des systèmes de détection professionnels."
       },
       "acessos": {
         title: "Contrôle d'Accès",

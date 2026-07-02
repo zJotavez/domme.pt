@@ -172,7 +172,7 @@ INSERT INTO `home_content` (`hero_title`, `hero_subtitle`, `hero_image`, `hero_v
 -- Seeding Services
 INSERT INTO `services` (`id`, `title`, `slug`, `short_description`, `icon`, `image`, `video`, `is_active`, `display_order`) VALUES
 (1, 'CCTV / Videovigilância', 'cctv-videovigilancia', 'Sistemas de videovigilância para residências, empresas, condomínios e espaços comerciais, com câmaras profissionais, gravação, monitorização e acesso remoto.', 'Camera', 'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1200&q=80', 'videos/video4.mp4', 1, 1),
-(2, 'Intrusão / Sistemas de Alarme', 'intrusao-sistemas-alarme', 'Soluções de alarme contra intrusão com sensores, centrais, sirenes e tecnologia integrada para proteger pessoas e património.', 'ShieldAlert', 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80', NULL, 1, 2),
+(2, 'Sistemas de Alarme e Intrusão', 'alarme-intrusao', 'Sistemas de alarme contra intrusão com sensores, centrais, sirenes e tecnologia integrada para proteger pessoas e património.', 'ShieldAlert', 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80', NULL, 1, 2),
 (3, 'Controlo de Acessos', 'controlo-de-acessos', 'Sistemas para gestão de entradas e saídas, incluindo teclados, cartões, biometria, reconhecimento, leitores e permissões personalizadas.', 'Fingerprint', 'https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=1200&q=80', NULL, 1, 3),
 (4, 'Deteção de Incêndio', 'detecao-de-incendio', 'Sistemas de deteção e alerta de incêndio com centrais, sensores, botões manuais, sirenes e soluções adequadas para ambientes profissionais.', 'Flame', 'images/deteccao-incendio-1.png', NULL, 1, 4),
 (5, 'Automatismos', 'automatismos', 'Automação de portões, barreiras, portas e acessos, com soluções modernas para conforto, segurança e eficiência.', 'Cpu', 'images/automatismos-1.png', NULL, 1, 5),
@@ -180,7 +180,8 @@ INSERT INTO `services` (`id`, `title`, `slug`, `short_description`, `icon`, `ima
 (7, 'UPS / Sistemas de Energia', 'ups-sistemas-energia', 'Sistemas de alimentação ininterrupta para proteger equipamentos críticos contra falhas, oscilações e interrupções elétricas.', 'BatteryCharging', 'images/ups-1.png', NULL, 1, 7),
 (8, 'Serralharia em Ferro e Inox', 'serralharia-ferro-inox', 'Soluções técnicas em ferro e inox, incluindo estruturas, portões, grades, acabamentos metálicos e projetos personalizados.', 'Hammer', 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80', NULL, 1, 8),
 (9, 'Telecomunicações', 'telecomunicacoes', 'Infraestrutura técnica para comunicação, integração de sistemas e suporte a soluções modernas de segurança e conectividade.', 'Radio', 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80', NULL, 1, 9),
-(10, 'Redes / Network Solutions', 'redes-network-solutions', 'Soluções de rede, cabeamento estruturado, racks, switches, Wi-Fi profissional e infraestrutura para sistemas de segurança.', 'Network', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', NULL, 1, 10);
+(10, 'Redes / Network Solutions', 'redes-network-solutions', 'Soluções de rede, cabeamento estruturado, racks, switches, Wi-Fi profissional e infraestrutura para sistemas de segurança.', 'Network', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', NULL, 1, 10),
+(11, 'Intrusões / Sistemas de Alarme', 'intrusao-sistemas-alarme', 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.', 'ShieldAlert', 'images/alarme-intrusao-1.png', NULL, 1, 11);
 
 -- Seeding Service Pages Detail
 -- Seeding Service Pages Detail
@@ -264,7 +265,15 @@ INSERT INTO `service_pages` (`service_id`, `page_title`, `impact_phrase`, `full_
 '["Estabilidade máxima para câmaras IP e serviços","Sinal Wi-Fi sem quebras em toda a moradia/empresa","Rack limpo e de fácil manutenção técnica","Segurança de dados com redes de convidados"]',
 '["Auditoria e desenho lógico da topologia","Passagem física e crimpagem de tomadas RJ45","Identificação e arrumação de bastidores","Testes de transmissão e certificação de rede"]',
 '["https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80","https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80","https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80"]',
-'Redes Estáveis e Seguras', 'Garanta uma rede estável para os seus computadores e câmeras com cabeamento certificado e Wi-Fi profissional.', 'Redes e Network Solutions | Cotton Dome LDA', 'Desenvolvimento de redes estruturadas, racks integrados, switches PoE e redes Wi-Fi empresariais estáveis.', 'redes, cabeamento estruturado, racks, switches PoE, Wi-Fi profissional, routers, redes corporativas');
+'Redes Estáveis e Seguras', 'Garanta uma rede estável para os seus computadores e câmeras com cabeamento certificado e Wi-Fi profissional.', 'Redes e Network Solutions | Cotton Dome LDA', 'Desenvolvimento de redes estruturadas, racks integrados, switches PoE e redes Wi-Fi empresariais estáveis.', 'redes, cabeamento estruturado, racks, switches PoE, Wi-Fi profissional, routers, redes corporativas'),
+
+(11, 'Intrusões / Sistemas de Alarme', 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.', 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.',
+'["Residências", "Condomínios", "Empresas", "Lojas", "Escritórios", "Armazéns", "Indústrias", "Espaços comerciais"]',
+'["AJ-COMBIPROTECT-S-W", "AJ-CURTAINOUTDOOR-W", "AJ-FIREPROTECTPLUS-B", "AJ-MOTIONCAMOUTDOOR-W"]',
+'["Proteção contra acessos não autorizados", "Deteção rápida de movimentos suspeitos", "Alerta imediato em situações de risco", "Segurança para ambientes internos e externos", "Integração com CCTV e acessos", "Equipamentos modernos e discretos"]',
+'["Análise do espaço", "Escolha da solução", "Instalação profissional", "Configuração e acompanhamento"]',
+'["images/alarme-intrusao-1.png", "images/alarme-intrusao-2.png", "images/alarme-intrusao-3.png"]',
+'Precisa proteger o seu espaço contra intrusões?', 'A Cotton Dome LDA desenvolve soluções de alarme e intrusão à medida, combinando tecnologia, segurança e profissionalismo para proteger pessoas, património e operações.', 'Intrusões e Sistemas de Alarme | Cotton Dome LDA', 'Soluções profissionais de intrusão e sistemas de alarme para residências, empresas e condomínios. Sensores, detetores, proteção perimetral e segurança eletrónica.', 'sistemas de alarme, intrusão, detetores de movimento, segurança eletrónica, alarmes residenciais');
 
 -- Seeding About Content
 INSERT INTO `about_content` (`title`, `description`, `mission`, `vision`, `values`, `image`, `video`) VALUES

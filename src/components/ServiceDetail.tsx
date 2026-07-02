@@ -20,7 +20,8 @@ interface ServiceDetailProps {
 }
 
 const mapSlugToKey = (slug: string): string => {
-  if (slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") return "intrusao";
+  if (slug === "alarme-intrusao") return "intrusao";
+  if (slug === "intrusao-sistemas-alarme") return "intrusao-nova";
   if (slug === "controle-acesso" || slug === "controlo-de-acessos") return "acessos";
   if (slug === "ups-energia" || slug === "ups-sistemas-energia") return "ups";
   if (slug === "redes-estruturadas" || slug === "redes-network-solutions") return "redes";
@@ -137,13 +138,10 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt", 
   const t = TRANSLATIONS[lang];
 
   // Resolve service from DB or static fallback
-  const service = services?.find((s) => s.slug === slug) || 
-                  SERVICES_DATA.find((s) => s.slug === slug) ||
-                  ((slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") ? SERVICES_DATA.find(s => s.slug === "intrusao-sistemas-alarme") : undefined);
-  const pageDetails = pages?.find((p) => p.service_id === service?.id) ||
-                      ((slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") ? pages?.find(p => p.service_id === 2) : undefined);
+  const service = services?.find((s) => s.slug === slug) || SERVICES_DATA.find((s) => s.slug === slug);
+  const pageDetails = pages?.find((p) => p.service_id === service?.id);
 
-  if (slug === "intrusao-sistemas-alarme" || slug === "alarme-intrusao") {
+  if (slug === "intrusao-sistemas-alarme") {
     return (
       <IntrusaoPage
         onNavigate={onNavigate}

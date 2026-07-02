@@ -54,10 +54,10 @@ export const SERVICES_DATA: ServiceDetails[] = [
   },
   {
     id: "intrusao",
-    slug: "intrusao-sistemas-alarme",
+    slug: "alarme-intrusao",
     title: "Sistemas de Alarme e Intrusão",
     slogan: "Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.",
-    shortDescription: "Centrais de alarme conectadas, sensores de movimento avançados, sirenes de alto impacto e proteção perimetral 24/7.",
+    shortDescription: "Centrais de alarme conectadas, sensores PIR avançados, sirenes de alto impacto e proteção perimetral 24/7.",
     description: "Os nossos sistemas de alarme e deteção de intrusão criam uma barreira de segurança ativa e inteligente em torno do seu espaço. Utilizamos centrais avançadas com ou sem fios, detetores de movimento PIR imunes a animais de estimação, sensores magnéticos para portas e janelas, e proteção perimetral exterior com barreiras infravermelhas. Em caso de intrusão, o alerta chega imediatamente ao seu telemóvel — podendo também ser ligado a uma central de monitorização profissional com despacho de segurança.",
     iconName: "ShieldAlert",
     image: "/images/alarme-hero.png",
@@ -372,6 +372,37 @@ export const SERVICES_DATA: ServiceDetails[] = [
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
       "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80"
+    ]
+  },
+  {
+    id: "intrusao-nova",
+    slug: "intrusao-sistemas-alarme",
+    title: "Intrusões / Sistemas de Alarme",
+    slogan: "Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.",
+    shortDescription: "Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.",
+    description: "A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.",
+    iconName: "ShieldAlert",
+    image: "/images/alarme-intrusao-1.png",
+    products: [
+      "AJ-COMBIPROTECT-S-W",
+      "AJ-CURTAINOUTDOOR-W",
+      "AJ-FIREPROTECTPLUS-B",
+      "AJ-MOTIONCAMOUTDOOR-W"
+    ],
+    benefits: [
+      "proteção contra acessos não autorizados",
+      "deteção rápida de movimentos suspeitos",
+      "alerta imediato em situações de risco",
+      "segurança para ambientes internos e externos",
+      "integração com CCTV e acessos",
+      "equipamentos modernos e discretos"
+    ],
+    seoTitle: "Intrusões e Sistemas de Alarme | Cotton Dome LDA",
+    seoDescription: "Soluções profissionais de intrusão e sistemas de alarme para residências, empresas e condomínios. Sensores, detetores, proteção perimetral e segurança eletrónica.",
+    galleryImages: [
+      "/images/alarme-intrusao-1.png",
+      "/images/alarme-intrusao-2.png",
+      "/images/alarme-intrusao-3.png"
     ]
   }
 ];

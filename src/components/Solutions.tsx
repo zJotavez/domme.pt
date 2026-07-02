@@ -15,7 +15,8 @@ interface SolutionsProps {
 }
 
 const mapSlugToKey = (slug: string): string => {
-  if (slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") return "intrusao";
+  if (slug === "alarme-intrusao") return "intrusao";
+  if (slug === "intrusao-sistemas-alarme") return "intrusao-nova";
   if (slug === "controle-acesso" || slug === "controlo-de-acessos") return "acessos";
   if (slug === "ups-energia" || slug === "ups-sistemas-energia") return "ups";
   if (slug === "redes-estruturadas" || slug === "redes-network-solutions") return "redes";
