@@ -63,7 +63,7 @@ const CONTENT = {
             "Deteção PIR até 12 m",
             "Deteção de quebra de vidro até 9 m"
           ],
-          image: "/images/aj-combiprotect-s-w.jpg",
+          image: "/images/aj-combiprotect-s-w.jpg?v=3",
           benefit: "Combina deteção de movimentos e quebra de vidros num só dispositivo inteligente."
         },
         {
@@ -82,7 +82,7 @@ const CONTENT = {
             "Sensibilidade ajustável",
             "Uso exterior IP55"
           ],
-          image: "/images/aj-curtainoutdoor-w.jpg",
+          image: "/images/aj-curtainoutdoor-w.jpg?v=3",
           benefit: "Cria um escudo invisível vertical, protegendo acessos antes de haver intrusão física."
         },
         {
@@ -99,7 +99,7 @@ const CONTENT = {
             "Bateria de backup integrada (até 16h)",
             "Protocolo Jeweller de alta segurança"
           ],
-          image: "/images/aj-hub2-b.jpg",
+          image: "/images/aj-hub2-b.jpg?v=3",
           benefit: "O cérebro do sistema de segurança, garantindo comunicação rápida e redundante em qualquer situação."
         },
         {
@@ -116,7 +116,7 @@ const CONTENT = {
             "Imune a animais de estimação",
             "Uso exterior IP55"
           ],
-          image: "/images/aj-motioncamoutdoor-w.jpg",
+          image: "/images/aj-motioncamoutdoor-w.jpg?v=3",
           benefit: "Evita falsos alarmes com verificação fotográfica instantânea de ocorrências no exterior."
         }
       ]
@@ -197,7 +197,7 @@ const CONTENT = {
             "PIR detection up to 12 m",
             "Glass break detection up to 9 m"
           ],
-          image: "/images/aj-combiprotect-s-w.jpg",
+          image: "/images/aj-combiprotect-s-w.jpg?v=3",
           benefit: "Combines motion detection and glass breakage in a single smart device."
         },
         {
@@ -216,7 +216,7 @@ const CONTENT = {
             "Adjustable sensitivity",
             "IP55 outdoor use"
           ],
-          image: "/images/aj-curtainoutdoor-w.jpg",
+          image: "/images/aj-curtainoutdoor-w.jpg?v=3",
           benefit: "Creates a vertical invisible shield, protecting entries before physical intrusion occurs."
         },
         {
@@ -233,7 +233,7 @@ const CONTENT = {
             "Built-in backup battery (up to 16h)",
             "High-security Jeweller protocol"
           ],
-          image: "/images/aj-hub2-b.jpg",
+          image: "/images/aj-hub2-b.jpg?v=3",
           benefit: "The brain of the security system, ensuring fast and redundant communication in any situation."
         },
         {
@@ -250,7 +250,7 @@ const CONTENT = {
             "Pet immune",
             "IP55 outdoor use"
           ],
-          image: "/images/aj-motioncamoutdoor-w.jpg",
+          image: "/images/aj-motioncamoutdoor-w.jpg?v=3",
           benefit: "Prevents false alarms with instant photo verification of outdoor events on your phone."
         }
       ]
@@ -331,7 +331,7 @@ const CONTENT = {
             "Détection PIR jusqu'à 12 m",
             "Détection de bris de verre jusqu'à 9 m"
           ],
-          image: "/images/aj-combiprotect-s-w.jpg",
+          image: "/images/aj-combiprotect-s-w.jpg?v=3",
           benefit: "Combine détection de mouvements et bris de glace en un seul appareil intelligent."
         },
         {
@@ -350,7 +350,7 @@ const CONTENT = {
             "Sensibilité réglable",
             "Usage extérieur IP55"
           ],
-          image: "/images/aj-curtainoutdoor-w.jpg",
+          image: "/images/aj-curtainoutdoor-w.jpg?v=3",
           benefit: "Crée un bouclier invisible vertical, protégeant les accès avant l'intrusion physique."
         },
         {
@@ -367,7 +367,7 @@ const CONTENT = {
             "Batterie de secours intégrée (jusqu'à 16h)",
             "Protocole Jeweller haute sécurité"
           ],
-          image: "/images/aj-hub2-b.jpg",
+          image: "/images/aj-hub2-b.jpg?v=3",
           benefit: "Le cerveau du système de sécurité, assurant une communication rapide et redondante en toutes circonstances."
         },
         {
@@ -384,7 +384,7 @@ const CONTENT = {
             "Immunisé contre les animaux de compagnie",
             "Usage extérieur IP55"
           ],
-          image: "/images/aj-motioncamoutdoor-w.jpg",
+          image: "/images/aj-motioncamoutdoor-w.jpg?v=3",
           benefit: "Évite les fausses alertes avec vérification photo instantanée des événements extérieurs sur votre mobile."
         }
       ]
