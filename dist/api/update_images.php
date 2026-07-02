@@ -11,7 +11,7 @@ $images = [
     "aj-motioncamoutdoor-w.png"
 ];
 
-$githubBaseUrl = "https://raw.githubusercontent.com/zJotavez/COTTON-DOME/main/images/";
+$githubBaseUrl = "https://raw.githubusercontent.com/zJotavez/domme.pt/main/images/";
 
 // Try to find the root directory
 $possiblePaths = [
