@@ -169,7 +169,7 @@ function getDefaultData(): array {
             [
                 'id' => 2,
                 'title' => 'Sistemas de Alarme e Intrusão',
-                'slug' => 'intrusao-sistemas-alarme',
+                'slug' => 'alarme-intrusao',
                 'icon' => 'ShieldAlert',
                 'image' => '/images/alarme-hero.png',
                 'active' => true,
@@ -308,7 +308,23 @@ function getDefaultData(): array {
                 'short_description' => 'Cabeamento estruturado, racks, switches, Wi-Fi profissional e infraestrutura de rede.',
                 'description' => 'A Cotton Dome LDA desenvolve soluções de rede para residências, empresas, condomínios, lojas e ambientes industriais. Uma rede bem estruturada é essencial para o funcionamento de sistemas de segurança, videovigilância, controlo de acessos, internet, comunicação e equipamentos conectados.',
                 'products' => ['cabeamento estruturado', 'racks', 'switches', 'routers', 'patch panels', 'pontos de rede', 'Wi-Fi profissional', 'organização de cabos', 'infraestrutura para CCTV e sistemas técnicos'],
-                'benefits' => ['melhor desempenho da rede', 'maior estabilidade', 'suporte a câmeras e sistemas de segurança', 'organização técnica', 'expansão futura facilitada', 'conectividade profissional']
+                'benefits' => ['melhor desempenho da rede', 'maior estabilidade', 'suporte a cameras e sistemas de segurança', 'organização técnica', 'expansão futura facilitada', 'conectividade profissional']
+            ],
+            [
+                'id' => 11,
+                'title' => 'Intrusões / Sistemas de Alarme',
+                'slug' => 'intrusao-sistemas-alarme',
+                'icon' => 'ShieldAlert',
+                'image' => '/images/alarme-intrusao-1.png',
+                'active' => true,
+                'is_active' => 1,
+                'display_order' => 11,
+                'slogan' => 'Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.',
+                'shortDescription' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',
+                'short_description' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',
+                'description' => 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.',
+                'products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-HUB2-B', 'AJ-MOTIONCAMOUTDOOR-W'],
+                'benefits' => ['proteção contra acessos não autorizados', 'deteção rápida de movimentos suspeitos', 'alerta imediato em situações de risco', 'segurança para ambientes internos e externos', 'integração com CCTV e acessos', 'equipamentos modernos e discretos']
             ]
         ],
         'service_pages' => [
@@ -380,6 +396,31 @@ function getDefaultData(): array {
                 'seo_title' => 'Controlo de Acessos | Cotton Dome LDA',
                 'seo_description' => 'Sistemas de controlo de acessos por cartões, tags, biometria ou reconhecimento facial em escritórios, armazéns e condomínios.',
                 'seo_keywords' => 'controlo de acessos, reconhecimento facial, leitores RFID, fechaduras eletrónicas, biometria'
+            ],
+            [
+                'id' => 11,
+                'service_id' => 11,
+                'page_title' => 'Intrusões / Sistemas de Alarme',
+                'impact_phrase' => 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.',
+                'full_description' => 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.',
+                'applications' => [
+                    ['name' => 'Residências', 'desc' => 'Segurança completa para o conforto do seu lar.'],
+                    ['name' => 'Condomínios', 'desc' => 'Controlo seguro de acessos comuns e perímetros.'],
+                    ['name' => 'Empresas', 'desc' => 'Proteção inteligente de ativos e colaboradores.'],
+                    ['name' => 'Lojas', 'desc' => 'Dissuasão de furtos e segurança para o comércio.'],
+                    ['name' => 'Escritórios', 'desc' => 'Acessos autorizados e controlo em áreas de trabalho.'],
+                    ['name' => 'Armazéns', 'desc' => 'Proteção de mercadorias e deteção em grandes áreas.'],
+                    ['name' => 'Indústrias', 'desc' => 'Sistemas de alta durabilidade para ambientes complexos.'],
+                    ['name' => 'Espaços comerciais', 'desc' => 'Segurança integrada para clientes e negócios.']
+                ],
+                'related_products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-HUB2-B', 'AJ-MOTIONCAMOUTDOOR-W'],
+                'benefits' => ['proteção contra acessos não autorizados', 'deteção rápida de movimentos suspeitos', 'alerta imediato em situações de risco', 'segurança para ambientes internos e externos', 'integração com CCTV e acessos', 'equipamentos modernos e discretos'],
+                'gallery_images' => ['/images/alarme-intrusao-1.png', '/images/alarme-intrusao-2.png', '/images/alarme-intrusao-3.png'],
+                'final_cta_title' => 'Precisa proteger o seu espaço contra intrusões?',
+                'final_cta_text' => 'A Cotton Dome LDA desenvolve soluções de alarme e intrusão à medida, combinando tecnologia, segurança e profissionalismo para proteger pessoas, património e operações.',
+                'seo_title' => 'Intrusões e Sistemas de Alarme | Cotton Dome LDA',
+                'seo_description' => 'Soluções profissionais de intrusão e sistemas de alarme para residências, empresas e condomínios. Sensores, detetores, proteção perimetral e segurança eletrónica.',
+                'seo_keywords' => 'sistemas de alarme, contra intrusão, detetores de movimento, segurança doméstica, alarmes residenciais'
             ]
         ],
         'suppliers' => [

@@ -323,7 +323,7 @@ function getDefaultData(): array {
                 'shortDescription' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',
                 'short_description' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',
                 'description' => 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.',
-                'products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-FIREPROTECTPLUS-B', 'AJ-MOTIONCAMOUTDOOR-W'],
+                'products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-HUB2-B', 'AJ-MOTIONCAMOUTDOOR-W'],
                 'benefits' => ['proteção contra acessos não autorizados', 'deteção rápida de movimentos suspeitos', 'alerta imediato em situações de risco', 'segurança para ambientes internos e externos', 'integração com CCTV e acessos', 'equipamentos modernos e discretos']
             ]
         ],
@@ -413,7 +413,7 @@ function getDefaultData(): array {
                     ['name' => 'Indústrias', 'desc' => 'Sistemas de alta durabilidade para ambientes complexos.'],
                     ['name' => 'Espaços comerciais', 'desc' => 'Segurança integrada para clientes e negócios.']
                 ],
-                'related_products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-FIREPROTECTPLUS-B', 'AJ-MOTIONCAMOUTDOOR-W'],
+                'related_products' => ['AJ-COMBIPROTECT-S-W', 'AJ-CURTAINOUTDOOR-W', 'AJ-HUB2-B', 'AJ-MOTIONCAMOUTDOOR-W'],
                 'benefits' => ['proteção contra acessos não autorizados', 'deteção rápida de movimentos suspeitos', 'alerta imediato em situações de risco', 'segurança para ambientes internos e externos', 'integração com CCTV e acessos', 'equipamentos modernos e discretos'],
                 'gallery_images' => ['/images/alarme-intrusao-1.png', '/images/alarme-intrusao-2.png', '/images/alarme-intrusao-3.png'],
                 'final_cta_title' => 'Precisa proteger o seu espaço contra intrusões?',

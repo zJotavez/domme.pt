@@ -269,7 +269,7 @@ INSERT INTO `service_pages` (`service_id`, `page_title`, `impact_phrase`, `full_
 
 (11, 'Intrusões / Sistemas de Alarme', 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.', 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.',
 '["Residências", "Condomínios", "Empresas", "Lojas", "Escritórios", "Armazéns", "Indústrias", "Espaços comerciais"]',
-'["AJ-COMBIPROTECT-S-W", "AJ-CURTAINOUTDOOR-W", "AJ-FIREPROTECTPLUS-B", "AJ-MOTIONCAMOUTDOOR-W"]',
+'["AJ-COMBIPROTECT-S-W", "AJ-CURTAINOUTDOOR-W", "AJ-HUB2-B", "AJ-MOTIONCAMOUTDOOR-W"]',
 '["Proteção contra acessos não autorizados", "Deteção rápida de movimentos suspeitos", "Alerta imediato em situações de risco", "Segurança para ambientes internos e externos", "Integração com CCTV e acessos", "Equipamentos modernos e discretos"]',
 '["Análise do espaço", "Escolha da solução", "Instalação profissional", "Configuração e acompanhamento"]',
 '["images/alarme-intrusao-1.png", "images/alarme-intrusao-2.png", "images/alarme-intrusao-3.png"]',

@@ -86,20 +86,21 @@ const CONTENT = {
           benefit: "Cria um escudo invisível vertical, protegendo acessos antes de haver intrusão física."
         },
         {
-          id: "AJ-FIREPROTECTPLUS-B",
-          model: "AJ-FIREPROTECTPLUS-B",
-          category: "Detector de fumo, CO e temperatura",
-          desc: "Detector para monitorização de fumo, monóxido de carbono e temperatura, oferecendo uma camada adicional de proteção para ambientes internos.",
+          id: "AJ-HUB2-B",
+          model: "AJ-HUB2-B",
+          category: "Central de alarme inteligente",
+          desc: "Painel de controlo inteligente que monitoriza todos os dispositivos sem fios da rede, gere os alarmes e envia notificações instantâneas.",
           features: [
-            "Detector de fumo e CO",
-            "Sensor de temperatura",
-            "Sem fios 868 MHz Jeweller",
-            "Sirene 85 dB incorporada",
-            "Permite funcionamento autónomo",
-            "Certificado EN 14604:2005"
+            "Central de alarme inteligente Grau 2",
+            "Suporta foto-verificação de alarmes",
+            "Canais de comunicação: Ethernet e Dual SIM",
+            "Notificações push, SMS e chamadas de voz",
+            "Até 100 dispositivos conectados",
+            "Bateria de backup integrada (até 16h)",
+            "Protocolo Jeweller de alta segurança"
           ],
-          image: "/images/aj-fireprotectplus-b.jpg",
-          benefit: "Proteção instantânea contra incêndios ocultos e gases nocivos como monóxido de carbono."
+          image: "/images/aj-hub2-b.jpg",
+          benefit: "O cérebro do sistema de segurança, garantindo comunicação rápida e redundante em qualquer situação."
         },
         {
           id: "AJ-MOTIONCAMOUTDOOR-W",
@@ -115,7 +116,7 @@ const CONTENT = {
             "Imune a animais de estimação",
             "Uso exterior IP55"
           ],
-          image: "/images/aj-motioncamoutdoor-w.png",
+          image: "/images/aj-motioncamoutdoor-w.jpg",
           benefit: "Evita falsos alarmes com verificação fotográfica instantânea de ocorrências no exterior."
         }
       ]
@@ -219,20 +220,21 @@ const CONTENT = {
           benefit: "Creates a vertical invisible shield, protecting entries before physical intrusion occurs."
         },
         {
-          id: "AJ-FIREPROTECTPLUS-B",
-          model: "AJ-FIREPROTECTPLUS-B",
-          category: "Smoke, CO and temperature detector",
-          desc: "Detector for smoke, carbon monoxide and temperature monitoring, offering an additional layer of protection for indoor environments.",
+          id: "AJ-HUB2-B",
+          model: "AJ-HUB2-B",
+          category: "Smart alarm control panel",
+          desc: "Smart control panel that monitors all wireless network devices, manages alarms, and sends instant notifications.",
           features: [
-            "Smoke and CO detector",
-            "Temperature sensor",
-            "Wireless 868 MHz Jeweller",
-            "Built-in 85 dB siren",
-            "Allows autonomous operation",
-            "EN 14604:2005 certified"
+            "Smart alarm control panel Grade 2",
+            "Supports photo-verification of alarms",
+            "Communication channels: Ethernet and Dual SIM",
+            "Push notifications, SMS, and voice calls",
+            "Up to 100 connected devices",
+            "Built-in backup battery (up to 16h)",
+            "High-security Jeweller protocol"
           ],
-          image: "/images/aj-fireprotectplus-b.jpg",
-          benefit: "Instant protection against hidden fires and harmful gases like carbon monoxide."
+          image: "/images/aj-hub2-b.jpg",
+          benefit: "The brain of the security system, ensuring fast and redundant communication in any situation."
         },
         {
           id: "AJ-MOTIONCAMOUTDOOR-W",
@@ -248,7 +250,7 @@ const CONTENT = {
             "Pet immune",
             "IP55 outdoor use"
           ],
-          image: "/images/aj-motioncamoutdoor-w.png",
+          image: "/images/aj-motioncamoutdoor-w.jpg",
           benefit: "Prevents false alarms with instant photo verification of outdoor events on your phone."
         }
       ]
@@ -352,20 +354,21 @@ const CONTENT = {
           benefit: "Crée un bouclier invisible vertical, protégeant les accès avant l'intrusion physique."
         },
         {
-          id: "AJ-FIREPROTECTPLUS-B",
-          model: "AJ-FIREPROTECTPLUS-B",
-          category: "Détecteur de fumée, CO et température",
-          desc: "Détecteur pour la surveillance de la fumée, du monoxyde de carbone et de la température, offrant une couche supplémentaire de protection pour les environnements intérieurs.",
+          id: "AJ-HUB2-B",
+          model: "AJ-HUB2-B",
+          category: "Centrale d'alarme inteligente",
+          desc: "Panneau de contrôle intelligent qui surveille tous les appareils réseau sans fil, gère les alarmes et envoie des notifications instantanées.",
           features: [
-            "Détecteur de fumée et CO",
-            "Capteur de température",
-            "Sans fil 868 MHz Jeweller",
-            "Sirène 85 dB intégrée",
-            "Permet un fonctionnement autonome",
-            "Certifié EN 14604:2005"
+            "Centrale d'alarme intelligente Grade 2",
+            "Prend en charge la photo-vérification des alarmes",
+            "Canaux de communication : Ethernet et Dual SIM",
+            "Notifications push, SMS et appels vocaux",
+            "Jusqu'à 100 appareils connectés",
+            "Batterie de secours intégrée (jusqu'à 16h)",
+            "Protocole Jeweller haute sécurité"
           ],
-          image: "/images/aj-fireprotectplus-b.jpg",
-          benefit: "Protection instantanée contre les incendies couvant et gaz toxiques comme le monoxyde de carbone."
+          image: "/images/aj-hub2-b.jpg",
+          benefit: "Le cerveau du système de sécurité, assurant une communication rapide et redondante en toutes circonstances."
         },
         {
           id: "AJ-MOTIONCAMOUTDOOR-W",
@@ -381,7 +384,7 @@ const CONTENT = {
             "Immunisé contre les animaux de compagnie",
             "Usage extérieur IP55"
           ],
-          image: "/images/aj-motioncamoutdoor-w.png",
+          image: "/images/aj-motioncamoutdoor-w.jpg",
           benefit: "Évite les fausses alertes avec vérification photo instantanée des événements extérieurs sur votre mobile."
         }
       ]
