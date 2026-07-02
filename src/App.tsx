@@ -19,6 +19,8 @@ import { TRANSLATIONS } from "./translations";
 import { CONTACT_INFO } from "./data";
 import { getSiteContent } from "./lib/database";
 
+const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [selectedService, setSelectedService] = useState("");

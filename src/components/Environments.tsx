@@ -10,6 +10,12 @@ interface EnvironmentsProps {
 
 const mapIdToKey = (id: string | number): "residencias" | "condominios" | "empresas" | "comercio" | "industrias" | "armazens" => {
   const map: Record<string | number, "residencias" | "condominios" | "empresas" | "comercio" | "industrias" | "armazens"> = {
+    "residencias": "residencias",
+    "condominios": "condominios",
+    "empresas": "empresas",
+    "comercio": "comercio",
+    "industrias": "industrias",
+    "armazens": "armazens",
     1: "residencias",
     2: "condominios",
     3: "empresas",
