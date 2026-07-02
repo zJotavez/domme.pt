@@ -137,10 +137,13 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt", 
   const t = TRANSLATIONS[lang];
 
   // Resolve service from DB or static fallback
-  const service = services?.find((s) => s.slug === slug) || SERVICES_DATA.find((s) => s.slug === slug);
-  const pageDetails = pages?.find((p) => p.service_id === service?.id);
+  const service = services?.find((s) => s.slug === slug) || 
+                  SERVICES_DATA.find((s) => s.slug === slug) ||
+                  ((slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") ? SERVICES_DATA.find(s => s.slug === "intrusao-sistemas-alarme") : undefined);
+  const pageDetails = pages?.find((p) => p.service_id === service?.id) ||
+                      ((slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") ? pages?.find(p => p.service_id === 2) : undefined);
 
-  if (slug === "intrusao-sistemas-alarme") {
+  if (slug === "intrusao-sistemas-alarme" || slug === "alarme-intrusao") {
     return (
       <IntrusaoPage
         onNavigate={onNavigate}
