@@ -122,8 +122,8 @@ Tudo pronto! O site estará online no seu domínio com ligações dinâmicas e p
 
 ## 🔐 Credenciais Padrão do Painel de Administração
 
-- **URL de Acesso**: `https://seu-dominio.com/admin`
-- **Utilizador**: `admin`
+- **URL de Acesso**: `https://domme.pt/admin`
+- **Utilizador**: `suporte@domme.pt`
 - **Password Inicial**: `#CD2026lda`
 
 > [!IMPORTANT]
