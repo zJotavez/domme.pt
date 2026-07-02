@@ -6,6 +6,7 @@ import { ArrowLeft, CheckCircle2, ShieldCheck, HelpCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { DbService, DbServicePage } from "../types";
 import { TRANSLATIONS } from "../translations";
+import { IntrusaoPage } from "./IntrusaoPage";
 
 const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
@@ -15,6 +16,7 @@ interface ServiceDetailProps {
   services?: DbService[];
   pages?: DbServicePage[];
   lang?: "pt" | "en" | "fr";
+  dbSettings?: any;
 }
 
 const mapSlugToKey = (slug: string): string => {
@@ -131,12 +133,23 @@ const PRODUCT_IMAGES: Record<string, string> = {
   "painéis de distribuição": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80"
 };
 
-export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt" }: ServiceDetailProps) {
+export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt", dbSettings }: ServiceDetailProps) {
   const t = TRANSLATIONS[lang];
 
   // Resolve service from DB or static fallback
   const service = services?.find((s) => s.slug === slug) || SERVICES_DATA.find((s) => s.slug === slug);
   const pageDetails = pages?.find((p) => p.service_id === service?.id);
+
+  if (slug === "intrusao-sistemas-alarme") {
+    return (
+      <IntrusaoPage
+        onNavigate={onNavigate}
+        lang={lang}
+        dbPageDetails={pageDetails}
+        dbSettings={dbSettings}
+      />
+    );
+  }
 
   // Safe JSON Parsing helper
   const parseJsonArray = (val: any, defaultVal: any[]) => {

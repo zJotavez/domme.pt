@@ -261,6 +261,7 @@ export default function App() {
           services={dbData?.services}
           pages={dbData?.service_pages}
           lang={language}
+          dbSettings={dbData?.settings}
         />
       ) : (
         // Render full home page
