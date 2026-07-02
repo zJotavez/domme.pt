@@ -2,6 +2,8 @@
 header('Content-Type: text/html; charset=utf-8');
 
 echo "<h2>Atualizador de Imagens dos Alarmes - Cotton Dome</h2>";
+echo "<p><strong>CWD:</strong> " . htmlspecialchars(getcwd()) . "</p>";
+echo "<p><strong>DOCUMENT_ROOT:</strong> " . htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . "</p>";
 
 $images = [
     "aj-combiprotect-s-w.jpg",
