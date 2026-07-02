@@ -21,46 +21,12 @@ try {
         short_description = 'Câmeras IP e analógicas HD com inteligência artificial, gravação contínua e monitorização remota em tempo real via app.'
     WHERE id = 1 OR slug = 'cctv-videovigilancia'");
     
-    // Alarmes (Serviço Original)
+    // Alarmes
     $pdo->query("UPDATE services SET 
-        slug = 'alarme-intrusao',
-        title = 'Sistemas de Alarme e Intrusão',
         image = 'images/alarme-hero.png',
         slogan = 'Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.',
-        short_description = 'Centrais de alarme conectadas, sensores PIR avançados, sirenes de alto impacto e proteção perimetral 24/7.'
-    WHERE id = 2");
-
-    // Novo Serviço: Intrusões / Sistemas de Alarme (ID 11)
-    $check11 = $pdo->query("SELECT id FROM services WHERE id = 11");
-    if (!$check11->fetch()) {
-        $pdo->query("INSERT INTO services (id, title, slug, short_description, icon, image, is_active, display_order) VALUES
-        (11, 'Intrusões / Sistemas de Alarme', 'intrusao-sistemas-alarme', 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.', 'ShieldAlert', 'images/alarme-intrusao-1.png', 1, 11)");
-        echo "<p>[OK] Novo serviço ID 11 adicionado à tabela services.</p>";
-    } else {
-        $pdo->query("UPDATE services SET 
-            slug = 'intrusao-sistemas-alarme',
-            title = 'Intrusões / Sistemas de Alarme',
-            image = 'images/alarme-intrusao-1.png'
-        WHERE id = 11");
-    }
-
-    // Insert service_pages for ID 11 if it does not exist
-    $checkPage11 = $pdo->query("SELECT id FROM service_pages WHERE service_id = 11");
-    if (!$checkPage11->fetch()) {
-        $pdo->query("INSERT INTO service_pages (service_id, page_title, impact_phrase, full_description, applications, related_products, benefits, work_process, gallery_images, final_cta_title, final_cta_text, seo_title, seo_description, seo_keywords) VALUES
-        (11, 'Intrusões / Sistemas de Alarme', 'Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.', 'A Cotton Dome LDA desenvolve soluções completas de intrusão e alarme para residências, condomínios, empresas, espaços comerciais e ambientes industriais, utilizando equipamentos modernos, tecnologia sem fios e sistemas de deteção profissional.', 
-        '[\"Residências\", \"Condomínios\", \"Empresas\", \"Lojas\", \"Escritórios\", \"Armazéns\", \"Indústrias\", \"Espaços comerciais\"]', 
-        '[\"AJ-COMBIPROTECT-S-W\", \"AJ-CURTAINOUTDOOR-W\", \"AJ-FIREPROTECTPLUS-B\", \"AJ-MOTIONCAMOUTDOOR-W\"]', 
-        '[\"Proteção contra acessos não autorizados\", \"Deteção rápida de movimentos suspeitos\", \"Alerta imediato em situações de risco\", \"Segurança para ambientes internos e externos\", \"Integração com CCTV e acessos\", \"Equipamentos modernos e discretos\"]', 
-        '[\"Análise do espaço\", \"Escolha da solução\", \"Instalação profissional\", \"Configuração e acompanhamento\"]', 
-        '[\"images/alarme-intrusao-1.png\", \"images/alarme-intrusao-2.png\", \"images/alarme-intrusao-3.png\"]', 
-        'Precisa proteger o seu espaço contra intrusões?', 
-        'A Cotton Dome LDA desenvolve soluções de alarme e intrusão à medida, combinando tecnologia, segurança e profissionalismo para proteger pessoas, património e operações.', 
-        'Intrusões e Sistemas de Alarme | Cotton Dome LDA', 
-        'Soluções profissionais de intrusão e sistemas de alarme para residências, empresas e condomínios. Sensores, detetores, proteção perimetral e segurança eletrónica.', 
-        'sistemas de alarme, intrusão, detetores de movimento, segurança eletrónica, alarmes residenciais')");
-        echo "<p>[OK] Página de serviço ID 11 adicionada à tabela service_pages.</p>";
-    }
+        short_description = 'Centrais de alarme conectadas, sensores de movimento avançados, sirenes de alto impacto e proteção perimetral 24/7.'
+    WHERE id = 2 OR slug = 'intrusao-sistemas-alarme'");
     
     // Controlo de Acesso
     $pdo->query("UPDATE services SET 
@@ -107,6 +73,28 @@ try {
             $up = $pdo->prepare("UPDATE service_pages SET gallery_images = :images WHERE id = :id");
             $up->execute(['images' => $imagesJson, 'id' => $row['id']]);
             echo "<p>[OK] Imagens da galeria sincronizadas para o servico ID {$serviceId}.</p>";
+        }
+    }
+
+    // 4. Atualizar related_products do service_id 11 na tabela service_pages de AJ-FIREPROTECTPLUS-B para AJ-HUB2-B
+    $stmt = $pdo->prepare("SELECT id, related_products FROM service_pages WHERE service_id = 11 LIMIT 1");
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if ($row) {
+        $products = json_decode($row['related_products'], true);
+        if (is_array($products)) {
+            $updated = false;
+            foreach ($products as &$prod) {
+                if ($prod === 'AJ-FIREPROTECTPLUS-B') {
+                    $prod = 'AJ-HUB2-B';
+                    $updated = true;
+                }
+            }
+            if ($updated) {
+                $up = $pdo->prepare("UPDATE service_pages SET related_products = :products WHERE id = :id");
+                $up->execute(['products' => json_encode($products), 'id' => $row['id']]);
+                echo "<p>[OK] Produtos relacionados na base de dados atualizados para incluir AJ-HUB2-B.</p>";
+            }
         }
     }
 

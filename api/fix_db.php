@@ -76,6 +76,28 @@ try {
         }
     }
 
+    // 4. Atualizar related_products do service_id 11 na tabela service_pages de AJ-FIREPROTECTPLUS-B para AJ-HUB2-B
+    $stmt = $pdo->prepare("SELECT id, related_products FROM service_pages WHERE service_id = 11 LIMIT 1");
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if ($row) {
+        $products = json_decode($row['related_products'], true);
+        if (is_array($products)) {
+            $updated = false;
+            foreach ($products as &$prod) {
+                if ($prod === 'AJ-FIREPROTECTPLUS-B') {
+                    $prod = 'AJ-HUB2-B';
+                    $updated = true;
+                }
+            }
+            if ($updated) {
+                $up = $pdo->prepare("UPDATE service_pages SET related_products = :products WHERE id = :id");
+                $up->execute(['products' => json_encode($products), 'id' => $row['id']]);
+                echo "<p>[OK] Produtos relacionados na base de dados atualizados para incluir AJ-HUB2-B.</p>";
+            }
+        }
+    }
+
     echo "<h3>[SUCESSO] Base de dados reparada com sucesso!</h3>";
     echo "<p>Por favor, recarregue a pagina do seu site agora.</p>";
 
