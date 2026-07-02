@@ -11,7 +11,7 @@ async function request(url: string, options: RequestInit = {}) {
     'Content-Type': 'application/json',
     ...(options.headers || {}),
   };
-  const res = await fetch(url, { ...options, headers });
+  const res = await fetch(url, { ...options, headers, credentials: 'include' });
   if (res.status === 401) {
     throw new Error('Não autenticado.');
   }
