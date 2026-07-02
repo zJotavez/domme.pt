@@ -166,22 +166,7 @@ function getDefaultData(): array {
                 'products' => ['câmeras IP', 'câmeras analógicas', 'câmeras dome', 'câmeras bullet', 'gravadores DVR', 'gravadores NVR', 'discos de gravação', 'fontes de alimentação', 'cablagem', 'acesso remoto por aplicação'],
                 'benefits' => ['monitorização em tempo real 24/7', 'gravação contínua e segura', 'acesso remoto via smartphone', 'deteção inteligente de pessoas e veículos', 'prevenção e dissuasão de intrusões', 'mais segurança para pessoas e património']
             ],
-            [
-                'id' => 2,
-                'title' => 'Sistemas de Alarme e Intrusão',
-                'slug' => 'alarme-intrusao',
-                'icon' => 'ShieldAlert',
-                'image' => '/images/alarme-hero.png',
-                'active' => true,
-                'is_active' => 1,
-                'display_order' => 2,
-                'slogan' => 'Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.',
-                'shortDescription' => 'Centrais de alarme conectadas, sensores de movimento avançados, sirenes de alto impacto e proteção perimetral 24/7.',
-                'short_description' => 'Centrais de alarme conectadas, sensores de movimento avançados, sirenes de alto impacto e proteção perimetral 24/7.',
-                'description' => 'Os nossos sistemas de alarme e deteção de intrusão criam uma barreira de segurança activa e inteligente em torno do seu espaço. Utilizamos centrais avançadas com ou sem fios, detetores de movimento PIR imunes a animais de estimação, sensores magnéticos para portas e janelas, e proteção perimetral exterior com barreiras infravermelhas. Em caso de intrusão, o alerta chega imediatamente ao seu telemóvel — podendo também ser ligado a uma central de monitorização profissional com despacho de segurança.',
-                'products' => ['centrais de alarme', 'sensores de movimento', 'sensores magnéticos', 'sensores perimetrais', 'sirenes', 'teclados de alarme', 'comandos', 'módulos GSM ou Wi-Fi', 'detectores internos e externos'],
-                'benefits' => ['proteção contra invasões', 'alerta imediato', 'segurança perimetral', 'integração com outros sistemas', 'maior tranquilidade', 'controlo do ambiente protegido']
-            ],
+
             [
                 'id' => 3,
                 'title' => 'Controlo de Acessos',
@@ -313,12 +298,12 @@ function getDefaultData(): array {
             [
                 'id' => 11,
                 'title' => 'Intrusões / Sistemas de Alarme',
-                'slug' => 'intrusao-sistemas-alarme',
+                'slug' => 'alarme-intrusao',
                 'icon' => 'ShieldAlert',
                 'image' => '/images/alarme-intrusao-1.png',
                 'active' => true,
                 'is_active' => 1,
-                'display_order' => 11,
+                'display_order' => 2,
                 'slogan' => 'Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.',
                 'shortDescription' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',
                 'short_description' => 'Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.',

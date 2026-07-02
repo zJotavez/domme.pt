@@ -20,8 +20,7 @@ interface ServiceDetailProps {
 }
 
 const mapSlugToKey = (slug: string): string => {
-  if (slug === "alarme-intrusao") return "intrusao";
-  if (slug === "intrusao-sistemas-alarme") return "intrusao-nova";
+  if (slug === "alarme-intrusao" || slug === "intrusao-sistemas-alarme") return "intrusao";
   if (slug === "controle-acesso" || slug === "controlo-de-acessos") return "acessos";
   if (slug === "ups-energia" || slug === "ups-sistemas-energia") return "ups";
   if (slug === "redes-estruturadas" || slug === "redes-network-solutions") return "redes";
@@ -141,7 +140,7 @@ export function ServiceDetail({ slug, onNavigate, services, pages, lang = "pt", 
   const service = services?.find((s) => s.slug === slug) || SERVICES_DATA.find((s) => s.slug === slug);
   const pageDetails = pages?.find((p) => p.service_id === service?.id);
 
-  if (slug === "intrusao-sistemas-alarme") {
+  if (slug === "intrusao-sistemas-alarme" || slug === "alarme-intrusao") {
     return (
       <IntrusaoPage
         onNavigate={onNavigate}

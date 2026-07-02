@@ -52,43 +52,7 @@ export const SERVICES_DATA: ServiceDetails[] = [
       "/images/cctv-3.png"
     ]
   },
-  {
-    id: "intrusao",
-    slug: "alarme-intrusao",
-    title: "Sistemas de Alarme e Intrusão",
-    slogan: "Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.",
-    shortDescription: "Centrais de alarme conectadas, sensores PIR avançados, sirenes de alto impacto e proteção perimetral 24/7.",
-    description: "Os nossos sistemas de alarme e deteção de intrusão criam uma barreira de segurança ativa e inteligente em torno do seu espaço. Utilizamos centrais avançadas com ou sem fios, detetores de movimento PIR imunes a animais de estimação, sensores magnéticos para portas e janelas, e proteção perimetral exterior com barreiras infravermelhas. Em caso de intrusão, o alerta chega imediatamente ao seu telemóvel — podendo também ser ligado a uma central de monitorização profissional com despacho de segurança.",
-    iconName: "ShieldAlert",
-    image: "/images/alarme-hero.png",
-    products: [
-      "centrais de alarme",
-      "sensores de movimento",
-      "sensores magnéticos",
-      "sensores perimetrais",
-      "sirenes",
-      "teclados de alarme",
-      "comandos",
-      "módulos GSM ou Wi-Fi",
-      "detectores internos e externos"
-    ],
-    benefits: [
-      "proteção contra invasões",
-      "alerta imediato",
-      "segurança perimetral",
-      "integração com outros sistemas",
-      "maior tranquilidade",
-      "controlo do ambiente protegido"
-    ],
-    seoTitle: "Sistemas de Alarme e Intrusão | Cotton Dome LDA",
-    seoDescription: "Alarmes e deteção contra intrusão para habitações e espaços comerciais. Sensores, centrais e sirenes de alta qualidade.",
-    galleryImages: [
-      "/images/alarme-intrusao-1.png",
-      "/images/alarme-intrusao-2.png",
-      "/images/alarme-intrusao-3.png",
-      "/images/alarme-intrusao-4.png"
-    ]
-  },
+
   {
     id: "acessos",
     slug: "controlo-de-acessos",
@@ -375,8 +339,8 @@ export const SERVICES_DATA: ServiceDetails[] = [
     ]
   },
   {
-    id: "intrusao-nova",
-    slug: "intrusao-sistemas-alarme",
+    id: "intrusao",
+    slug: "alarme-intrusao",
     title: "Intrusões / Sistemas de Alarme",
     slogan: "Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.",
     shortDescription: "Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.",
@@ -386,7 +350,7 @@ export const SERVICES_DATA: ServiceDetails[] = [
     products: [
       "AJ-COMBIPROTECT-S-W",
       "AJ-CURTAINOUTDOOR-W",
-      "AJ-FIREPROTECTPLUS-B",
+      "AJ-HUB2-B",
       "AJ-MOTIONCAMOUTDOOR-W"
     ],
     benefits: [

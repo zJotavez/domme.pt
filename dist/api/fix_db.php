@@ -21,12 +21,19 @@ try {
         short_description = 'Câmeras IP e analógicas HD com inteligência artificial, gravação contínua e monitorização remota em tempo real via app.'
     WHERE id = 1 OR slug = 'cctv-videovigilancia'");
     
-    // Alarmes
+    // Alarmes: Remover o serviço antigo ID 2 e atualizar o ID 11
+    $pdo->query("DELETE FROM service_pages WHERE service_id = 2");
+    $pdo->query("DELETE FROM services WHERE id = 2");
+    echo "<p>[OK] Serviço antigo ID 2 removido do banco de dados.</p>";
+
     $pdo->query("UPDATE services SET 
+        slug = 'alarme-intrusao',
+        display_order = 2,
         image = 'images/alarme-hero.png',
         slogan = 'Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.',
         short_description = 'Centrais de alarme conectadas, sensores de movimento avançados, sirenes de alto impacto e proteção perimetral 24/7.'
-    WHERE id = 2 OR slug = 'intrusao-sistemas-alarme'");
+    WHERE id = 11");
+    echo "<p>[OK] Serviço ID 11 atualizado com slug 'alarme-intrusao' e display_order = 2.</p>";
     
     // Controlo de Acesso
     $pdo->query("UPDATE services SET 
@@ -51,7 +58,7 @@ try {
     // 3. Seed/Update default gallery images for all services
     $defaultImages = [
         1 => '["images/cctv-1.png","images/cctv-2.png","images/cctv-3.png"]',
-        2 => '["images/alarme-intrusao-1.png","images/alarme-intrusao-2.png","images/alarme-intrusao-3.png","images/alarme-intrusao-4.png"]',
+        11 => '["images/alarme-intrusao-1.png","images/alarme-intrusao-2.png","images/alarme-intrusao-3.png","images/alarme-intrusao-4.png"]',
         3 => '["images/controlo-acessos-1.png","images/controlo-acessos-2.png","images/controlo-acessos-3.png"]',
         4 => '["images/deteccao-incendio-1.png","images/deteccao-incendio-2.png","images/deteccao-incendio-3.png"]',
         5 => '["images/automatismos-1.png","images/automatismos-2.png","images/automatismos-3.png"]',

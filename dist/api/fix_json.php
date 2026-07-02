@@ -28,97 +28,68 @@ try {
 
         $modified = false;
 
-        // 1. Corrigir slug de ID 2 e adicionar ID 11 em services
+        // 1. Remover o serviço antigo ID 2 de 'services' e atualizar o slug do ID 11
         if (isset($data['services']) && is_array($data['services'])) {
-            $hasId11 = false;
-            foreach ($data['services'] as &$service) {
-                if (intval($service['id']) === 2 && $service['slug'] === 'intrusao-sistemas-alarme') {
-                    $service['slug'] = 'alarme-intrusao';
-                    echo "<p>[MIGRAÇÃO] Slug do serviço ID 2 alterado de 'intrusao-sistemas-alarme' para 'alarme-intrusao'.</p>";
+            $cleanedServices = [];
+            foreach ($data['services'] as $service) {
+                if (intval($service['id']) === 2) {
+                    echo "<p>[MIGRAÇÃO] Removido o serviço antigo ID 2 (Sistemas de Alarme e Intrusão) do JSON.</p>";
                     $modified = true;
+                    continue;
                 }
                 if (intval($service['id']) === 11) {
-                    $hasId11 = true;
-                }
-            }
-
-            if (!$hasId11) {
-                // Adiciona o ID 11
-                $defaultData = getDefaultData();
-                $newService = null;
-                foreach ($defaultData['services'] as $ds) {
-                    if (intval($ds['id']) === 11) {
-                        $newService = $ds;
-                        break;
-                    }
-                }
-                if ($newService) {
-                    $data['services'][] = $newService;
-                    echo "<p>[MIGRAÇÃO] Serviço ID 11 (Intrusões / Sistemas de Alarme - Versão Nova) adicionado ao JSON.</p>";
+                    $service['slug'] = 'alarme-intrusao';
+                    $service['display_order'] = 2;
+                    echo "<p>[MIGRAÇÃO] Atualizado o serviço ID 11 (Intrusões / Sistemas de Alarme) para usar o slug 'alarme-intrusao' e display_order = 2.</p>";
                     $modified = true;
                 }
+                $cleanedServices[] = $service;
             }
+            $data['services'] = $cleanedServices;
         }
 
-        // 2. Adicionar service_page para ID 11 em service_pages
+        // 2. Remover a página de detalhe antiga ID 2 de 'service_pages' e atualizar o serviço ID 11
         if (isset($data['service_pages']) && is_array($data['service_pages'])) {
-            $hasPage11 = false;
+            $cleanedPages = [];
             foreach ($data['service_pages'] as $page) {
-                if (intval($page['service_id']) === 11) {
-                    $hasPage11 = true;
-                    break;
-                }
-            }
-
-            if (!$hasPage11) {
-                $defaultData = getDefaultData();
-                $newPage = null;
-                foreach ($defaultData['service_pages'] as $dp) {
-                    if (intval($dp['service_id']) === 11) {
-                        $newPage = $dp;
-                        break;
-                    }
-                }
-                if ($newPage) {
-                    $data['service_pages'][] = $newPage;
-                    echo "<p>[MIGRAÇÃO] Página de detalhe para serviço ID 11 adicionada ao JSON.</p>";
+                if (intval($page['service_id']) === 2) {
+                    echo "<p>[MIGRAÇÃO] Removida a página antiga do serviço ID 2 do JSON.</p>";
                     $modified = true;
+                    continue;
                 }
-            }
-        }
-
-        // 3. Substituir AJ-FIREPROTECTPLUS-B por AJ-HUB2-B nos produtos relacionados do serviço 11
-        if (isset($data['service_pages']) && is_array($data['service_pages'])) {
-            foreach ($data['service_pages'] as &$page) {
-                if (intval($page['service_id']) === 11 && isset($page['related_products'])) {
-                    if (is_array($page['related_products'])) {
-                        foreach ($page['related_products'] as &$prod) {
-                            if ($prod === 'AJ-FIREPROTECTPLUS-B') {
-                                $prod = 'AJ-HUB2-B';
-                                echo "<p>[MIGRAÇÃO] Produto relacionado 'AJ-FIREPROTECTPLUS-B' alterado para 'AJ-HUB2-B' no JSON.</p>";
-                                $modified = true;
-                            }
-                        }
-                    } else if (is_string($page['related_products'])) {
-                        // Se for uma string JSON
-                        $prodsArray = json_decode($page['related_products'], true);
-                        if (is_array($prodsArray)) {
-                            $prodModified = false;
-                            foreach ($prodsArray as &$prod) {
+                if (intval($page['service_id']) === 11) {
+                    // Substituir AJ-FIREPROTECTPLUS-B por AJ-HUB2-B nos produtos relacionados
+                    if (isset($page['related_products'])) {
+                        if (is_array($page['related_products'])) {
+                            foreach ($page['related_products'] as &$prod) {
                                 if ($prod === 'AJ-FIREPROTECTPLUS-B') {
                                     $prod = 'AJ-HUB2-B';
-                                    $prodModified = true;
+                                    echo "<p>[MIGRAÇÃO] Produto relacionado 'AJ-FIREPROTECTPLUS-B' alterado para 'AJ-HUB2-B' na página do serviço ID 11.</p>";
+                                    $modified = true;
                                 }
                             }
-                            if ($prodModified) {
-                                $page['related_products'] = json_encode($prodsArray);
-                                echo "<p>[MIGRAÇÃO] Produto relacionado 'AJ-FIREPROTECTPLUS-B' alterado para 'AJ-HUB2-B' no JSON (formato string).</p>";
-                                $modified = true;
+                        } else if (is_string($page['related_products'])) {
+                            $prodsArray = json_decode($page['related_products'], true);
+                            if (is_array($prodsArray)) {
+                                $prodModified = false;
+                                foreach ($prodsArray as &$prod) {
+                                    if ($prod === 'AJ-FIREPROTECTPLUS-B') {
+                                        $prod = 'AJ-HUB2-B';
+                                        $prodModified = true;
+                                    }
+                                }
+                                if ($prodModified) {
+                                    $page['related_products'] = json_encode($prodsArray);
+                                    echo "<p>[MIGRAÇÃO] Produto relacionado 'AJ-FIREPROTECTPLUS-B' alterado para 'AJ-HUB2-B' (formato string) na página do serviço ID 11.</p>";
+                                    $modified = true;
+                                }
                             }
                         }
                     }
                 }
+                $cleanedPages[] = $page;
             }
+            $data['service_pages'] = $cleanedPages;
         }
 
         // Se modificamos alguma coisa, salvar o arquivo JSON

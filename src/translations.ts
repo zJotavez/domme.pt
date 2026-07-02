@@ -370,12 +370,6 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         desc: "A Cotton Dome LDA projeta e instala sistemas de videovigilância profissionais com câmeras IP e analógicas de alta definição que incorporam IA para deteção precisa de pessoas e veículos. Monitorize o seu espaço de qualquer ponto do mundo em tempo real, com gravação segura, alertas automáticos por movimento e acesso via smartphone."
       },
       "intrusao": {
-        title: "Sistemas de Alarme e Intrusão",
-        slogan: "Proteção inteligente contra invasões com alertas instantâneos e resposta imediata no seu telemóvel.",
-        shortDesc: "Centrais de alarme conectadas, sensores PIR avançados, sirenes de alto impacto e proteção perimetral 24/7.",
-        desc: "Os nossos sistemas de alarme e intrusão criam uma barreira de segurança activa em torno do seu espaço. Detetores PIR imunes a animais de estimação, sensores magnéticos, barreiras perimetrais e centrais GSM/Wi-Fi garantem alerta imediato no seu telemóvel — com opção de ligação a central de monitorização profissional."
-      },
-      "intrusao-nova": {
         title: "Intrusões / Sistemas de Alarme",
         slogan: "Proteção inteligente contra acessos não autorizados, tentativas de invasão e situações de risco.",
         shortDesc: "Sistemas profissionais contra intrusão, com centrais sem fios, fotodetetores e proteção perimetral avançada.",
@@ -1053,12 +1047,6 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         desc: "We design and install professional video surveillance (CCTV) systems with high-definition cameras (IP and Analog) that incorporate artificial intelligence for precise human and vehicle detection. Monitor your space from anywhere in the world through mobile devices, with secure continuous recording and custom solutions for homes, condominiums and corporate sectors."
       },
       "intrusao": {
-        title: "Intrusion / Alarm Systems",
-        slogan: "Intelligent intrusion detection systems with fast response and immediate alerts on your mobile phone.",
-        shortDesc: "Perimeter and internal protection with advanced motion sensors, high-power sirens and connected control panels.",
-        desc: "Our intrusion systems offer an active and intelligent security barrier. With advanced wired or wireless alarm control panels, motion detectors immune to pets, magnetic sensors and outdoor perimeter protection, we guarantee early detection of break-ins with direct notification in the mobile application or link to alarm receiving centers."
-      },
-      "intrusao-nova": {
         title: "Intrusions / Alarm Systems",
         slogan: "Smart protection against unauthorized access, intrusion attempts, and risk situations.",
         shortDesc: "Professional anti-intrusion systems, with wireless panels, photodetectors, and advanced perimeter protection.",
@@ -1736,12 +1724,6 @@ export const TRANSLATIONS: Record<"pt" | "en" | "fr", TranslationDictionary> = {
         desc: "Nous concevons et installons des systèmes de vidéosurveillance (CCTV) professionnels dotés de caméras haute définition (IP et analogiques) qui intègrent l'intelligence artificielle pour une détection précise des humains et des véhicules. Surveillez votre espace depuis n'importe où dans le monde via des appareils mobiles, avec un enregistrement continu et sécurisé et des solutions sur mesure pour les résidences, les copropriétés et les secteurs d'entreprise."
       },
       "intrusao": {
-        title: "Systèmes d'Alarme et d'Intrusion",
-        slogan: "Systèmes intelligents de détection d'intrusion avec réponse rapide et alertes immédiates sur votre téléphone portable.",
-        shortDesc: "Protection périmétrique et interne avec capteurs de mouvement avancés, sirènes haute puissance et centrales connectées.",
-        desc: "Nos systèmes d'intrusion offrent une barrière de sécurité active et intelligente. Avec des centrales d'alarme filaires ou sans fil avancées, des détecteurs de mouvement immunisés contre les animaux domestiques, des capteurs magnétiques et une protection périmétrique extérieure, nous garantissons une détection précoce des effractions avec notification directe dans l'application mobile ou liaison vers les centres de réception d'alarmes."
-      },
-      "intrusao-nova": {
         title: "Intrusions / Systèmes d'Alarme",
         slogan: "Protection intelligente contre les accès non autorisés, les tentatives d'intrusion et les situations de risque.",
         shortDesc: "Systèmes professionnels contre l'intrusion, avec centrales sans fil, photodétecteurs et protection périmétrique avancée.",
