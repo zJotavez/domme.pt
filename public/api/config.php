@@ -118,7 +118,7 @@ function getDefaultData(): array {
             'phone'               => '+351 918 880 788',
             'whatsapp'            => '+351 918 880 788',
             'email'               => 'suporte@domme.pt',
-            'address'             => 'Portugal',
+            'address'             => 'Portimão - Portugal',
             'working_hours_week'  => 'Segunda a Sexta-feira: 09:00h às 18:30h',
             'working_hours_sat'   => 'Sábado (Urgências): 09:00h às 13:00h',
             'nif'                 => '517 557 026',

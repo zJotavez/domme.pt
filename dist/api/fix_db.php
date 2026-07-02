@@ -8,10 +8,10 @@ require_once __DIR__ . '/config.php';
 try {
     echo "<h3>A inicializar correcao da Base de Dados...</h3>";
 
-    // 1. Update site_settings email to suporte@domme.pt
-    $stmt1 = $pdo->prepare("UPDATE site_settings SET email = 'suporte@domme.pt' WHERE id = 1 OR email LIKE '%[Inserir%'");
+    // 1. Update site_settings email and address
+    $stmt1 = $pdo->prepare("UPDATE site_settings SET email = 'suporte@domme.pt', address = 'Portimão - Portugal' WHERE id = 1");
     $stmt1->execute();
-    echo "<p>[OK] E-mail atualizado na tabela site_settings.</p>";
+    echo "<p>[OK] E-mail e Endereço atualizados na tabela site_settings.</p>";
 
     // Update main service images and descriptions in DB to professional assets
     // CCTV

@@ -92,6 +92,15 @@ try {
             $data['service_pages'] = $cleanedPages;
         }
 
+        // 3. Atualizar endereço para "Portimão - Portugal" nos settings
+        if (isset($data['settings']) && is_array($data['settings'])) {
+            if (!isset($data['settings']['address']) || $data['settings']['address'] !== 'Portimão - Portugal') {
+                $data['settings']['address'] = 'Portimão - Portugal';
+                echo "<p>[MIGRAÇÃO] Endereço atualizado no JSON para 'Portimão - Portugal'.</p>";
+                $modified = true;
+            }
+        }
+
         // Se modificamos alguma coisa, salvar o arquivo JSON
         if ($modified) {
             if (writeData($data)) {

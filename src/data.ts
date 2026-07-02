@@ -4,7 +4,7 @@ export const CONTACT_INFO = {
   phone: "+351 918 880 788",
   whatsapp: "+351 918 880 788", // Colocar apenas números (ex: "351912345678") para o WhatsApp link funcionar corretamento quando preenchido
   email: "suporte@domme.pt",
-  address: "Portugal",
+  address: "Portimão - Portugal",
   slogan: "Soluções inteligentes para a sua segurança",
   workingHoursWeek: "Segunda a Sexta-feira: 09:00h às 18:30h",
   workingHoursSat: "Sábado (Urgências): 09:00h às 13:00h"

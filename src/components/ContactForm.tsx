@@ -204,7 +204,7 @@ export function ContactForm({ selectedService, onClearService, settings, service
                       {addressVal}
                     </span>
                     <span className="text-[10px] text-gray-500 block mt-0.5">
-                      {lang === "pt" ? "Atendimento em todo o Norte e Centro de Portugal" : lang === "en" ? "Service throughout North and Central Portugal" : "Service dans tout le Nord et le Centre du Portugal"}
+                      {lang === "pt" ? "Atendimento em todo o território nacional" : lang === "en" ? "Service throughout the national territory" : "Service sur tout le territoire national"}
                     </span>
                   </div>
                 </div>
